@@ -15,11 +15,30 @@ ActiveRecord::Schema.define(version: 2019_08_27_184707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "option_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_id"], name: "index_answers_on_option_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.bigint "question_id"
+    t.string "content"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_options_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -53,6 +72,9 @@ ActiveRecord::Schema.define(version: 2019_08_27_184707) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "options"
+  add_foreign_key "answers", "users"
+  add_foreign_key "options", "questions"
   add_foreign_key "questions", "categories"
   add_foreign_key "scores", "categories"
   add_foreign_key "scores", "users"
