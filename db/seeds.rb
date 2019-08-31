@@ -6,7 +6,11 @@ require 'pry'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Cleaning users...'
+
+puts 'Cleaning the database...'
+Category.destroy_all
+Question.destroy_all
+Answer.destroy_all
 User.destroy_all
 
 puts 'Creating greenseers...'
@@ -37,10 +41,6 @@ user.save!
 
 puts 'Users created!'
 
-puts "Cleaning database..."
-Category.destroy_all
-Question.destroy_all
-Answer.destroy_all
 
 puts "Creating categories..."
 category_attributes = [
@@ -58,7 +58,9 @@ category_attributes = [
  }
 ]
 Category.create!(category_attributes)
+
 puts "Creating questions..."
+
 question_attributes = [
  {
    category_id: 1,
@@ -93,6 +95,7 @@ question_attributes = [
    content: "How many days a week do you wash your filthy body?"
  }
 ]
+
 Question.create!(question_attributes)
 
 puts "Creating options..."
@@ -305,18 +308,9 @@ score_attributes = [
   {
    user_id: 1,
    category_id: 1,
-   # value: User.find(1).answers.map { |a| a.option.weight }.sum
    value: User.find(1).answers.map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)
 
-puts "Finished!"
-# s = Score.new( {
-#   user_id: 1,
-#   category_id: 1,
-#  value: User.find(1).answers.map { |a| a.option.weight }.sum
-#   # value: (User.find(1).show_score)
-# })
-#binding.pry
-#s.save!
+Puts "Finished!"
