@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
+  before_action :set_user
 
-  def show_score
-    current_user.scores.map(&:value).sum
-   # current_user.scores.map {|s| s.value}.sum
+  def show
+    @photo = @user.photo
   end
 
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def show
 
