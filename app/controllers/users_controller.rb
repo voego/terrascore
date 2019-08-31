@@ -5,6 +5,7 @@ class UsersController < ApplicationController
    # current_user.scores.map {|s| s.value}.sum
   end
 
+
   def show
 
   end
