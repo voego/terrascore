@@ -7,12 +7,18 @@ class User < ApplicationRecord
   has_many :answers
 
   def show_score
+
     scores.map(&:value).sum
+    #if scores.map(&:value).sum
+    #   scores.map(&:value).sum
+    #else
+    #  answers.map { |a| a.option.weight }.sum
+    # end
     # current_user.scores.map {|s| s.value}.sum
   end
 
-  def show_category_score
-    scores.categories.map(&:total).sum
+  def show_category_score(category_id)
+    answers.where(category_id: category_id).map(&:option).map(&:weight).sum
   end
 
   def show_score_breakdown
