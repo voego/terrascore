@@ -1,6 +1,5 @@
 class AnswersController < ApplicationController
   before_action :set_questions
-  before_action :set_options
 
   # def index
   # end
@@ -13,11 +12,10 @@ class AnswersController < ApplicationController
   end
 
   def create        # POST /answers
-    @answer = Answer.new(answer_params)
-    if @answer.save
-      redirect_to user_path(current_user)
-    else
-      render :new
+    option_ids = params[:options].split(", ")
+    option_ids.each do |option_id|
+      option = Option.find(option_id)
+      Answer.new(user: current_user, option: option, date: DateTime.now)
     end
   end
 
@@ -33,11 +31,8 @@ class AnswersController < ApplicationController
   private
 
   def set_questions
-    @questions = Question.where(category: params[:category])
-  end
-
-  def set_options
-    @options = Option.where(question_id: @question.id)
+    # @questions = Question.where(category: params[:category])
+    @questions = Question.select { |q| q.category.name == params[:category] }
   end
 
   def answer_params
