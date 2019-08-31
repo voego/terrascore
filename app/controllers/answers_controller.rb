@@ -1,21 +1,21 @@
 class AnswersController < ApplicationController
-  before_action :set_questions, only: [:show, :edit, :update, :destroy]
+  before_action :set_questions
   before_action :set_options
 
-  def index         # GET /questions
-    # load all questions from a category
+  # def index
+  # end
+
+  # def show
+  # end
+
+  def new           # GET /answers/new
+    @answer = Answer.new
   end
 
-  def show          # GET /questions/:id
-  end
-
-  def new           # GET /questions/new
-  end
-
-  def create        # POST /questions
-    @cocktail = Cocktail.new(cocktail_params)
-    if @cocktail.save
-      redirect_to cocktail_path(@cocktail)
+  def create        # POST /answers
+    @answer = Answer.new(answer_params)
+    if @answer.save
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -37,10 +37,10 @@ class AnswersController < ApplicationController
   end
 
   def set_options
-    @options = Option.where(question_id:)
+    @options = Option.where(question_id: @question.id)
   end
 
   def answer_params
-    params.require(:answer).permit(:name, :address, :phone_number, :category, :photo)
+    params.require(:answer).permit(:option_id, :user_id, :date)
   end
 end
