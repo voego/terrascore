@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   def show_score
 
-    scores.map(&:value).sum
+    scores.map(&:value).last
+
     #if scores.map(&:value).sum
     #   scores.map(&:value).sum
     #else
@@ -22,11 +23,11 @@ class User < ApplicationRecord
   end
 
   def show_score_breakdown
-
+    scores.map(&:value)
   end
 
-  def show_category_score_breakdown
-
+  def show_category_score_breakdown(category_id)
+    answers.where(category_id: category_id).map(&:option).map(&:weight)
   end
 
   mount_uploader :photo, PhotoUploader

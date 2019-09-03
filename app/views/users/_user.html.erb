@@ -4,3 +4,18 @@
   <%= f.input :photo_cache, as: :hidden %>
   <!-- [...] -->
 <% end %>
+
+<div>
+  <h1>Your Overall Score</h1>
+  <p><%=  @user.show_score %></p>
+</div>
+<div>
+  <h1>Your travel Score</h1>
+  <p><%=  @user.show_category_score(1)%></p>
+</div>
+<div>
+  <h1>Your home Score</h1>
+  <p><%=  @user.show_category_score(2)%></p>
+</div>
+
+
