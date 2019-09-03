@@ -313,4 +313,4 @@ score_attributes = [
 ]
 Score.create!(score_attributes)
 
-Puts "Finished!"
+puts "Finished!"
