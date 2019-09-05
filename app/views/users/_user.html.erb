@@ -11,11 +11,24 @@
 </div>
 <div>
   <h1>Your travel Score</h1>
-  <p><%=  @user.show_category_score(1)%></p>
+  <p><%=  @user.show_travel_category_score%></p>
 </div>
 <div>
   <h1>Your home Score</h1>
-  <p><%=  @user.show_category_score(2)%></p>
+  <p><%=  @user.show_home_category_score%></p>
 </div>
+<div>
+  <h1>Your overall Score history</h1>
+  <p><%=  @user.show_score_breakdown%></p>
+</div>
+<div>
+  <h1>Your travel Score history</h1>
+  <p><%=  @user.show_travel_category_score_breakdown%></p>
+</div>
+<div>
+  <h1>Your home Score history</h1>
+  <p><%=  @user.show_home_category_score_breakdown%></p>
+</div>
+
 
 
