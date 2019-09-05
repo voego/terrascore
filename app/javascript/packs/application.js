@@ -1,6 +1,7 @@
 import "bootstrap";
 
 
+
 const submitButton = document.getElementById("submit");
 const checkboxArray = [...document.querySelectorAll("input")];
 const questionDivArray = [...document.querySelectorAll(".question")]
@@ -28,6 +29,8 @@ submitButton.addEventListener("click", (event) => {
     };
   });
   let railsToken = document.querySelector('meta[name=csrf-token]').content;
+
+  // debugger
   fetch(`http://localhost:3000/answers?options=${saved}`, {
     method: "POST",
     headers: {
