@@ -367,12 +367,16 @@ score_attributes = [
   {
    user_id: 1,
    category_id: 1,
-   value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum
+   value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today).where(category_id: 2).map { |a| a.option.weight }.sum
  },
  {
    user_id: 1,
    category_id: 1,
-   value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum
+   value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)
