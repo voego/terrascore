@@ -1,5 +1,6 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 const submitButton = document.getElementById("submit");
 const checkboxArray = [...document.querySelectorAll("input")];
@@ -162,8 +163,6 @@ checkboxArray.forEach((checkbox) => {
   })
 });
 
-
-
 submitButton.addEventListener("click", (event) => {
   let saved = [];
   document.querySelectorAll("input").forEach((checkbox) => {
@@ -180,3 +179,4 @@ submitButton.addEventListener("click", (event) => {
   })
 });
 
+initUpdateNavbarOnScroll();

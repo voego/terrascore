@@ -1,13 +1,18 @@
-<h2>Questionnaire Draft</h2>
+<div class="container">
+  <div class="answer-body-content">
+    <h2>Questionnaire Draft</h2>
 
-<% @questions.each do |question| %>
-  <div class="question">
-    <h2><%= question.content %></h2>
-    <% question.options.each do |option| %>
-      <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-      <p><%= option.content %></p>
+    <% @questions.each do |question| %>
+      <div class="question">
+        <h2><%= question.content %></h2>
+        <% question.options.each do |option| %>
+
+          <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+          <p><%= option.content %></p>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
 
-<button type="button" id="submit">Submit</button>
+    <button type="button" id="submit">Submit</button>
+  </div>
+</div>
