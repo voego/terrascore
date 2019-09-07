@@ -263,42 +263,101 @@ answer_attributes = [
   {
    user_id: 1,
    option_id: 1,
-   category_id: 1
+   category_id: 1,
+   date: Date.today
  },
  {
    user_id: 1,
    option_id: 5,
-   category_id: 1
+   category_id: 1,
+   date: Date.today
  },
  {
    user_id: 1,
    option_id: 9,
-   category_id: 1
+   category_id: 1,
+   date: Date.today
  },
  {
    user_id: 1,
    option_id: 14,
-   category_id: 1
+   category_id: 1,
+   date: Date.today
  },
  {
    user_id: 1,
    option_id: 17,
-   category_id: 2
+   category_id: 2,
+   date: Date.today
  },
   {
    user_id: 1,
    option_id: 23,
-   category_id: 2
+   category_id: 2,
+   date: Date.today
  },
   {
    user_id: 1,
    option_id: 27,
-   category_id: 2
+   category_id: 2,
+   date: Date.today
  },
   {
    user_id: 1,
    option_id: 30,
-   category_id: 2
+   category_id: 2,
+   date: Date.today
+ }
+]
+  Answer.create!(answer_attributes)
+answer_attributes = [
+{
+   user_id: 1,
+   option_id: 2,
+   category_id: 1,
+   date: Date.today - 2
+ },
+ {
+   user_id: 1,
+   option_id: 4,
+   category_id: 1,
+   date: Date.today - 2
+ },
+ {
+   user_id: 1,
+   option_id: 8,
+   category_id: 1,
+   date: Date.today - 2
+ },
+ {
+   user_id: 1,
+   option_id: 13,
+   category_id: 1,
+   date: Date.today - 2
+ },
+ {
+   user_id: 1,
+   option_id: 16,
+   category_id: 2,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 22,
+   category_id: 2,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 26,
+   category_id: 2,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 29,
+   category_id: 2,
+   date: Date.today - 2
  }
 ]
 Answer.create!(answer_attributes)
@@ -308,7 +367,16 @@ score_attributes = [
   {
    user_id: 1,
    category_id: 1,
-   value: User.find(1).answers.map { |a| a.option.weight }.sum
+   value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today).where(category_id: 2).map { |a| a.option.weight }.sum
+ },
+ {
+   user_id: 1,
+   category_id: 1,
+   value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)

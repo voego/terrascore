@@ -1,5 +1,7 @@
 import "bootstrap";
+import Chart from 'chart.bundle.js';
 
+var myChart = new Chart(ctx, {...});
 
 const submitButton = document.getElementById("submit");
 const checkboxArray = [...document.querySelectorAll("input")];
