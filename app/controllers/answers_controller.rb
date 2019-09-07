@@ -11,9 +11,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
-  def create
-    p params      # POST /answers
-      # raise
+  def create  # POST /answers
     option_ids = params[:options].split(",")
     # binding.pry
     option_ids.each do |option_id|
