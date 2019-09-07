@@ -1,10 +1,17 @@
+<div class="container">
+  <div class="dashboard-body-content">
+    <div class="dashboard-score-section">
+      <%= render "user", user: @user %>
+    </div>
+    <div class="dashboard-link-section">
+      <h2>Add/Update a score</h2>
+      <p>Choose a category:</p>
+      <%= link_to "Travel", new_answer_path(category: "Travel") %>
+      <br>
+      <%= link_to "Home", new_answer_path(category: "Home") %>
+      <br>
+      <%= link_to "Charity", new_answer_path(category: "Charity") %>
+    </div>
+  </div>
 
-<%= link_to "Travel", new_answer_path(category: "Travel") %>
-<br>
-<%= link_to "Home", new_answer_path(category: "Home") %>
-<br>
-<%= link_to "Charity", new_answer_path(category: "Charity") %>
-
-
-<%= render "user", user: @user %>
-
+</div>

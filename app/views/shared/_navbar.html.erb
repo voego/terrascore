@@ -1,8 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if controller_name == 'pages' && action_name == 'home' %>
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
+<% else %>
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-white">
+<% end %>
   <%= link_to "#home", class: "navbar-brand" do %>
   <!-- decide on the logo -->
     terrascore
-    <% end %>
+  <% end %>
 
 <!-- don't need this? -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +22,7 @@
         </li>
         <li class="nav-item">
           <!-- need to add the path to 'my progress' -->
-          <%= link_to "My Progress", "#", class: "nav-link" %>
+          <%= link_to "Dashboard", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <!-- need to link to cloudinary -->
