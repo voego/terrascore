@@ -3,12 +3,16 @@
   <p><%=  @user.show_score %></p>
 </div>
 <div>
-  <p>Your travel Score</p>
-  <p><%=  @user.show_travel_category_score%></p>
+  <h1>Your travel Score</h1>
+  <p id="travel_value"><%=  @user.show_travel_category_score%></p>
 </div>
 <div>
-  <p>Your home Score</p>
-  <p><%=  @user.show_home_category_score%></p>
+  <h1>Your home Score</h1>
+  <p id="home_value"><%=  @user.show_home_category_score%></p>
+</div>
+<div>
+  <h1>Your consumption Score</h1>
+  <p id="consumption_value"><%=  @user.show_consumption_category_score%></p>
 </div>
 <div>
   <p>Your overall Score history</p>
@@ -22,6 +26,24 @@
   <p>Your home Score history</p>
   <p><%=  @user.show_home_category_score_breakdown%></p>
 </div>
-
+<div>
+  <h1>Your consumption Score history</h1>
+  <p id="consumption_value"><%=  @user.show_consumption_category_score_breakdown%></p>
+</div>
+<h1>Dates of the scores</h1>
+<ul id="dates">
+  <% @user.scores.each do |score| %>
+      <li><%= score.date %></li>
+  <% end %>
+</ul>
+<div class="ScoreChart">
+<canvas id="myChart" width="400" height="400"></canvas>
+</div>
+<div class="travelChart">
+<canvas id="scoreHistoryChart" width="400" height="400"></canvas>
+</div>
+<div class="homeChart">
+<canvas id="homeHistoryChart" width="400" height="400"></canvas>
+</div>
 
 

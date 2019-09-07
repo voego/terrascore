@@ -10,6 +10,14 @@ class User < ApplicationRecord
     answers.where(date: date).map { |a| a.option.weight }.sum
   end
 
+  def travel_value_create(date)
+    answers.where(date: date).where(category_id: 1).map { |a| a.option.weight }.sum
+  end
+
+  def home_value_create(date)
+    answers.where(date: date).where(category_id: 2).map { |a| a.option.weight }.sum
+  end
+
   def show_score
 
     scores.map(&:value).last
@@ -32,6 +40,11 @@ class User < ApplicationRecord
     scores.map(&:home_value).last
   end
 
+  def show_consumption_category_score
+    # answers.where(category_id: category_id).map(&:option).map(&:weight).sum
+    scores.map(&:consumption_value).last
+  end
+
   def show_score_breakdown
     scores.map(&:value)
   end
@@ -44,6 +57,11 @@ class User < ApplicationRecord
   def show_home_category_score_breakdown
     # answers.where(category_id: category_id).map(&:option).map(&:weight)
     scores.map(&:home_value)
+  end
+
+  def show_consumption_category_score_breakdown
+    # answers.where(category_id: category_id).map(&:option).map(&:weight)
+    scores.map(&:consumption_value)
   end
 
   mount_uploader :photo, PhotoUploader
