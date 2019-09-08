@@ -46,13 +46,27 @@ submitButton.addEventListener("click", (event) => {
 });
 
 nextButton.addEventListener("click", (event) => {
-  const visibleElements = [...document.querySelectorAll(".visible")];
+  let visibleElements = [...document.querySelectorAll(".visible")];
   console.log("hello");
   // make next element sibling visible
   visibleElements.slice(-1)[0].nextElementSibling.classList.add("visible");
   // hide previous element sibling
+  visibleElements.slice(0)[0].classList.remove("visible");
+  visibleElements.slice(0)[0].classList.add("invisible");
   // visibleElement.
 })
+
+// previousButton.addEventListener("click", (event) => {
+//   // select current visible element
+//   let visibleElements = [...document.querySelectorAll(".visible")];
+//   console.log("hello");
+//   // make previous element sibling visible
+//   visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
+//   // hide current element
+//   visibleElements.slice(0)[0].classList.remove("visible");
+//   visibleElements.slice(0)[0].classList.add("invisible");
+//   // make previous element sibling visible
+// })
 
 
 // as soon as the page loads, give first element 'visible' class
