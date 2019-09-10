@@ -11,8 +11,9 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
-  def create        # POST /answers
-    option_ids = params[:options].split(", ")
+  def create  # POST /answers
+    option_ids = params[:options].split(",")
+    # binding.pry
     option_ids.each do |option_id|
       option = Option.find(option_id)
       Answer.create(user: current_user, option: option, date: DateTime.now)
