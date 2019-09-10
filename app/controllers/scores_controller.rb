@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
   end
 
   def create
-    Score.new(user: current_user, value: value, travel_value: category_value(1), home_value: category_value(2))
+    Score.create(user: current_user, value: value, travel_value: category_value(1), home_value: category_value(2))
   end
 
   # def edit
