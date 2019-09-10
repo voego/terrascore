@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :answers
+  mount_uploader :photo, PhotoUploader
 
   def value_create(date)
     answers.where(date: date).map { |a| a.option.weight }.sum
@@ -20,7 +21,6 @@ class User < ApplicationRecord
 
   def show_score
     scores.map(&:value).last
-
     #if scores.map(&:value).sum
     #   scores.map(&:value).sum
     #else
@@ -49,12 +49,12 @@ class User < ApplicationRecord
   end
 
   def score_history_object
-    @scores = scores.map(&:value)
-    @score_historicals = @flats.map do |flat|
+    @score_historicals = scores.map { |score|
       {
-        value: score.value,
-        date: score.date
+        y: score.value,
+        x: score.date
       }
+    }
   end
 
   def show_travel_category_score_breakdown
@@ -72,5 +72,5 @@ class User < ApplicationRecord
     scores.map(&:consumption_value)
   end
 
-  mount_uploader :photo, PhotoUploader
+
 end

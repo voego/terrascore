@@ -3,18 +3,6 @@ import Chart from 'chart.js/dist/Chart.bundle.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 
-const submitButton = document.getElementById("submit");
-const previousButton = document.getElementById("previous");
-const nextButton = document.getElementById("next");
-const checkboxArray = [...document.querySelectorAll("input")];
-const questionDivArray = [...document.querySelectorAll(".question")];
-const firstQuestionDiv = document.querySelector(".question");
-
-
-document.addEventListener("DOMContentLoaded", (event) => {
-  firstQuestionDiv.classList.add("visible");
-});
-const questionDivArray = [...document.querySelectorAll(".question")]
 const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
 const homeScore = parseInt(document.getElementById("home_value").innerHTML);
 const consumptionScore = parseInt(document.getElementById("consumption_value").innerHTML);
@@ -24,9 +12,13 @@ const scoreHistory = document.getElementById("score_history_value").innerHTML;
 var dataScoreHistory = scoreHistory.split(',').map(function(item) {
     return parseInt(item, 10);
 });
-// const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
-// const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
-var chartArray = [travelScore, homeScore, consumptionScore]
+const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
+const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
+var chartArray = [travelScore, homeScore, consumptionScore];
+var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
+var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.score_historicals);
+var scoreMinDate = new Date(scoreHistoryChart.dataset.minDate);
+var scoreMaxDate = new Date(scoreHistoryChart.dataset.maxDate);
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
@@ -70,23 +62,23 @@ var myChart = new Chart(ctx, {
     }
 });
 
-var ctx_score_history = document.getElementById('scoreHistoryChart');
-var myScoreHistoryChart = new Chart(ctx_score_history, {
+var date_score_history_breakdown = [];
+score_history_breakdown.forEach((score) => {
+  let newScore = {
+    y: score.y,
+    x: new Date(score.x)
+  }
+  date_score_history_breakdown.push(newScore)
+})
+
+var ctx_score_history = document.getElementById('myScoreHistoryChart');
+var scoreHistoryChart = new Chart(ctx_score_history, {
     type: 'line',
     data: {
-        labels: ['Travel'],
+        labels: ['Score'],
         datasets: [{
             label: 'Score',
-            data: [{
-                y: 48,
-                x: new Date("January 20")
-            }, {
-                y: 40,
-                x: new Date("February 20")
-            }, {
-                y: 19,
-                x: new Date("March 20")
-            } ],
+            data: date_score_history_breakdown,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -112,10 +104,10 @@ var myScoreHistoryChart = new Chart(ctx_score_history, {
                 type: 'time',
                 distribution: 'series',
                 time: {
-                   unit:"year",
-                   displayFormats:{year:'YYYY'},
-                   min:'2000' ,
-                   max:'2002',
+                   unit:"day",
+                   displayFormats:{month:'MMM D'},
+                   min: scoreMinDate,
+                   max: scoreMaxDate,
                 }
               }],
             yAxes: [{
@@ -164,77 +156,6 @@ var myHomeChart = new Chart(ctx_home, {
         }
     }
  });
-
-
-checkboxArray.forEach((checkbox) => {
-  checkbox.addEventListener("click", (event) => {
-    // select the parent element (div)
-    let checkboxChildren = checkbox.parentElement.querySelectorAll("input")
-    // untick all of the other checkboxes
-    checkboxChildren.forEach((box) => {
-      box.checked = false
-    })
-    event.currentTarget.checked = true;
-  })
-});
-
-
-submitButton.addEventListener("click", (event) => {
-  let saved = [];
-  document.querySelectorAll("input").forEach((checkbox) => {
-    if (checkbox.checked) {
-      saved.push(checkbox.dataset.option)
-    };
-  });
-  let railsToken = document.querySelector('meta[name=csrf-token]').content;
-
-  fetch(`http://localhost:3000/answers?options=${saved}`, {
-    method: "POST",
-    headers: {
-      "X-CSRF-Token": railsToken
-    }
-  })
-});
-
-
-nextButton.addEventListener("click", (event) => {
-  let visibleElements = [...document.querySelectorAll(".visible")];
-  console.log("hello");
-  // make next element sibling visible
-  visibleElements.slice(-1)[0].nextElementSibling.classList.add("visible");
-  // hide previous element sibling
-  visibleElements.slice(0)[0].classList.remove("visible");
-  visibleElements.slice(0)[0].classList.add("invisible");
-  // visibleElement.
-})
-
-previousButton.addEventListener("click", (event) => {
-  // select current visible element
-  let visibleElements = [...document.querySelectorAll(".visible")];
-  console.log("hello");
-  // make previous element sibling visible
-  visibleElements.slice(0)[0].previousElementSibling.classList.remove("invisible");
-  visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
-  // hide current element
-  visibleElements.slice(0)[0].classList.remove("visible");
-  visibleElements.slice(0)[0].classList.add("invisible");
-  // make previous element sibling visible
-})
-
-
-// as soon as the page loads, give first element 'visible' class
-// initially, show the first child of the 'questions' div / or the first element of the questionDivArray
-// do not show the 'previous' button
-// if child == last, change 'next' to submit
-// if child != first, show the 'previous' button
-// when the 'next' button is pressed, hide the current child and show the next child
-// when the 'previous' button is pressed, hide the current child and show the previous child
-
-
-
-
-
-
 
 
 
