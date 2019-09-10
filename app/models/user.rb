@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :answers
+  mount_uploader :photo, PhotoUploader
 
   def value_create(date)
     answers.where(date: date).map { |a| a.option.weight }.sum
@@ -55,6 +56,7 @@ class User < ApplicationRecord
         value: score.value,
         date: score.date
       }
+    end
   end
 
   def show_travel_category_score_breakdown
@@ -72,5 +74,5 @@ class User < ApplicationRecord
     scores.map(&:consumption_value)
   end
 
-  mount_uploader :photo, PhotoUploader
+
 end
