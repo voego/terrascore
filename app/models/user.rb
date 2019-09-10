@@ -19,7 +19,6 @@ class User < ApplicationRecord
   end
 
   def show_score
-
     scores.map(&:value).last
 
     #if scores.map(&:value).sum
@@ -47,6 +46,15 @@ class User < ApplicationRecord
 
   def show_score_breakdown
     scores.map(&:value)
+  end
+
+  def score_history_object
+    @scores = scores.map(&:value)
+    @score_historicals = @flats.map do |flat|
+      {
+        value: score.value,
+        date: score.date
+      }
   end
 
   def show_travel_category_score_breakdown
