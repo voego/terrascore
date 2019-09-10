@@ -56,17 +56,18 @@ nextButton.addEventListener("click", (event) => {
   // visibleElement.
 })
 
-// previousButton.addEventListener("click", (event) => {
-//   // select current visible element
-//   let visibleElements = [...document.querySelectorAll(".visible")];
-//   console.log("hello");
-//   // make previous element sibling visible
-//   visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
-//   // hide current element
-//   visibleElements.slice(0)[0].classList.remove("visible");
-//   visibleElements.slice(0)[0].classList.add("invisible");
-//   // make previous element sibling visible
-// })
+previousButton.addEventListener("click", (event) => {
+  // select current visible element
+  let visibleElements = [...document.querySelectorAll(".visible")];
+  console.log("hello");
+  // make previous element sibling visible
+  visibleElements.slice(0)[0].previousElementSibling.classList.remove("invisible");
+  visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
+  // hide current element
+  visibleElements.slice(0)[0].classList.remove("visible");
+  visibleElements.slice(0)[0].classList.add("invisible");
+  // make previous element sibling visible
+})
 
 
 // as soon as the page loads, give first element 'visible' class
