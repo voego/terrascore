@@ -7,7 +7,7 @@ import { untickOtherCheckboxes } from '../components/answernew';
 import { postOptionsOnSubmit } from '../components/answernew';
 import { nextButtonAction } from '../components/answernew';
 import { previousButtonAction } from '../components/answernew';
-import { showSubmit } from '../components/answernew';
+// import { showSubmit } from '../components/answernew';
 
 initUpdateNavbarOnScroll();
 makeFirstQuestionDivVisible();
@@ -15,7 +15,7 @@ untickOtherCheckboxes();
 postOptionsOnSubmit();
 nextButtonAction();
 previousButtonAction();
-showSubmit();
+// showSubmit();
 
 const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
 const homeScore = parseInt(document.getElementById("home_value").innerHTML);

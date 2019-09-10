@@ -89,10 +89,10 @@ const showSubmit = () => {
   // when visibleElements containts the 4th question
 
   // when next sibling element is no more available
-  let visibleElements = [...document.querySelectorAll(".visible")];
-  if (visibleElements.slice(-1)[0].nextElementSibling == undefined){
-    console.log("David")
-  };
+  // let visibleElements = [...document.querySelectorAll(".visible")];
+  // if (visibleElements.slice(-1)[0].nextElementSibling == undefined){
+  //   console.log("David")
+  // };
 
   // change html of next to submit
 }
