@@ -21,7 +21,9 @@
   display: none
 }
 
-
+#previous {
+  display: none
+}
 // document.addEventListener("DOMContentLoaded", (event) => {
 //   console.log("doing");
 //   firstQuestionDiv.classList.add("visible");
