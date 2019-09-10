@@ -13,12 +13,23 @@ class AnswersController < ApplicationController
 
   def create        # POST /answers
     option_ids = params[:options].split(",")
+    travel_score = 0
+    home_score = 0
+    consumption_score = 0
+    total_score = 0
     option_ids.each do |option_id|
       option = Option.find(option_id)
-      Answer.create(user: current_user, option: option, date: DateTime.now, category_id: option.question.category_id)
-      answer.score_options
+      Answer.create(user: current_user, option: option, date: DateTime.now, category: option.question.category)
+      if option.question.category.name == "Travel"
+        travel_score += option.weight
+      elsif option.question.category.name == "Home"
+        home_score += option.weight
+      else
+        consumption_score += option.weight
+      end
+      total_score += option.weight
     end
-    redirect_to root_path
+    Score.create(user: current_user, value: total_score, travel_value: travel_score, home_value: home_score, consumption_value: consumption_score, date: Date.today, category: Category.last)
   end
 
   def edit          # GET /questions/:id/edit
