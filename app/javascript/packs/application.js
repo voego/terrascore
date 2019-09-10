@@ -23,9 +23,13 @@ const scoreHistory = document.getElementById("score_history_value").innerHTML;
 var dataScoreHistory = scoreHistory.split(',').map(function(item) {
     return parseInt(item, 10);
 });
-// const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
-// const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
-var chartArray = [travelScore, homeScore, consumptionScore]
+const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
+const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
+var chartArray = [travelScore, homeScore, consumptionScore];
+var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
+var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.score_historicals);
+var scoreMinDate = new Date(scoreHistoryChart.dataset.minDate);
+var scoreMaxDate = new Date(scoreHistoryChart.dataset.maxDate);
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
@@ -69,23 +73,23 @@ var myChart = new Chart(ctx, {
     }
 });
 
-var ctx_score_history = document.getElementById('scoreHistoryChart');
-var myScoreHistoryChart = new Chart(ctx_score_history, {
+var date_score_history_breakdown = [];
+score_history_breakdown.forEach((score) => {
+  let newScore = {
+    y: score.y,
+    x: new Date(score.x)
+  }
+  date_score_history_breakdown.push(newScore)
+})
+
+var ctx_score_history = document.getElementById('myScoreHistoryChart');
+var scoreHistoryChart = new Chart(ctx_score_history, {
     type: 'line',
     data: {
-        labels: ['Travel'],
+        labels: ['Score'],
         datasets: [{
             label: 'Score',
-            data: [{
-                y: 48,
-                x: new Date("January 20")
-            }, {
-                y: 40,
-                x: new Date("February 20")
-            }, {
-                y: 19,
-                x: new Date("March 20")
-            } ],
+            data: date_score_history_breakdown,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -111,10 +115,10 @@ var myScoreHistoryChart = new Chart(ctx_score_history, {
                 type: 'time',
                 distribution: 'series',
                 time: {
-                   unit:"year",
-                   displayFormats:{year:'YYYY'},
-                   min:'2000' ,
-                   max:'2002',
+                   unit:"day",
+                   displayFormats:{month:'MMM D'},
+                   min: scoreMinDate,
+                   max: scoreMaxDate,
                 }
               }],
             yAxes: [{
@@ -163,5 +167,4 @@ var myHomeChart = new Chart(ctx_home, {
         }
     }
  });
-
 

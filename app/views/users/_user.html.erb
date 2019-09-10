@@ -36,11 +36,13 @@
       <li><%= score.date %></li>
   <% end %>
 </ul>
-<div class="ScoreChart">
+<div class="scoreChart">
 <canvas id="myChart" width="400" height="400"></canvas>
 </div>
-<div class="travelChart">
-<canvas id="scoreHistoryChart" width="400" height="400"></canvas>
+<% min_date = @user.scores.map(&:date).sort.first %>
+<% max_date = @user.scores.map(&:date).sort.last %>
+<div class="scoreHistoryChart" data-score_historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
 </div>
 <div class="homeChart">
 <canvas id="homeHistoryChart" width="400" height="400"></canvas>
