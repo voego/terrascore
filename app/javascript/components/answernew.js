@@ -77,9 +77,6 @@ const previousButtonAction = () => {
   })
 }
 
-const showPreviousButton = () => {
-
-}
 
 const showNextButton = () => {
 
@@ -102,7 +99,7 @@ export { untickOtherCheckboxes };
 export { postOptionsOnSubmit };
 export { nextButtonAction };
 export { previousButtonAction };
-export { showSubmit };
+// export { showSubmit };
 
 // as soon as the page loads, give first element 'visible' class
 // initially, show the first child of the 'questions' div / or the first element of the questionDivArray
