@@ -6,7 +6,6 @@ const submitButton = document.getElementById("submit");
 const checkboxArray = [...document.querySelectorAll("input")];
 const questionDivArray = [...document.querySelectorAll(".question")]
 
-
 checkboxArray.forEach((checkbox) => {
   checkbox.addEventListener("click", (event) => {
     // select the parent element (div)
@@ -34,5 +33,7 @@ submitButton.addEventListener("click", (event) => {
     }
   })
 });
+
+
 
 initUpdateNavbarOnScroll();

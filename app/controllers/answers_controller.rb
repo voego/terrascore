@@ -12,10 +12,11 @@ class AnswersController < ApplicationController
   end
 
   def create        # POST /answers
-    option_ids = params[:options].split(", ")
+    option_ids = params[:options].split(",")
     option_ids.each do |option_id|
       option = Option.find(option_id)
-      Answer.create(user: current_user, option: option, date: DateTime.now)
+      answer = Answer.create(user: current_user, option: option, date: DateTime.now)
+      answer.score_options
     end
     redirect_to root_path
   end
