@@ -1,0 +1,28 @@
+.container {
+}
+
+.question {
+  display: none
+}
+
+// .question:first-child{
+//   display: block
+// }
+
+.toggle-content {
+  display: none
+}
+
+.visible {
+  display: block
+}
+
+.invisible {
+  display: none
+}
+
+
+// document.addEventListener("DOMContentLoaded", (event) => {
+//   console.log("doing");
+//   firstQuestionDiv.classList.add("visible");
+// });

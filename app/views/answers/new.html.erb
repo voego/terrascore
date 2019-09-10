@@ -1,18 +1,25 @@
-<div class="container">
-  <div class="answer-body-content">
-    <h2>Questionnaire Draft</h2>
+<div class="answer-new-container">
+  <div class="category-header">
+    <h2><%= params[:category] %></h2>
+    <p>Please answer the following questions about your lifestyle</p>
+  </div>
 
+  <div class="questions">
     <% @questions.each do |question| %>
-      <div class="question">
-        <h2><%= question.content %></h2>
+      <div class="question" id="<%= @questions.index(question) %>">
+        <h4><%= question.content %></h4>
         <% question.options.each do |option| %>
-
           <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
           <p><%= option.content %></p>
         <% end %>
       </div>
     <% end %>
+  </div>
 
-    <button type="button" id="submit">Submit</button>
+  <div class="actions">
+    <button class="btn-standard-white" id="previous">Previous</button>
+    <button class="btn-standard-white" id="next">Next</button>
+    <%= link_to "Submit", user_path(current_user), id:"submit", class: "btn-standard-white"  %>
+
   </div>
 </div>

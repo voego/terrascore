@@ -1,0 +1,17 @@
+.btn-standard-white {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 8px 40px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  &:hover {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    transition: 0.4s
+  }
+}

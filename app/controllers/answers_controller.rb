@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
     option_ids = params[:options].split(",")
     option_ids.each do |option_id|
       option = Option.find(option_id)
-      answer = Answer.create(user: current_user, option: option, date: DateTime.now)
+      Answer.create(user: current_user, option: option, date: DateTime.now, category_id: option.question.category_id)
       answer.score_options
     end
     redirect_to root_path

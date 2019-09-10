@@ -5,13 +5,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :answers
+  mount_uploader :photo, PhotoUploader
 
   def value_create(date)
     answers.where(date: date).map { |a| a.option.weight }.sum
   end
 
-  def show_score
+  def travel_value_create(date)
+    answers.where(date: date).where(category_id: 1).map { |a| a.option.weight }.sum
+  end
 
+  def home_value_create(date)
+    answers.where(date: date).where(category_id: 2).map { |a| a.option.weight }.sum
+  end
+
+  def show_score
     scores.map(&:value).last
 
     #if scores.map(&:value).sum
@@ -32,8 +40,23 @@ class User < ApplicationRecord
     scores.map(&:home_value).last
   end
 
+  def show_consumption_category_score
+    # answers.where(category_id: category_id).map(&:option).map(&:weight).sum
+    scores.map(&:consumption_value).last
+  end
+
   def show_score_breakdown
     scores.map(&:value)
+  end
+
+  def score_history_object
+    @scores = scores.map(&:value)
+    @score_historicals = @flats.map do |flat|
+      {
+        value: score.value,
+        date: score.date
+      }
+    end
   end
 
   def show_travel_category_score_breakdown
@@ -46,5 +69,10 @@ class User < ApplicationRecord
     scores.map(&:home_value)
   end
 
-  mount_uploader :photo, PhotoUploader
+  def show_consumption_category_score_breakdown
+    # answers.where(category_id: category_id).map(&:option).map(&:weight)
+    scores.map(&:consumption_value)
+  end
+
+
 end
