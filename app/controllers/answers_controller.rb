@@ -18,6 +18,7 @@ class AnswersController < ApplicationController
       option = Option.find(option_id)
       Answer.create(user: current_user, option: option, date: DateTime.now)
     end
+    redirect_to root_path
   end
 
   def edit          # GET /questions/:id/edit

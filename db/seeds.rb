@@ -53,7 +53,7 @@ category_attributes = [
    total: 20
  },
  {
-   name: "Charity",
+   name: "Consumption",
    total: 10
  }
 ]
@@ -93,6 +93,22 @@ question_attributes = [
  {
    category_id: 2,
    content: "How many days a week do you wash your filthy body?"
+ },
+  {
+   category_id: 3,
+   content: "In a week, how often do you get food from restaurants, canteens and takeaways?"
+ },
+ {
+   category_id: 3,
+   content: "How often do you throw food away?"
+ },
+ {
+   category_id: 3,
+   content: "How many times a week do you eat meat?"
+ },
+ {
+   category_id: 3,
+   content: "How much of your consumables do you recycle?"
  }
 ]
 
@@ -255,6 +271,86 @@ option_attributes = [
    content: "7+",
    weight: 1
  },
+  {
+   question_id: 9,
+   content: "1-2",
+   weight: 4
+ },
+  {
+   question_id: 9,
+   content: "3-4",
+   weight: 3
+ },
+  {
+   question_id: 9,
+   content: "5-6",
+   weight: 2
+ },
+  {
+   question_id: 9,
+   content: "7+",
+   weight: 1
+ },
+ {
+   question_id: 10,
+   content: "1-2",
+   weight: 4
+ },
+  {
+   question_id: 10,
+   content: "3-4",
+   weight: 3
+ },
+  {
+   question_id: 10,
+   content: "5-6",
+   weight: 2
+ },
+  {
+   question_id: 10,
+   content: "7+",
+   weight: 1
+ },
+  {
+   question_id: 11,
+   content: "1-2",
+   weight: 4
+ },
+  {
+   question_id: 11,
+   content: "3-4",
+   weight: 3
+ },
+  {
+   question_id: 11,
+   content: "5-6",
+   weight: 2
+ },
+  {
+   question_id: 11,
+   content: "7+",
+   weight: 1
+ },
+  {
+   question_id: 12,
+   content: "I try to recycle as much as I can",
+   weight: 4
+ },
+  {
+   question_id: 12,
+   content: "I recycle a lot of goods but sometimes I forget",
+   weight: 3
+ },
+  {
+   question_id: 12,
+   content: "I only recycle rarely",
+   weight: 2
+ },
+  {
+   question_id: 12,
+   content: "What is recycling?",
+   weight: 1
+ },
 ]
 Option.create!(option_attributes)
 
@@ -305,6 +401,30 @@ answer_attributes = [
   {
    user_id: 1,
    option_id: 30,
+   category_id: 2,
+   date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 32,
+   category_id: 2,
+   date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 35,
+   category_id: 2,
+   date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 38,
+   category_id: 2,
+   date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 41,
    category_id: 2,
    date: Date.today
  }
@@ -358,6 +478,105 @@ answer_attributes = [
    option_id: 29,
    category_id: 2,
    date: Date.today - 2
+ },
+ {
+   user_id: 1,
+   option_id: 31,
+   category_id: 3,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 36,
+   category_id: 3,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 39,
+   category_id: 3,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 42,
+   category_id: 3,
+   date: Date.today - 2
+ }
+]
+Answer.create!(answer_attributes)
+answer_attributes = [
+{
+   user_id: 1,
+   option_id: 3,
+   category_id: 1,
+   date: Date.today - 4
+ },
+ {
+   user_id: 1,
+   option_id: 5,
+   category_id: 1,
+   date: Date.today - 4
+ },
+ {
+   user_id: 1,
+   option_id: 8,
+   category_id: 1,
+   date: Date.today - 4
+ },
+ {
+   user_id: 1,
+   option_id: 12,
+   category_id: 1,
+   date: Date.today - 4
+ },
+ {
+   user_id: 1,
+   option_id: 16,
+   category_id: 2,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 20,
+   category_id: 2,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 25,
+   category_id: 2,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 26,
+   category_id: 2,
+   date: Date.today - 4
+ },
+ {
+   user_id: 1,
+   option_id: 31,
+   category_id: 3,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 4,
+   category_id: 3,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 39,
+   category_id: 3,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 42,
+   category_id: 3,
+   date: Date.today - 4
  }
 ]
 Answer.create!(answer_attributes)
@@ -367,12 +586,29 @@ score_attributes = [
   {
    user_id: 1,
    category_id: 1,
-   value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum
+   date: Date.today,
+   value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today).where(category_id: 2).map { |a| a.option.weight }.sum,
+   consumption_value: User.find(1).answers.where(date: Date.today).where(category_id: 3).map { |a| a.option.weight }.sum
  },
  {
    user_id: 1,
    category_id: 1,
-   value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum
+   date: Date.today - 2,
+   value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum,
+   consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum
+ },
+ {
+   user_id: 1,
+   category_id: 1,
+   date: Date.today - 4,
+   value: User.find(1).answers.where(date: Date.today - 4).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 2).map { |a| a.option.weight }.sum,
+   consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)

@@ -9,16 +9,29 @@
       <div class="question" id="<%= @questions.index(question) %>">
         <h4><%= question.content %></h4>
         <% question.options.each do |option| %>
+
+  <div class="answer-body-content">
+    <h2>Questionnaire Draft</h2>
+
+    <% @questions.each do |question| %>
+      <div class="question">
+        <h2><%= question.content %></h2>
+        <% question.options.each do |option| %>
           <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
           <p><%= option.content %></p>
         <% end %>
       </div>
     <% end %>
+
   </div>
 
   <div class="actions">
     <button class="btn-standard-white" id="previous">Previous</button>
     <button class="btn-standard-white" id="next">Next</button>
     <%= link_to "Submit", user_path(current_user), id:"submit", class: "btn-standard-white"  %>
+
+
+    <button type="button" id="submit">Submit</button>
+
   </div>
 </div>
