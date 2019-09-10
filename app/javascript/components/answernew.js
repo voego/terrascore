@@ -46,6 +46,7 @@ const postOptionsOnSubmit = () => {
 
 const nextButtonAction = () => {
   const nextButton = document.getElementById("next");
+  let previousButton = document.getElementById("previous");
   nextButton.addEventListener("click", (event) => {
     let visibleElements = [...document.querySelectorAll(".visible")];
     console.log("hello");
@@ -54,13 +55,14 @@ const nextButtonAction = () => {
     // hide previous element sibling
     visibleElements.slice(0)[0].classList.remove("visible");
     visibleElements.slice(0)[0].classList.add("invisible");
-    // visibleElement.
+    // make previous button visible
+    previousButton.style.display = "inline-flex";
   })
 }
 
 
 const previousButtonAction = () => {
-  const previousButton = document.getElementById("previous");
+  let previousButton = document.getElementById("previous");
   previousButton.addEventListener("click", (event) => {
     // select current visible element
     let visibleElements = [...document.querySelectorAll(".visible")];
@@ -75,11 +77,32 @@ const previousButtonAction = () => {
   })
 }
 
+const showPreviousButton = () => {
+
+}
+
+const showNextButton = () => {
+
+}
+
+const showSubmit = () => {
+  // when visibleElements containts the 4th question
+
+  // when next sibling element is no more available
+  // let visibleElements = [...document.querySelectorAll(".visible")];
+  // if (visibleElements.slice(-1)[0].nextElementSibling == undefined){
+  //   console.log("David")
+  // };
+
+  // change html of next to submit
+}
+
 export { makeFirstQuestionDivVisible };
 export { untickOtherCheckboxes };
 export { postOptionsOnSubmit };
 export { nextButtonAction };
 export { previousButtonAction };
+export { showSubmit };
 
 // as soon as the page loads, give first element 'visible' class
 // initially, show the first child of the 'questions' div / or the first element of the questionDivArray
