@@ -9,6 +9,11 @@ const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
 const homeScore = parseInt(document.getElementById("home_value").innerHTML);
 const consumptionScore = parseInt(document.getElementById("consumption_value").innerHTML);
 
+const scoreHistory = document.getElementById("score_history_value").innerHTML;
+
+var dataScoreHistory = scoreHistory.split(',').map(function(item) {
+    return parseInt(item, 10);
+});
 // const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
 // const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
 var chartArray = [travelScore, homeScore, consumptionScore]
