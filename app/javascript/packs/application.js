@@ -1,7 +1,18 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { makeFirstQuestionDivVisible } from '../components/answernew';
+import { untickOtherCheckboxes } from '../components/answernew';
+import { postOptionsOnSubmit } from '../components/answernew';
+import { nextButtonAction } from '../components/answernew';
+import { previousButtonAction } from '../components/answernew';
 
+initUpdateNavbarOnScroll();
+makeFirstQuestionDivVisible();
+untickOtherCheckboxes();
+postOptionsOnSubmit();
+nextButtonAction();
+previousButtonAction();
 
 const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
 const homeScore = parseInt(document.getElementById("home_value").innerHTML);
@@ -157,6 +168,3 @@ var myHomeChart = new Chart(ctx_home, {
     }
  });
 
-
-
-initUpdateNavbarOnScroll();
