@@ -1,0 +1,36 @@
+.dashboard-body-content {
+  padding-top: 10vh;
+}
+
+.dashboard-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-score-section {
+  justify-content: right;
+  align-items: right;
+}
+
+.dashboard-link-section {
+  justify-content: left;
+  align-items: left;
+}
+
+.dashboard-link-card {
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 4px;
+  top: 15vh;
+  position: sticky;
+}
+
+.dashboard-questionnaire-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboad-temp-chart-placeholder {
+  height: 100vh;
+  border-bottom: 1px solid white;
+}
