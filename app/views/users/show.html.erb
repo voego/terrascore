@@ -10,6 +10,7 @@
           <h2>Add/Update a score</h2>
           <p>Choose a category:</p>
           <div class="dashboard-questionnaire-links">
+            <%= link_to "Answer questions", new_answer_path,  class: "btn-standard-white"  %>
             <%= link_to "Travel", new_answer_path(category: "Travel"), class: "btn-standard-white" %>
             <br>
             <%= link_to "Home", new_answer_path(category: "Home"), class: "btn-standard-white" %>

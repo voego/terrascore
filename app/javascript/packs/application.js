@@ -1,7 +1,7 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { makeFirstQuestionDivVisible } from '../components/answernew';
+import { makeFirstCategoryDivVisible } from '../components/answernew';
 import { untickOtherCheckboxes } from '../components/answernew';
 import { postOptionsOnSubmit } from '../components/answernew';
 import { nextButtonAction } from '../components/answernew';
@@ -14,11 +14,11 @@ import { closeNav } from '../components/pushlanding';
 openNav();
 closeNav();
 initUpdateNavbarOnScroll();
-makeFirstQuestionDivVisible();
-// untickOtherCheckboxes();
-// postOptionsOnSubmit();
-// nextButtonAction();
-// previousButtonAction();
+makeFirstCategoryDivVisible();
+untickOtherCheckboxes();
+postOptionsOnSubmit();
+nextButtonAction();
+previousButtonAction();
 // showSubmit();
 
 
