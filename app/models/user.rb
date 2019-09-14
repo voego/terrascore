@@ -49,13 +49,8 @@ class User < ApplicationRecord
   end
 
   def score_object
-    @score_total = scores.last(1).map { |score|
-      {
-        travel: score.travel_value,
-        home: score.home_value,
-        consumption: score.consumption_value
-      }
-    }
+    score = Score.last
+    @score_total = { travel: score.travel_value, home: score.home_value, consumption: score.consumption_value }
   end
 
   def score_history_object
