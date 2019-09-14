@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <p>Your Overall Score</p>
   <p><%=  @user.show_score %></p>
 </div>
@@ -25,8 +25,8 @@
 <div>
   <p>Your home Score history</p>
   <p><%=  @user.show_home_category_score_breakdown%></p>
-</div>
-<div>
+</div> -->
+<!-- <div>
   <p>Your consumption Score history</p>
   <p id="consumption_value"><%=  @user.show_consumption_category_score_breakdown%></p>
 </div>
@@ -35,12 +35,16 @@
   <% @user.scores.each do |score| %>
       <li><%= score.date %></li>
   <% end %>
-</ul>
+</ul> -->
 <% min_date = @user.scores.map(&:date).sort.first %>
 <% max_date = @user.scores.map(&:date).sort.last %>
 <div class="scoreChart" data-score_total="<%= @user.score_object.to_json %>">
   <h2>Your current total score</h2>
 <canvas id="myChart" width="400" height="400"></canvas>
+<div class="absolute-center text-center">
+    <p>Some text</p>
+    <p>Some text</p>
+  </div>
 </div>
 
 <div class="scoreHistoryChart" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
