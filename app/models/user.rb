@@ -48,10 +48,47 @@ class User < ApplicationRecord
     scores.map(&:value)
   end
 
+  def score_object
+    @score_total = scores.last(1).map { |score|
+      {
+        travel: score.travel_value,
+        home: score.home_value,
+        consumption: score.consumption_value
+      }
+    }
+  end
+
   def score_history_object
     @score_historicals = scores.map { |score|
       {
         y: score.value,
+        x: score.date
+      }
+    }
+  end
+
+  def score_travel_history_object
+    @score_travel_historicals = scores.map { |score|
+      {
+        y: score.travel_value,
+        x: score.date
+      }
+    }
+  end
+
+  def score_home_history_object
+    @score_home_historicals = scores.map { |score|
+      {
+        y: score.home_value,
+        x: score.date
+      }
+    }
+  end
+
+  def score_consumption_history_object
+    @score_consumption_historicals = scores.map { |score|
+      {
+        y: score.consumption_value,
         x: score.date
       }
     }

@@ -36,16 +36,29 @@
       <li><%= score.date %></li>
   <% end %>
 </ul>
-<div class="scoreChart">
-<canvas id="myChart" width="400" height="400"></canvas>
-</div>
 <% min_date = @user.scores.map(&:date).sort.first %>
 <% max_date = @user.scores.map(&:date).sort.last %>
-<div class="scoreHistoryChart" data-score_historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
-<canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
-</div>
-<div class="homeChart">
-<canvas id="homeHistoryChart" width="400" height="400"></canvas>
+<div class="scoreChart" data-score_total="<%= @user.score_object.to_json %>">
+  <h2>Your current total score</h2>
+<canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
+<div class="scoreHistoryChart" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+  <h2>Your historical total scores</h2>
+<canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
+</div>
+<div class="homeHistoryChart" data-home_score_historicals=" <%= @user.score_home_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+  <h2>Your historical home scores</h2>
+<canvas id="myHomeHistoryChart" width="400" height="400"></canvas>
+</div>
+
+<div class="travelHistoryChart" data-travel_score_historicals=" <%= @user.score_travel_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+  <h2>Your historical travel scores</h2>
+<canvas id="myTravelHistoryChart" width="400" height="400"></canvas>
+</div>
+
+<div class="consumptionHistoryChart" data-consumption_score_historicals=" <%= @user.score_consumption_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+  <h2>Your historical consumption scores</h2>
+<canvas id="myConsumptionHistoryChart" width="400" height="400"></canvas>
+</div>
 
