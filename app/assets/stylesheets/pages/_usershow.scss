@@ -1,8 +1,10 @@
 .dashboard-body-content {
   padding-top: 10vh;
+  justify-content: center;
 }
 
 .dashboard-flex {
+  padding-top: 3vh;
   display: flex;
   justify-content: center;
 }
@@ -29,13 +31,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-.dashboad-temp-chart-placeholder {
-  height: 100vh;
-  border-bottom: 1px solid white;
-}
-
-
 
 .scoreChart {
   p {
