@@ -73,6 +73,12 @@ var myChart = new Chart(ctx, {
     legend: {
       display: true
     },
+           title: {
+            display: true,
+            text: 'Your current total score',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             display: false
@@ -116,6 +122,12 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical total scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
              xAxes: [{
                 type: 'time',
@@ -171,6 +183,12 @@ var myHomeChart = new Chart(ctx_home, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical home scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
@@ -226,6 +244,12 @@ var myTravelChart = new Chart(ctx_travel, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical travel scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
@@ -281,6 +305,12 @@ var myConsumptionChart = new Chart(ctx_consumption, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical consumption scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
