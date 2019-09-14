@@ -46,15 +46,15 @@ puts "Creating categories..."
 category_attributes = [
  {
    name: "Travel",
-   total: 30
  },
  {
    name: "Home",
-   total: 20
  },
  {
    name: "Consumption",
-   total: 10
+ },
+ {
+  name: "Society",
  }
 ]
 Category.create!(category_attributes)
@@ -64,7 +64,7 @@ puts "Creating questions..."
 question_attributes = [
  {
    category_id: 1,
-   content: "How many flights have you taken in the past 3 months?"
+   content: "How many return flights have you taken over past month?"
  },
  {
    category_id: 1,
@@ -80,35 +80,43 @@ question_attributes = [
  },
  {
    category_id: 2,
-   content: "How many times do you use the washing machine a week?"
+   content: "How many bedrooms does your house have?"
  },
  {
    category_id: 2,
-   content: "How many energy saving bulbs do you have in your home?"
+   content: "How many people (aged 17 and over) live in your house?"
  },
  {
    category_id: 2,
-   content: "In how many seasons do you put the heating on?"
+   content: "Is your electricity on a green tariff?"
  },
  {
    category_id: 2,
-   content: "How many days a week do you wash your filthy body?"
+   content: "How warm do you keep your home in winter?"
  },
   {
    category_id: 3,
-   content: "In a week, how often do you get food from restaurants, canteens and takeaways?"
+   content: "How would you best describe your diet?"
  },
  {
    category_id: 3,
-   content: "How often do you throw food away?"
+   content: "In a week, how much do you spend on food from restaurants, canteens and takeaways?"
  },
  {
    category_id: 3,
-   content: "How many times a week do you eat meat?"
+   content: "Of the food you buy how much is wasted and thrown away?"
  },
  {
    category_id: 3,
-   content: "How much of your consumables do you recycle?"
+   content: "How often do you buy locally produced food that is not imported to the UK?"
+ },
+ {
+  category_id: 4,
+  content: "How much have you donated over the past month?"
+ },
+ {
+  category_id: 4,
+  content: "How many hours of volunteering have you done over the past month?"
  }
 ]
 
@@ -118,33 +126,33 @@ puts "Creating options..."
 option_attributes = [
  {
    question_id: 1,
-   content: "1-5",
-   weight: 4
- },
- {
-   question_id: 1,
-   content: "6-10",
-   weight: 3
- },
- {
-   question_id: 1,
-   content: "0",
+   content: "none",
    weight: 5
  },
  {
    question_id: 1,
-   content: "11+",
+   content: "1-3",
+   weight: 3
+ },
+ {
+   question_id: 1,
+   content: "4-6",
    weight: 2
+ },
+ {
+   question_id: 1,
+   content: "11+",
+   weight: 1
  },
  {
    question_id: 2,
    content: "car",
-   weight: 3
+   weight: 2
  },
  {
    question_id: 2,
    content: "motorbike",
-   weight: 3
+   weight: 2
  },
  {
    question_id: 2,
@@ -153,48 +161,48 @@ option_attributes = [
  },
  {
    question_id: 3,
-   content: "0",
+   content: "none",
    weight: 5
  },
  {
    question_id: 3,
    content: "1-4",
-   weight: 4
- },
- {
-   question_id: 3,
-   content: "5-10",
    weight: 3
  },
  {
    question_id: 3,
-   content: "11+",
+   content: "5-10",
    weight: 2
  },
  {
+   question_id: 3,
+   content: "11+",
+   weight: 1
+ },
+ {
    question_id: 4,
-   content: "0",
+   content: "none",
    weight: 5
  },
  {
    question_id: 4,
    content: "1-4",
-   weight: 4
- },
- {
-   question_id: 4,
-   content: "5-10",
    weight: 3
  },
  {
    question_id: 4,
-   content: "11+",
+   content: "5-10",
    weight: 2
+ },
+ {
+   question_id: 4,
+   content: "11+",
+   weight: 1
  },
   {
    question_id: 5,
    content: "1",
-   weight: 4
+   weight: 5
  },
   {
    question_id: 5,
@@ -213,145 +221,181 @@ option_attributes = [
  },
   {
    question_id: 6,
-   content: "20%",
-   weight: 4
- },
-  {
-   question_id: 6,
-   content: "40%",
-   weight: 3
- },
-  {
-   question_id: 6,
-   content: "60%",
-   weight: 2
- },
-  {
-   question_id: 6,
-   content: "80%+",
-   weight: 1
- },
-  {
-   question_id: 7,
    content: "1",
-   weight: 2
+   weight: 5
  },
   {
-   question_id: 7,
+   question_id: 6,
    content: "2",
    weight: 3
  },
   {
-   question_id: 7,
+   question_id: 6,
    content: "3",
-   weight: 4
+   weight: 2
+ },
+  {
+   question_id: 6,
+   content: "4+",
+   weight: 1
  },
   {
    question_id: 7,
-   content: "5",
+   content: "I don't know",
+   weight: 0
+ },
+  {
+   question_id: 7,
+   content: "No",
+   weight: 2
+ },
+  {
+   question_id: 7,
+   content: "Yes, but that tariff is less than 100% renewables",
+   weight: 3
+ },
+  {
+   question_id: 7,
+   content: "Yes, 100%",
    weight: 5
  },
   {
    question_id: 8,
-   content: "1-2",
+   content: "Below 14 C",
+   weight: 5
+ },
+  {
+   question_id: 8,
+   content: "14-17 C",
    weight: 4
  },
   {
    question_id: 8,
-   content: "3-4",
+   content: "18-21 C",
    weight: 3
  },
   {
    question_id: 8,
-   content: "5-6",
+   content: "Over 21 C",
    weight: 2
  },
   {
-   question_id: 8,
-   content: "7+",
-   weight: 1
+   question_id: 9,
+   content: "Meat in every meal",
+   weight: 0
  },
   {
    question_id: 9,
-   content: "1-2",
-   weight: 4
+   content: "Meat in some meals",
+   weight: 2
  },
   {
    question_id: 9,
-   content: "3-4",
+   content: "Meat very rarely",
    weight: 3
  },
   {
    question_id: 9,
-   content: "5-6",
-   weight: 2
- },
-  {
-   question_id: 9,
-   content: "7+",
-   weight: 1
+   content: "No meat",
+   weight: 5
  },
  {
    question_id: 10,
-   content: "1-2",
-   weight: 4
+   content: "£0",
+   weight: 5
  },
   {
    question_id: 10,
-   content: "3-4",
+   content: "£1-£10",
    weight: 3
  },
   {
    question_id: 10,
-   content: "5-6",
+   content: "£10-£50",
    weight: 2
  },
   {
    question_id: 10,
-   content: "7+",
-   weight: 1
+   content: "More than £50",
+   weight: 0
  },
   {
    question_id: 11,
-   content: "1-2",
-   weight: 4
+   content: "None",
+   weight: 5
  },
   {
    question_id: 11,
-   content: "3-4",
+   content: "0%%-10%%",
    weight: 3
  },
   {
    question_id: 11,
-   content: "5-6",
+   content: "10%%-30%%",
    weight: 2
  },
   {
    question_id: 11,
-   content: "7+",
-   weight: 1
+   content: "More than 30%%",
+   weight: 0
  },
   {
    question_id: 12,
-   content: "I try to recycle as much as I can",
-   weight: 4
+   content: "A lot of the food I buy is locally sourced",
+   weight: 5
  },
   {
    question_id: 12,
-   content: "I recycle a lot of goods but sometimes I forget",
+   content: "Some of the food I buy is locally sourced",
    weight: 3
  },
   {
    question_id: 12,
-   content: "I only recycle rarely",
-   weight: 2
+   content: "I don't worry about where my food comes from",
+   weight: 0
  },
-  {
-   question_id: 12,
-   content: "What is recycling?",
-   weight: 1
+ {
+  question_id: 13,
+  content: "Nothing",
+  weight: 0
  },
+ {
+  question_id: 13,
+  content: "under £20",
+  weight: 3
+ },
+ {
+  question_id: 13,
+  content: "£20-£50",
+  weight: 4
+ },
+ {
+  question_id: 13,
+  content: "More than £50",
+  weight: 5
+ },
+ {
+  question_id: 14,
+  content: "None",
+  weight: 0
+ },
+ {
+  question_id: 14,
+  content: "Less than 5 hours",
+  weight: 3
+ },
+ {
+  question_id: 14,
+  content: "5 to 10 hours",
+  weight: 4
+ },
+ {
+  question_id: 14,
+  content: "More than 10 hours",
+  weight: 5
+ }
 ]
+
 Option.create!(option_attributes)
 
 puts "Creating answers..."
@@ -590,7 +634,8 @@ score_attributes = [
    value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum,
    travel_value: User.find(1).answers.where(date: Date.today).where(category_id: 1).map { |a| a.option.weight }.sum,
    home_value: User.find(1).answers.where(date: Date.today).where(category_id: 2).map { |a| a.option.weight }.sum,
-   consumption_value: User.find(1).answers.where(date: Date.today).where(category_id: 3).map { |a| a.option.weight }.sum
+   consumption_value: User.find(1).answers.where(date: Date.today).where(category_id: 3).map { |a| a.option.weight }.sum,
+   society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
  },
  {
    user_id: 1,
@@ -599,7 +644,8 @@ score_attributes = [
    value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
    travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
    home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum,
-   consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum
+   consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum,
+   society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
  },
  {
    user_id: 1,
@@ -608,7 +654,8 @@ score_attributes = [
    value: User.find(1).answers.where(date: Date.today - 4).map { |a| a.option.weight }.sum,
    travel_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 1).map { |a| a.option.weight }.sum,
    home_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 2).map { |a| a.option.weight }.sum,
-   consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum
+   consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum,
+   society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)

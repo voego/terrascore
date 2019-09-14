@@ -2,11 +2,11 @@
 const questionDivArray = [...document.querySelectorAll(".question")];
 
 
-const makeFirstQuestionDivVisible = () => {
-  const firstQuestionDiv = document.querySelector(".question");
-  if(document.querySelector(".question")){
+const makeFirstCategoryDivVisible = () => {
+  const firstCategoryDiv = document.querySelector(".category-section");
+  if(firstCategoryDiv){
     document.addEventListener("DOMContentLoaded", (event) => {
-      firstQuestionDiv.classList.add("visible");
+      firstCategoryDiv.classList.add("visible");
     });
   }
 }
@@ -27,8 +27,8 @@ const untickOtherCheckboxes = () => {
 }
 
 const postOptionsOnSubmit = () => {
-  if(document.getElementById("submit")){
-    const submitButton = document.getElementById("submit");
+  const submitButton = document.getElementById("submit");
+  if(submitButton){
     submitButton.addEventListener("click", (event) => {
       let saved = [];
       document.querySelectorAll("input").forEach((checkbox) => {
@@ -51,7 +51,7 @@ const postOptionsOnSubmit = () => {
 const nextButtonAction = () => {
   const nextButton = document.getElementById("next");
   let previousButton = document.getElementById("previous");
-  if(document.getElementById("next")){
+  if(nextButton){
     nextButton.addEventListener("click", (event) => {
       let visibleElements = [...document.querySelectorAll(".visible")];
       console.log("hello");
@@ -102,7 +102,7 @@ const showSubmit = () => {
   // change html of next to submit
 }
 
-export { makeFirstQuestionDivVisible };
+export { makeFirstCategoryDivVisible };
 export { untickOtherCheckboxes };
 export { postOptionsOnSubmit };
 export { nextButtonAction };

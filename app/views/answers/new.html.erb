@@ -1,24 +1,93 @@
 <div class="answer-new-container">
-  <div class="category-header">
-    <h2><%= params[:category] %></h2>
-    <p>Please answer the following questions about your lifestyle</p>
+
+  <div class="category-section">
+
+    <div class="category-header">
+      <h2>Travel</h2>
+      <p>Please answer the following questions about your travel lifestyle</p>
+    </div>
+
+    <div class="category-questions">
+      <% @questions.where(category_id: 1).each do |question| %>
+        <div class="question" id="<%= @questions.index(question) %>">
+          <h4><%= question.content %></h4>
+          <% question.options.each do |option| %>
+            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+            <p><%= option.content %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 
-  <div class="questions">
-    <% @questions.each do |question| %>
-      <div class="question" id="<%= @questions.index(question) %>">
-        <h4><%= question.content %></h4>
-        <% question.options.each do |option| %>
-          <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-          <p><%= option.content %></p>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="category-section">
+
+    <div class="category-header">
+      <h2>Home</h2>
+      <p>Please answer the following questions about your home</p>
+    </div>
+
+    <div class="questions">
+      <% @questions.where(category_id: 2).each do |question| %>
+        <div class="question" id="<%= @questions.index(question) %>">
+          <h4><%= question.content %></h4>
+          <% question.options.each do |option| %>
+            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+            <p><%= option.content %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
+
+  <div class="category-section">
+
+    <div class="category-header">
+      <h2>Food</h2>
+      <p>Please answer the following questions about your food consumption</p>
+    </div>
+
+    <div class="category-questions">
+      <% @questions.where(category_id: 3).each do |question| %>
+        <div class="question" id="<%= @questions.index(question) %>">
+          <h4><%= question.content %></h4>
+          <% question.options.each do |option| %>
+            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+            <p><%= option.content %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="category-section">
+
+    <div class="category-header">
+      <h2>Society</h2>
+      <p>Please answer the following questions about your relationship with society</p>
+    </div>
+
+    <div class="questions">
+      <% @questions.where(category_id: 4).each do |question| %>
+        <div class="question" id="<%= @questions.index(question) %>">
+          <h4><%= question.content %></h4>
+          <% question.options.each do |option| %>
+            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+            <p><%= option.content %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
 
   <div class="actions">
-    <button class="btn-standard-white" id="previous">Previous</button>
-    <button class="btn-standard-white" id="next">Next</button>
+<!--     <button class="btn-standard-white" id="previous">Previous</button> -->
+    <button class="btn-standard-white" id="next">Next Category</button>
     <%= link_to "Submit", user_path(current_user), id:"submit", class: "btn-standard-white"  %>
 
   </div>
@@ -26,3 +95,7 @@
 <!--
     previousButton.classList.remove("invisible");
     previousButton.classList.add("visible"); -->
+
+
+<!-- start with the Travel Section -->
+<!--  -->
