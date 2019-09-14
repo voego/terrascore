@@ -1,27 +1,25 @@
 <div class="container">
   <div class="dashboard-body-content">
-    <div class="dashboad-temp-chart-placeholder">
-
-    </div>
-    <h1 style="padding-top: 2vh;">Welcome to your dashboard</h1>
     <div class="dashboard-flex">
-      <div class="dashboard-link-section">
-        <div class="dashboard-link-card">
-          <h2>Add/Update a score</h2>
-          <p>Choose a category:</p>
-          <div class="dashboard-questionnaire-links">
-            <%= link_to "Travel", new_answer_path(category: "Travel"), class: "btn-standard-white" %>
-            <br>
-            <%= link_to "Home", new_answer_path(category: "Home"), class: "btn-standard-white" %>
-            <br>
-            <%= link_to "Charity", new_answer_path(category: "Charity"), class: "btn-standard-white" %>
+      <div class="dashboard-score-section">
+        <h1>Welcome to your dashboard</h1>
+        <hr />
+        <%= render "user", user: @user %>
+        <div class="dashboard-link-section">
+          <div class="dashboard-link-card">
+            <h2>Add/Update a score</h2>
+            <p>Choose a category:</p>
+            <div class="dashboard-questionnaire-links">
+              <%= link_to "Travel", new_answer_path(category: "Travel"), class: "btn-standard-white" %>
+              <br>
+              <%= link_to "Home", new_answer_path(category: "Home"), class: "btn-standard-white" %>
+              <br>
+              <%= link_to "Charity", new_answer_path(category: "Charity"), class: "btn-standard-white" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-    <div class="dashboard-score-section">
-    <%= render "user", user: @user %>
   </div>
 </div>
 
