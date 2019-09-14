@@ -3,15 +3,15 @@
   <p><%=  @user.show_score %></p>
 </div>
 <div>
-  <h1>Your travel Score</h1>
+  <p>Your travel Score</p>
   <p id="travel_value"><%=  @user.show_travel_category_score%></p>
 </div>
 <div>
-  <h1>Your home Score</h1>
+  <p>Your home Score</p>
   <p id="home_value"><%=  @user.show_home_category_score%></p>
 </div>
 <div>
-  <h1>Your consumption Score</h1>
+  <p>Your consumption Score</p>
   <p id="consumption_value"><%=  @user.show_consumption_category_score%></p>
 </div>
 <div>
@@ -27,10 +27,10 @@
   <p><%=  @user.show_home_category_score_breakdown%></p>
 </div>
 <div>
-  <h1>Your consumption Score history</h1>
+  <p>Your consumption Score history</p>
   <p id="consumption_value"><%=  @user.show_consumption_category_score_breakdown%></p>
 </div>
-<h1>Dates of the scores</h1>
+<p>Dates of the scores</p>
 <ul id="dates">
   <% @user.scores.each do |score| %>
       <li><%= score.date %></li>

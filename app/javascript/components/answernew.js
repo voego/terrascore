@@ -4,9 +4,11 @@ const questionDivArray = [...document.querySelectorAll(".question")];
 
 const makeFirstQuestionDivVisible = () => {
   const firstQuestionDiv = document.querySelector(".question");
-  document.addEventListener("DOMContentLoaded", (event) => {
-    firstQuestionDiv.classList.add("visible");
-  });
+  if(document.querySelector(".question")){
+    document.addEventListener("DOMContentLoaded", (event) => {
+      firstQuestionDiv.classList.add("visible");
+    });
+  }
 }
 
 const untickOtherCheckboxes = () => {
@@ -25,56 +27,62 @@ const untickOtherCheckboxes = () => {
 }
 
 const postOptionsOnSubmit = () => {
-  const submitButton = document.getElementById("submit");
-  submitButton.addEventListener("click", (event) => {
-    let saved = [];
-    document.querySelectorAll("input").forEach((checkbox) => {
-      if (checkbox.checked) {
-        saved.push(checkbox.dataset.option)
-      };
-    });
-    let railsToken = document.querySelector('meta[name=csrf-token]').content;
+  if(document.getElementById("submit")){
+    const submitButton = document.getElementById("submit");
+    submitButton.addEventListener("click", (event) => {
+      let saved = [];
+      document.querySelectorAll("input").forEach((checkbox) => {
+        if (checkbox.checked) {
+          saved.push(checkbox.dataset.option)
+        };
+      });
+      let railsToken = document.querySelector('meta[name=csrf-token]').content;
 
-    fetch(`http://localhost:3000/answers?options=${saved}`, {
-      method: "POST",
-      headers: {
-        "X-CSRF-Token": railsToken
-      }
-    })
-  });
+      fetch(`http://localhost:3000/answers?options=${saved}`, {
+        method: "POST",
+        headers: {
+          "X-CSRF-Token": railsToken
+        }
+      })
+    });
+  }
 }
 
 const nextButtonAction = () => {
   const nextButton = document.getElementById("next");
   let previousButton = document.getElementById("previous");
-  nextButton.addEventListener("click", (event) => {
-    let visibleElements = [...document.querySelectorAll(".visible")];
-    console.log("hello");
-    // make next element sibling visible
-    visibleElements.slice(-1)[0].nextElementSibling.classList.add("visible");
-    // hide previous element sibling
-    visibleElements.slice(0)[0].classList.remove("visible");
-    visibleElements.slice(0)[0].classList.add("invisible");
-    // make previous button visible
-    previousButton.style.display = "inline-flex";
-  })
+  if(document.getElementById("next")){
+    nextButton.addEventListener("click", (event) => {
+      let visibleElements = [...document.querySelectorAll(".visible")];
+      console.log("hello");
+      // make next element sibling visible
+      visibleElements.slice(-1)[0].nextElementSibling.classList.add("visible");
+      // hide previous element sibling
+      visibleElements.slice(0)[0].classList.remove("visible");
+      visibleElements.slice(0)[0].classList.add("invisible");
+      // make previous button visible
+      previousButton.style.display = "inline-flex";
+    })
+  }
 }
 
 
 const previousButtonAction = () => {
   let previousButton = document.getElementById("previous");
-  previousButton.addEventListener("click", (event) => {
-    // select current visible element
-    let visibleElements = [...document.querySelectorAll(".visible")];
-    console.log("hello");
-    // make previous element sibling visible
-    visibleElements.slice(0)[0].previousElementSibling.classList.remove("invisible");
-    visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
-    // hide current element
-    visibleElements.slice(0)[0].classList.remove("visible");
-    visibleElements.slice(0)[0].classList.add("invisible");
-    // make previous element sibling visible
-  })
+  if(document.getElementById("previous")){
+    previousButton.addEventListener("click", (event) => {
+      // select current visible element
+      let visibleElements = [...document.querySelectorAll(".visible")];
+      console.log("hello");
+      // make previous element sibling visible
+      visibleElements.slice(0)[0].previousElementSibling.classList.remove("invisible");
+      visibleElements.slice(0)[0].previousElementSibling.classList.add("visible");
+      // hide current element
+      visibleElements.slice(0)[0].classList.remove("visible");
+      visibleElements.slice(0)[0].classList.add("invisible");
+      // make previous element sibling visible
+    })
+  }
 }
 
 
