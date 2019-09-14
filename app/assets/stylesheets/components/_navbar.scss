@@ -3,6 +3,9 @@
   background: white;
   background-color: transparent;
   transition: 0.5s background-color ease;
+  a:hover {
+  color: green;
+}
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +18,9 @@
 
 .navbar-lewagon-white {
   background-color: white;
+}
+
+.link-colour {
+  color: white;
+  font-style: normal;
 }
