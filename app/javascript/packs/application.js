@@ -10,7 +10,6 @@ import { showSubmit } from '../components/answernew';
 import { openNav } from '../components/pushlanding';
 import { closeNav } from '../components/pushlanding';
 
-// console.log("openNav");
 openNav();
 closeNav();
 initUpdateNavbarOnScroll();
@@ -22,18 +21,19 @@ previousButtonAction();
 // showSubmit();
 
 
-const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
-const homeScore = parseInt(document.getElementById("home_value").innerHTML);
-const consumptionScore = parseInt(document.getElementById("consumption_value").innerHTML);
+// const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
+// const homeScore = parseInt(document.getElementById("home_value").innerHTML);
+// const consumptionScore = parseInt(document.getElementById("consumption_value").innerHTML);
 
-const scoreHistory = document.getElementById("score_history_value").innerHTML;
+// const scoreHistory = document.getElementById("score_history_value").innerHTML;
 
-var dataScoreHistory = scoreHistory.split(',').map(function(item) {
-    return parseInt(item, 10);
-});
-const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
-const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
-var chartArray = [travelScore, homeScore, consumptionScore];
+// var dataScoreHistory = scoreHistory.split(',').map(function(item) {
+//     return parseInt(item, 10);
+// });
+// const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
+// const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
+// var chartArray = [travelScore, homeScore, consumptionScore];
+
 
 var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
 var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
@@ -43,16 +43,7 @@ var scoreMaxDate = new Date(scoreHistoryChart.dataset.maxDate);
 
 var scoreChart = document.querySelector(".scoreChart")
 var score_breakdown = JSON.parse(scoreChart.dataset.score_total);
-var score_total_breakdown = [];
-score_breakdown.forEach((score) => {
-  let newScore = {
-    travel: score.travel,
-    home: score.home,
-    consumption: score.consumption
-  }
-  score_total_breakdown.push(newScore)
-})
-console.log(score_total_breakdown);
+var score_total_breakdown = [score_breakdown.travel, score_breakdown.home, score_breakdown.consumption];
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
@@ -61,36 +52,39 @@ var myChart = new Chart(ctx, {
         labels: ['Travel', 'Home', 'Consumption'],
         datasets: [{
             label: 'Score',
-            data: chartArray,
+            data: score_total_breakdown,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255,255,255, 0.8)',
+                'rgba(255,255,255, 0.8)',
+                'rgba(255,255,255, 0.8)',
+                'rgba(255,255,255, 0.8)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                    ' rgba(255,215,0, 1)',
+                    ' rgba(255,215,0, 1)',
+                    ' rgba(255,215,0, 1)',
+                   ' rgba(255,215,0, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 2
         }]
     },
     options: {
-        centerText: {
-        display: true,
-        text: "280"
+          responsive: true,
+    legend: {
+      display: true
     },
+           title: {
+            display: true,
+            text: 'Your current total score',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
+          xAxes: [{
+            display: false
+          }],
             yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+              display: false
             }]
         }
     }
@@ -114,15 +108,10 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
             label: 'Score',
             data: date_score_history_breakdown,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255,255,255, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -133,6 +122,12 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical total scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
              xAxes: [{
                 type: 'time',
@@ -174,15 +169,10 @@ var myHomeChart = new Chart(ctx_home, {
             label: 'Score',
             data: date_home_score_history_breakdown,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+              'rgba(255,255,255, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -193,6 +183,12 @@ var myHomeChart = new Chart(ctx_home, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical home scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
@@ -234,15 +230,10 @@ var myTravelChart = new Chart(ctx_travel, {
             label: 'Score',
             data: date_travel_score_history_breakdown,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+               'rgba(255,255,255, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -253,6 +244,12 @@ var myTravelChart = new Chart(ctx_travel, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical travel scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
@@ -294,15 +291,10 @@ var myConsumptionChart = new Chart(ctx_consumption, {
             label: 'Score',
             data: date_consumption_score_history_breakdown,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+              'rgba(255,255,255, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -313,6 +305,12 @@ var myConsumptionChart = new Chart(ctx_consumption, {
         }]
     },
     options: {
+      title: {
+            display: true,
+            text: 'Your historical consumption scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
         scales: {
           xAxes: [{
             type: 'time',
