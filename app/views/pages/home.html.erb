@@ -7,9 +7,13 @@
 
 
 <div id="mySidenav" class="sidenav">
-  <a class="closebtn">Close</a>
-  <a href="#">Log in</a>
-  <a href="#">Register</a>
+  <!-- <a class="closebtn">Close</a> -->
+  <% if !user_signed_in? %>
+  <%= link_to "Log in", new_user_session_path %>
+  <%= link_to "Register", new_user_registration_path %>
+  <% else %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <% end %>
 </div>
 
 
