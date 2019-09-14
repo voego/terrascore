@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <p>Your Overall Score</p>
   <p><%=  @user.show_score %></p>
 </div>
@@ -35,7 +35,7 @@
   <% @user.scores.each do |score| %>
       <li><%= score.date %></li>
   <% end %>
-</ul>
+</ul> -->
 <% min_date = @user.scores.map(&:date).sort.first %>
 <% max_date = @user.scores.map(&:date).sort.last %>
 <div class="scoreChart" data-score_total="<%= @user.score_object.to_json %>">
