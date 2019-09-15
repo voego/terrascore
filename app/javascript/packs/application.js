@@ -7,8 +7,11 @@ import { postOptionsOnSubmit } from '../components/answernew';
 import { nextButtonAction } from '../components/answernew';
 import { previousButtonAction } from '../components/answernew';
 import { showSubmit } from '../components/answernew';
+import { scrollOnCheck } from '../components/answernew';
+import { progressBar } from '../components/answernew';
 import { openNav } from '../components/pushlanding';
 import { closeNav } from '../components/pushlanding';
+
 
 openNav();
 closeNav();
@@ -18,6 +21,8 @@ untickOtherCheckboxes();
 postOptionsOnSubmit();
 nextButtonAction();
 previousButtonAction();
+scrollOnCheck();
+progressBar();
 // showSubmit();
 
 
