@@ -59,6 +59,23 @@ h2 {
     text-align: center;
   }
 
+.travelHistoryChart {
+  display: none;
+}
+.homeHistoryChart {
+  display: none;
+}
+.consumptionHistoryChart {
+  display: none;
+}
+.scoreChart {
+  display: block;
+}
+
+.scoreHistoryChart {
+  display: none;
+}
+
 
 /* make keyframes that tell the start state and the end state of our object */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }

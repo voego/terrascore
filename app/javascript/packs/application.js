@@ -51,7 +51,37 @@ var score_breakdown = JSON.parse(scoreChart.dataset.score_total);
 var score_total_breakdown = [score_breakdown.travel, score_breakdown.home, score_breakdown.consumption];
 
 var ctx = document.getElementById('myChart');
-var myChart = new Chart(ctx, {
+
+var scoreDisplay = document.querySelector(".scoreChart");
+var scoreHistoryDisplay = document.querySelector(".scoreHistoryChart");
+var travelDisplay = document.querySelector(".travelHistoryChart");
+var homeDisplay = document.querySelector(".homeHistoryChart");
+var consumptionDisplay = document.querySelector(".consumptionHistoryChart");
+
+
+const handleClick = (evt) => {
+  var activeElement = myChart.getElementAtEvent(evt);
+  if (activeElement[0]._index == 0) {
+  console.log(activeElement);
+  console.log(chartConfig.data.datasets[activeElement[0]._datasetIndex].data[activeElement[0]._index])
+  travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
+  } else if (activeElement[0]._index == 1) {
+     // scoreDisplay.style.display = "none";
+    homeDisplay.style.display = homeDisplay.style.display === "none" ? "block" : "none";
+  } else if (activeElement[0]._index == 2) {
+     // scoreDisplay.style.display = "none";
+     consumptionDisplay.style.display = consumptionDisplay.style.display === "none" ? "block" : "none";
+  } else if (activeElement[0]._index == 3) {
+     // scoreDisplay.style.display = "none";
+     // travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
+  };
+
+  console.log(activeElement[0]._index);
+  console.log(activeElement);
+  console.log(chartConfig.data.datasets[activeElement[0]._datasetIndex].data[activeElement[0]._index])
+};
+
+var chartConfig = {
     type: 'doughnut',
     data: {
         labels: ['Travel', 'Home', 'Consumption'],
@@ -74,10 +104,12 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+
           responsive: true,
     legend: {
       display: true
     },
+    onClick: handleClick,
            title: {
             display: true,
             text: 'Your current total score',
@@ -93,7 +125,8 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
-});
+}
+var myChart = new Chart(ctx, chartConfig);
 
 var date_score_history_breakdown = [];
 score_history_breakdown.forEach((score) => {
