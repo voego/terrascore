@@ -70,6 +70,8 @@ h2 {
 }
 .scoreChart {
   display: block;
+  opacity: 1;
+  // transition: 2s;
 }
 
 .scoreHistoryChart {
@@ -97,10 +99,32 @@ h2 {
   animation-duration:1s;
 }
 
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+.fade-out {
+  opacity:1;  /* make things invisible upon start */
+  -webkit-animation:fadeOut ease-in 1;  /* call our keyframe named fadeOut, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeOut ease-in 1;
+  animation:fadeOut ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
 .hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+  opacity: x0 !important;
+  transition: opacity 2s linear;
+}
+
+.hide {
+  display: none;
 }
 
 .fade-in.one {

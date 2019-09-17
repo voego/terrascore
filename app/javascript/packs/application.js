@@ -62,9 +62,20 @@ var consumptionDisplay = document.querySelector(".consumptionHistoryChart");
 const handleClick = (evt) => {
   var activeElement = myChart.getElementAtEvent(evt);
   if (activeElement[0]._index == 0) {
-  console.log(activeElement);
-  console.log(chartConfig.data.datasets[activeElement[0]._datasetIndex].data[activeElement[0]._index])
-  travelDisplay.style.display = travelDisplay.style.display === "block" ? "none" : "block";
+         // scoreDisplay.style.display = "none";
+      // let addHide = (chart) => {
+      //   chart.classList.add('hide')
+      // }
+      setTimeout(() => {
+        scoreDisplay.classList.add('hide');
+      }, 3000)
+
+      scoreDisplay.classList.add('fade-out');
+      scoreDisplay.classList.remove('fade-in');
+      let changeTravelDisplay = () => {
+        travelDisplay.style.display = travelDisplay.style.display === "block" ? "none" : "block";
+      }
+    setTimeout(changeTravelDisplay, 3000)
   } else if (activeElement[0]._index == 1) {
      // scoreDisplay.style.display = "none";
     let changeHomeDisplay = () => {
@@ -81,6 +92,8 @@ const handleClick = (evt) => {
      // scoreDisplay.style.display = "none";
      // travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
   };
+
+  // Add the hidden class to the doughnut when the click event occurs, and then make the display: none
 
   console.log(activeElement[0]._index);
   console.log(activeElement);
