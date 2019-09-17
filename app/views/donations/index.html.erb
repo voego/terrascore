@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Donations</h1>
+  <div class="row">
+    <% @donations.each do |donation| %>
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= donation.name %></h5>
+          <%= link_to "More Details" , donation_path(donation), class: "btn btn-primary"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

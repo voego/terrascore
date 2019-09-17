@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :answers
   resources :users, only: :show
+  resources :donations, only: [:index, :show]
+  resources :orders, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

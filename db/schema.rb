@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_144235) do
+ActiveRecord::Schema.define(version: 2019_09_17_194955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2019_09_14_144235) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "donations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.integer "price_cents", default: 0, null: false
+  end
+
   create_table "options", force: :cascade do |t|
     t.bigint "question_id"
     t.string "content"
@@ -41,6 +49,19 @@ ActiveRecord::Schema.define(version: 2019_09_14_144235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "donation_name"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id"
+    t.bigint "donation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_orders_on_donation_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -84,6 +105,8 @@ ActiveRecord::Schema.define(version: 2019_09_14_144235) do
   add_foreign_key "answers", "options"
   add_foreign_key "answers", "users"
   add_foreign_key "options", "questions"
+  add_foreign_key "orders", "donations"
+  add_foreign_key "orders", "users"
   add_foreign_key "questions", "categories"
   add_foreign_key "scores", "categories"
   add_foreign_key "scores", "users"
