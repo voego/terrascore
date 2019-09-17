@@ -1,28 +1,28 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
-import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { makeFirstCategoryDivVisible } from '../components/answernew';
-import { untickOtherCheckboxes } from '../components/answernew';
-import { postOptionsOnSubmit } from '../components/answernew';
-import { nextButtonAction } from '../components/answernew';
-import { previousButtonAction } from '../components/answernew';
-import { showSubmit } from '../components/answernew';
-import { scrollOnCheck } from '../components/answernew';
-import { progressBar } from '../components/answernew';
-import { openNav } from '../components/pushlanding';
-import { closeNav } from '../components/pushlanding';
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
+// import { makeFirstCategoryDivVisible } from '../components/answernew';
+// import { untickOtherCheckboxes } from '../components/answernew';
+// import { postOptionsOnSubmit } from '../components/answernew';
+// import { nextButtonAction } from '../components/answernew';
+// import { previousButtonAction } from '../components/answernew';
+// import { showSubmit } from '../components/answernew';
+// import { scrollOnCheck } from '../components/answernew';
+// import { progressBar } from '../components/answernew';
+// import { openNav } from '../components/pushlanding';
+// import { closeNav } from '../components/pushlanding';
 
 
-openNav();
-closeNav();
-initUpdateNavbarOnScroll();
-makeFirstCategoryDivVisible();
-untickOtherCheckboxes();
-postOptionsOnSubmit();
-nextButtonAction();
-previousButtonAction();
-scrollOnCheck();
-progressBar();
+// openNav();
+// closeNav();
+// initUpdateNavbarOnScroll();
+// makeFirstCategoryDivVisible();
+// untickOtherCheckboxes();
+// postOptionsOnSubmit();
+// nextButtonAction();
+// previousButtonAction();
+// scrollOnCheck();
+// progressBar();
 // showSubmit();
 
 
@@ -64,13 +64,19 @@ const handleClick = (evt) => {
   if (activeElement[0]._index == 0) {
   console.log(activeElement);
   console.log(chartConfig.data.datasets[activeElement[0]._datasetIndex].data[activeElement[0]._index])
-  travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
+  travelDisplay.style.display = travelDisplay.style.display === "block" ? "none" : "block";
   } else if (activeElement[0]._index == 1) {
      // scoreDisplay.style.display = "none";
-    homeDisplay.style.display = homeDisplay.style.display === "none" ? "block" : "none";
+    let changeHomeDisplay = () => {
+      homeDisplay.style.display = homeDisplay.style.display === "block" ? "none" : "block";
+    }
+    setTimeout(changeHomeDisplay, 3000)
   } else if (activeElement[0]._index == 2) {
      // scoreDisplay.style.display = "none";
-     consumptionDisplay.style.display = consumptionDisplay.style.display === "none" ? "block" : "none";
+     let changeConsumptionDisplay = () => {
+      consumptionDisplay.style.display = consumptionDisplay.style.display === "block" ? "none" : "block";
+    }
+    setTimeout(changeConsumptionDisplay, 3000)
   } else if (activeElement[0]._index == 3) {
      // scoreDisplay.style.display = "none";
      // travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
@@ -84,7 +90,7 @@ const handleClick = (evt) => {
 var chartConfig = {
     type: 'doughnut',
     data: {
-        labels: ['Travel', 'Home', 'Consumption'],
+        labels: ['Travel', 'Home', 'Consumption', 'Society'],
         datasets: [{
             label: 'Score',
             data: score_total_breakdown,
@@ -324,7 +330,7 @@ var ctx_consumption = document.getElementById('myConsumptionHistoryChart');
 var myConsumptionChart = new Chart(ctx_consumption, {
     type: 'line',
     data: {
-        labels: ['Travel'],
+        labels: ['Consumption'],
         datasets: [{
             label: 'Score',
             data: date_consumption_score_history_breakdown,
@@ -368,3 +374,64 @@ var myConsumptionChart = new Chart(ctx_consumption, {
         }
     }
  });
+
+// var societyScoreHistoryChart = document.querySelector(".societyHistoryChart")
+// var society_score_history_breakdown = JSON.parse(societyScoreHistoryChart.dataset.society_score_historicals);
+
+// var date_society_score_history_breakdown = [];
+// society_score_history_breakdown.forEach((score) => {
+//   let newScore = {
+//     y: score.y,
+//     x: new Date(score.x)
+//   }
+//   date_society_score_history_breakdown.push(newScore)
+// })
+
+// var ctx_society = document.getElementById('mySocietyHistoryChart');
+// var mySocietyChart = new Chart(ctx_society, {
+//     type: 'line',
+//     data: {
+//         labels: ['Society'],
+//         datasets: [{
+//             label: 'Score',
+//             data: date_society_score_history_breakdown,
+//             backgroundColor: [
+//               'rgba(255,255,255, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255,215,0, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//       title: {
+//             display: true,
+//             text: 'Your historical consumption scores',
+//             fontSize: 30,
+//             fontColor: '#FFFFFF'
+//           },
+//         scales: {
+//           xAxes: [{
+//             type: 'time',
+//                 distribution: 'series',
+//                   time: {
+//                    unit:"day",
+//                    displayFormats:{month:'MMM D'},
+//                    min: scoreMinDate,
+//                    max: scoreMaxDate,
+//                 }
+//         }],
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         }
+//     }
+//  });

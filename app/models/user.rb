@@ -89,6 +89,15 @@ class User < ApplicationRecord
     }
   end
 
+  def score_society_history_object
+    @score_society_historicals = scores.map { |score|
+      {
+        y: score.society_value,
+        x: score.date
+      }
+    }
+  end
+
   def show_travel_category_score_breakdown
     # answers.where(category_id: category_id).map(&:option).map(&:weight)
     scores.map(&:travel_value)
