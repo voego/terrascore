@@ -61,7 +61,9 @@ const nextButtonAction = () => {
       visibleElements.slice(0)[0].classList.remove("visible");
       visibleElements.slice(0)[0].classList.add("invisible");
       // make previous button visible
-      previousButton.style.display = "inline-flex";
+      // previousButton.style.display = "inline-flex";
+      // scroll to the top of the page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     })
   }
 }
@@ -85,6 +87,37 @@ const previousButtonAction = () => {
   }
 }
 
+const scrollOnCheck = () => {
+  console.log("hello");
+  // select a question div
+  // const firstQuestionDiv = window.querySelector(".question")
+  // select all of its children checkboxes
+  const allCheckboxes = [...document.querySelectorAll("input")]
+  // if any checkbox of the question div is clicked
+  allCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", (event) => {
+    // select the parent of the checkbox which was ticked
+      if(event.currentTarget.parentElement.nextElementSibling){
+        event.currentTarget.parentElement.nextElementSibling.scrollIntoView({ behavior: 'smooth' });
+      };
+    // scrollintoview of the next element
+    // checkbox.parentElement.nextElementSibling.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  // identify the next element sibling of the question div
+  // and scrollIntoView on it
+}
+
+const progressBar = () => {
+  window.onscroll = function() {myFunction()};
+
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+}
 
 const showNextButton = () => {
 
@@ -107,6 +140,8 @@ export { untickOtherCheckboxes };
 export { postOptionsOnSubmit };
 export { nextButtonAction };
 export { previousButtonAction };
+export { scrollOnCheck };
+export { progressBar };
 // export { showSubmit };
 
 // as soon as the page loads, give first element 'visible' class
