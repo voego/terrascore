@@ -15,7 +15,7 @@ import { closeNav } from '../components/pushlanding';
 
 openNav();
 closeNav();
-initUpdateNavbarOnScroll();
+// initUpdateNavbarOnScroll();
 makeFirstCategoryDivVisible();
 untickOtherCheckboxes();
 postOptionsOnSubmit();

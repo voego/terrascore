@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :answers
+  has_many :orders
   mount_uploader :photo, PhotoUploader
 
   def value_create(date)
