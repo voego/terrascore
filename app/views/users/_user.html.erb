@@ -38,26 +38,44 @@
 </ul> -->
 <% min_date = @user.scores.map(&:date).sort.first %>
 <% max_date = @user.scores.map(&:date).sort.last %>
-<div class="scoreChart fade-in two" data-score_total="<%= @user.score_object.to_json %>">
-<canvas id="myChart" width="400" height="400"></canvas>
-<div class="absolute-center text-center">
-    <p><%= @user.show_score %></p>
-    <p id="denominator">100</p>
+
+
+<div class="chart-container">
+  <div class="scoreChart fade-in two" data-score_total="<%= @user.score_object.to_json %>">
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <div class="absolute-center text-center">
+      <p><%= @user.show_score %></p>
+      <p id="denominator">100</p>
+    </div>
   </div>
+   <div class="social">
+        <p class="socialclick fade-in two">Share your score</p>
+        <div class="social-icons hide">
+        <%= link_to 'https://www.facebook.com/', target: :_blank, class:"icon-link" do %>
+       <i class="fab fa-facebook icon"></i>
+     <% end %>
+     <%= link_to 'https://www.linkedin.com/', target: :_blank, class:"icon-link" do %>
+       <i class="fab fa-linkedin icon"></i>
+     <% end %>
+      </div>
+    </div>
 </div>
 
-<div class="scoreHistoryChart fade-in two" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<div class="scoreHistoryChart fade-in one" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
 <canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
 </div>
-<div class="homeHistoryChart fade-in two" data-home_score_historicals=" <%= @user.score_home_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<div class="homeHistoryChart fade-in one" data-home_score_historicals=" <%= @user.score_home_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
 <canvas id="myHomeHistoryChart" width="400" height="400"></canvas>
 </div>
 
-<div class="travelHistoryChart fade-in two" data-travel_score_historicals=" <%= @user.score_travel_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<div class="travelHistoryChart fade-in one" data-travel_score_historicals=" <%= @user.score_travel_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
 <canvas id="myTravelHistoryChart" width="400" height="400"></canvas>
 </div>
 
-<div class="consumptionHistoryChart fade-in two" data-consumption_score_historicals=" <%= @user.score_consumption_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<div class="consumptionHistoryChart fade-in one" data-consumption_score_historicals=" <%= @user.score_consumption_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
 <canvas id="myConsumptionHistoryChart" width="400" height="400"></canvas>
 </div>
 
+<div class="societyHistoryChart fade-in one" data-society_score_historicals=" <%= @user.score_society_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<canvas id="mySocietyHistoryChart" width="400" height="400"></canvas>
+</div>
