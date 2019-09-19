@@ -1,28 +1,29 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
-// import { initUpdateNavbarOnScroll } from '../components/navbar';
-// import { makeFirstCategoryDivVisible } from '../components/answernew';
-// import { untickOtherCheckboxes } from '../components/answernew';
-// import { postOptionsOnSubmit } from '../components/answernew';
-// import { nextButtonAction } from '../components/answernew';
-// import { previousButtonAction } from '../components/answernew';
-// import { showSubmit } from '../components/answernew';
-// import { scrollOnCheck } from '../components/answernew';
-// import { progressBar } from '../components/answernew';
-// import { openNav } from '../components/pushlanding';
-// import { closeNav } from '../components/pushlanding';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { makeFirstCategoryDivVisible } from '../components/answernew';
+import { untickOtherCheckboxes } from '../components/answernew';
+import { postOptionsOnSubmit } from '../components/answernew';
+import { nextButtonAction } from '../components/answernew';
+import { previousButtonAction } from '../components/answernew';
+import { showSubmit } from '../components/answernew';
+import { scrollOnCheck } from '../components/answernew';
+import { progressBar } from '../components/answernew';
+import { openNav } from '../components/pushlanding';
+import { closeNav } from '../components/pushlanding';
 
 
-// openNav();
-// closeNav();
+openNav();
+closeNav();
 // initUpdateNavbarOnScroll();
-// makeFirstCategoryDivVisible();
-// untickOtherCheckboxes();
-// postOptionsOnSubmit();
-// nextButtonAction();
-// previousButtonAction();
-// scrollOnCheck();
-// progressBar();
+makeFirstCategoryDivVisible();
+untickOtherCheckboxes();
+postOptionsOnSubmit();
+nextButtonAction();
+previousButtonAction();
+scrollOnCheck();
+progressBar();
+
 // showSubmit();
 
 
