@@ -6,7 +6,11 @@
     <div class="col-sm-12 col-md-6">
       <h1><%= @donation.name %></h1>
       <p>Some awesome description of our donation</p>
-      <p>$$$</p>
+      <p>Amount: <%= humanized_money_with_symbol(@donation.price) %></p>
     </div>
   </div>
+  <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'donation_id', @donation.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
 </div>

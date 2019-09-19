@@ -12,6 +12,21 @@ Category.destroy_all
 Question.destroy_all
 Answer.destroy_all
 User.destroy_all
+Donation.destroy_all
+
+puts 'Creating donations...'
+
+donation = Donation.new(name: 'WWF', sku: 'WWF', price: 1000)
+donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568916958/k3eyttgxsdmu74prvhwg.jpg'
+donation.save!
+
+donation = Donation.new(name: 'Save the Children', sku: 'save-the-children', price: 1000)
+donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568917007/nq5xai9uldfxdc4kk8yw.jpg'
+donation.save!
+
+donation = Donation.new(name: 'Cancer Research', sku: 'cancer-research', price: 1000)
+donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568916981/ocg5ojppdyaku85vnfmw.jpg'
+donation.save!
 
 puts 'Creating greenseers...'
 

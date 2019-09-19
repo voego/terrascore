@@ -6,6 +6,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><%= donation.name %></h5>
+          <p>Amount: <%= humanized_money_with_symbol(donation.price) %></p>
           <%= link_to "More Details" , donation_path(donation), class: "btn btn-primary"%>
         </div>
       </div>

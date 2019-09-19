@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   def create
     donation = Donation.find(params[:donation_id])
-    order = Order.create!(donation: donation, donation_name: donation.name, amount: donation.price, state: 'pending', user: current_user)
+    order = Order.create!(donation: donation, donation_sku: donation.sku, amount: donation.price, state: 'pending', user: current_user)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: donation.name,
-        images: [donation.photo],
+        name: donation.sku,
+        # images: [donation.photo],
         amount: donation.price_cents,
         currency: 'eur',
         quantity: 1
