@@ -57,6 +57,48 @@ var scoreHistoryDisplay = document.querySelector(".scoreHistoryChart");
 var travelDisplay = document.querySelector(".travelHistoryChart");
 var homeDisplay = document.querySelector(".homeHistoryChart");
 var consumptionDisplay = document.querySelector(".consumptionHistoryChart");
+var societyDisplay = document.querySelector(".societyHistoryChart");
+
+var share = document.querySelector(".socialclick");
+var sharebox = document.querySelector(".social");
+var scoreButton = document.querySelector(".button");
+
+share.onclick = function(event) {
+  console.log("morph");
+  sharebox.classList.add("expand");
+}
+
+scoreButton.onclick = function(event){
+  console.log("clicked");
+
+  if (travelDisplay.style.display = travelDisplay.style.display === "block") {
+    travelDisplay.classList.add('fade-out');
+    setTimeout(travelDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(travelDisplay.classList.add('hide'), 2000);
+  };
+
+  if (homeDisplay.style.display = homeDisplay.style.display === "block") {
+    homeDisplay.classList.add('fade-out');
+    setTimeout(homeDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(homeDisplay.classList.add('hide'), 2000);
+  };
+
+  if (consumptionDisplay.style.display = consumptionDisplay.style.display === "block") {
+    consumptionDisplay.classList.add('fade-out');
+    setTimeout(consumptionDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(consumptionDisplay.classList.add('hide'), 2000);
+  };
+
+  if (societyDisplay.style.display = societyDisplay.style.display === "block") {
+    societyDisplay.classList.add('fade-out');
+    setTimeout(societyDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(societyDisplay.classList.add('hide'), 2000);
+  };
+
+  scoreDisplay.classList.remove('hide');
+  scoreDisplay.classList.add('fade-in');
+  scoreDisplay.classList.remove('fade-out');
+};
 
 
 const handleClick = (evt) => {
@@ -73,23 +115,40 @@ const handleClick = (evt) => {
       scoreDisplay.classList.add('fade-out');
       scoreDisplay.classList.remove('fade-in');
       let changeTravelDisplay = () => {
+        console.log(travelDisplay.style.display);
         travelDisplay.style.display = travelDisplay.style.display === "block" ? "none" : "block";
       }
-    setTimeout(changeTravelDisplay, 3000)
+    travelDisplay.classList.remove('hide');
+    setTimeout(changeTravelDisplay, 2000)
   } else if (activeElement[0]._index == 1) {
      // scoreDisplay.style.display = "none";
+     setTimeout(() => {
+        scoreDisplay.classList.add('hide');
+      }, 3000)
+    scoreDisplay.classList.add('fade-out');
+    scoreDisplay.classList.remove('fade-in');
     let changeHomeDisplay = () => {
       homeDisplay.style.display = homeDisplay.style.display === "block" ? "none" : "block";
     }
-    setTimeout(changeHomeDisplay, 3000)
+    setTimeout(changeHomeDisplay, 2000)
   } else if (activeElement[0]._index == 2) {
      // scoreDisplay.style.display = "none";
+     setTimeout(() => {
+        scoreDisplay.classList.add('hide');
+      }, 3000)
+    scoreDisplay.classList.add('fade-out');
+    scoreDisplay.classList.remove('fade-in');
      let changeConsumptionDisplay = () => {
       consumptionDisplay.style.display = consumptionDisplay.style.display === "block" ? "none" : "block";
     }
-    setTimeout(changeConsumptionDisplay, 3000)
+    setTimeout(changeConsumptionDisplay, 2000)
   } else if (activeElement[0]._index == 3) {
      // scoreDisplay.style.display = "none";
+     setTimeout(() => {
+        scoreDisplay.classList.add('hide');
+      }, 3000)
+    scoreDisplay.classList.add('fade-out');
+    scoreDisplay.classList.remove('fade-in');
      // travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
   };
 

@@ -7,6 +7,15 @@
   padding-top: 3vh;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.dashboard-title {
+  justify-content: center;
+}
+
+.button-show {
+  text-align: center;
 }
 
 .dashboard-score-section {
@@ -40,6 +49,31 @@
   margin-bottom: 0;
 }
   position: relative;
+}
+
+.scoreChart {
+  width: 60vw;
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+}
+.social {
+  // position: absolute;
+  // right: 5px;
+  // top: 500px;
+  border:2px solid #ffffff;
+  width: 100px;
+  height: 100px;
+  transition: 1s linear;
+  // transition: height 1s linear;
+}
+
+.expand {
+  width: 1000px;
+  height: 200px;
+  border:2px solid #ffffff;
 }
 
 #denominator {
@@ -76,6 +110,10 @@ h2 {
 
 .scoreHistoryChart {
   display: none;
+}
+
+.show {
+  display: block;
 }
 
 
@@ -124,7 +162,7 @@ h2 {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .fade-in.one {
