@@ -65,6 +65,39 @@ body {
   transition: 0.3s;
 }
 
+button {
+  color: black;
+  // display: block;
+  position: relative;
+  border: 2px solid white;
+  border-radius: 1px;
+  padding: 8px 16px;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+button:hover {
+  color: white !important;
+  background-color: transparent;
+  text-shadow: nthree;
+}
+button:hover:before {
+  left: 0%;
+  right: auto;
+  width: 100%;
+}
+button:before {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  background: black;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: black;
@@ -83,8 +116,8 @@ body {
 
 .content {
   position: absolute;
-  top: 110%;
-  left: 50%;
+  top: 120%;
+  left: 51%;
   transform: translate(-50%, -50%);
   height: 160px;
   overflow: hidden;
@@ -101,16 +134,16 @@ body {
     padding: 0 30px;
 
 
-    &:before {
-      content: '[';
-      left: 0;
-    }
+    // &:before {
+    //   content: '[';
+    //   left: 0;
+    // }
 
-    &:after {
-      content: ']';
-      position: absolute;
-      right: 0;
-    }
+    // &:after {
+    //   content: ']';
+    //   position: absolute;
+    //   right: 0;
+    // }
 
     &:after, &:before {
       position: absolute;
