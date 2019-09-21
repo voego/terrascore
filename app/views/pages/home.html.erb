@@ -23,15 +23,22 @@
 
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div class="home-container">
-  <div class="landing-text">
-    <h2>terrascore</h2>
-    <p>Elevate your lifestyle</p>
 
+<div class="main">
+  <!-- The video -->
+  <video autoplay muted loop id="landingVideo">
+    <source src="<%= image_path('Ocean.mp4') %>" type="video/mp4">
+  </video>
+
+  <!-- Optional: some overlay text to describe the video -->
+  <div class="landing-text">
+    <h1>terrascore</h1>
+    <p>The impact of your lifestyle is now trackable</p>
+    <!-- Use a button to pause/play the video with JavaScript -->
     <div class="content">
       <div class="content__container">
         <p class="content__container__text">
-          Measure
+          Measure your
         </p>
 
         <ul class="content__container__list">
@@ -42,7 +49,53 @@
         </ul>
       </div>
     </div>
-
-    <button id="start" class="btn-standard-white">Get Started</button>
+    <button id="start" class=“btn-slide-white”>Get Started</button>
   </div>
 </div>
+
+
+<!--
+
+
+<header>
+  <div class="overlay"></div>
+  <video autoplay muted loop id="myVideo">
+    <source src="<%= image_path('Ocean.mp4') %>" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">terrascore</h1>
+        <p class="lead mb-0">This may just save us</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="content">
+          <div class="content__container">
+            <p class="content__container__text">
+              Measure your
+            </p>
+
+            <ul class="content__container__list">
+              <li class="content__container__list__item">diet</li>
+              <li class="content__container__list__item">home</li>
+              <li class="content__container__list__item">travel</li>
+              <li class="content__container__list__item">donations</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ -->
+
