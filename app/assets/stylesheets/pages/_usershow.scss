@@ -12,6 +12,7 @@
 
 .dashboard-title {
   justify-content: center;
+  text-align: center;
 }
 
 .button-show {
@@ -21,6 +22,7 @@
 .dashboard-score-section {
   justify-content: right;
   align-items: right;
+  padding-bottom: 10vh;
 }
 
 .dashboard-link-section {
@@ -70,14 +72,37 @@
   // transition: height 1s linear;
 }
 
+.anotherscore {
+  position: absolute;
+  right: 1px;
+  top: 200px;
+  width: 100px;
+  max-width: 100px;
+  margin: 0px;
+}
+
+.plus {
+  font-size: 4em;
+  text-align: right;
+  color: white;
+  margin: 0px;
+  a {
+    color: white;
+  }
+}
+
 .expand {
   width: 1000px;
   height: 200px;
   border:2px solid #ffffff;
 }
 
+#displaytypewriter {
+  text-align: left;
+}
+
 #denominator {
-  border-top: 4px solid rgba(255,215,0, 1);
+  border-top: 4px solid rgba(255,255,255, 18);
 }
 .absolute-center {
   position:absolute;
@@ -102,6 +127,10 @@ h2 {
 .consumptionHistoryChart {
   display: none;
 }
+
+.societyHistoryChart {
+  display: none;
+}
 .scoreChart {
   display: block;
   opacity: 1;
@@ -109,7 +138,7 @@ h2 {
 }
 
 .scoreHistoryChart {
-  display: none;
+  display: block;
 }
 
 .show {

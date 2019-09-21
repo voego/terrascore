@@ -48,7 +48,13 @@
       <p id="denominator">100</p>
     </div>
   </div>
-   <div class="social">
+  <div class="anotherscore fade-in one">
+    <p class="plus">
+    <%= link_to "+", new_answer_path,  class: "plussign"  %>
+    </p>
+    <p id="displaytypewriter"></p>
+  </div>
+<!--    <div class="social">
         <p class="socialclick fade-in two">Share your score</p>
         <div class="social-icons hide">
         <%= link_to 'https://www.facebook.com/', target: :_blank, class:"icon-link" do %>
@@ -58,7 +64,7 @@
        <i class="fab fa-linkedin icon"></i>
      <% end %>
       </div>
-    </div>
+    </div> -->
 </div>
 
 <div class="scoreHistoryChart fade-in one" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
