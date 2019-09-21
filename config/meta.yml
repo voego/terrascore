@@ -1,0 +1,5 @@
+meta_product_name: "terrascore"
+meta_title: "terrascore - elevate your lifestyle"
+meta_description: "terrascore is a tracking service of and a recommendation platform for socially & environmentally-supportive activites."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@terrascore"   # required for Twitter Cards
