@@ -416,10 +416,10 @@ Option.create!(option_attributes)
 puts "Creating answers..."
 answer_attributes = [
 {
-  user_id: 1,
-  option_id: 2,
-  category_id: 1,
-  date: Date.today
+   user_id: 1,
+   option_id: 2,
+   category_id: 1,
+   date: Date.today
  },
  {
   user_id: 1,
@@ -428,16 +428,16 @@ answer_attributes = [
   date: Date.today
  },
  {
-  user_id: 1,
-  option_id: 11,
-  category_id: 1,
-  date: Date.today
+   user_id: 1,
+   option_id: 11,
+   category_id: 1,
+   date: Date.today
  },
  {
-  user_id: 1,
-  option_id: 13,
-  category_id: 1,
-  date: Date.today
+   user_id: 1,
+   option_id: 13,
+   category_id: 1,
+   date: Date.today
  },
  {
   user_id: 1,
@@ -446,10 +446,10 @@ answer_attributes = [
   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 20,
-  category_id: 2,
-  date: Date.today
+   user_id: 1,
+   option_id: 20,
+   category_id: 2,
+   date: Date.today
  },
   {
   user_id: 1,
@@ -464,40 +464,40 @@ answer_attributes = [
   date: Date.today
  },
  {
-  user_id: 1,
-  option_id: 32,
-  category_id: 3,
-  date: Date.today
+   user_id: 1,
+   option_id: 32,
+   category_id: 3,
+   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 38,
-  category_id: 3,
-  date: Date.today
+   user_id: 1,
+   option_id: 38,
+   category_id: 3,
+   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 42,
-  category_id: 3,
-  date: Date.today
+   user_id: 1,
+   option_id: 42,
+   category_id: 3,
+   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 44,
-  category_id: 3,
-  date: Date.today
+   user_id: 1,
+   option_id: 44,
+   category_id: 3,
+   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 48,
-  category_id: 4,
-  date: Date.today
+   user_id: 1,
+   option_id: 48,
+   category_id: 4,
+   date: Date.today
  },
   {
-  user_id: 1,
-  option_id: 53,
-  category_id: 4,
-  date: Date.today
+   user_id: 1,
+   option_id: 53,
+   category_id: 4,
+   date: Date.today
  }
 ]
 Answer.create!(answer_attributes)
@@ -576,16 +576,16 @@ answer_attributes = [
   date: Date.today - 2
  },
   {
-  user_id: 1,
-  option_id: 47,
-  category_id: 4,
-  date: Date.today - 2
+   user_id: 1,
+   option_id: 47,
+   category_id: 4,
+   date: Date.today - 2
  },
   {
-  user_id: 1,
-  option_id: 54,
-  category_id: 4,
-  date: Date.today - 2
+   user_id: 1,
+   option_id: 54,
+   category_id: 4,
+   date: Date.today - 2
  }
 ]
 Answer.create!(answer_attributes)
@@ -663,16 +663,16 @@ answer_attributes = [
   date: Date.today - 4
  },
   {
-  user_id: 1,
-  option_id: 49,
-  category_id: 4,
-  date: Date.today - 4
+   user_id: 1,
+   option_id: 49,
+   category_id: 4,
+   date: Date.today - 4
  },
   {
-  user_id: 1,
-  option_id: 53,
-  category_id: 4,
-  date: Date.today - 4
+   user_id: 1,
+   option_id: 53,
+   category_id: 4,
+   date: Date.today - 4
  }
 ]
 Answer.create!(answer_attributes)
@@ -751,16 +751,16 @@ answer_attributes = [
   date: Date.today - 6
  },
   {
-  user_id: 1,
-  option_id: 50,
-  category_id: 4,
-  date: Date.today - 6
+   user_id: 1,
+   option_id: 50,
+   category_id: 4,
+   date: Date.today - 6
  },
   {
-  user_id: 1,
-  option_id: 51,
-  category_id: 4,
-  date: Date.today - 6
+   user_id: 1,
+   option_id: 51,
+   category_id: 4,
+   date: Date.today - 6
  }
 ]
 Answer.create!(answer_attributes)
@@ -839,16 +839,16 @@ answer_attributes = [
   date: Date.today - 8
  },
   {
-  user_id: 1,
-  option_id: 50,
-  category_id: 4,
-  date: Date.today - 8
+   user_id: 1,
+   option_id: 50,
+   category_id: 4,
+   date: Date.today - 8
  },
   {
-  user_id: 1,
-  option_id: 52,
-  category_id: 4,
-  date: Date.today - 8
+   user_id: 1,
+   option_id: 52,
+   category_id: 4,
+   date: Date.today - 8
  }
 ]
 Answer.create!(answer_attributes)
