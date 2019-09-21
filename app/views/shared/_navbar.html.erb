@@ -1,19 +1,17 @@
-<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-white">
-  <%= link_to root_path, class: "navbar-brand" do %>
-  <!-- decide on the logo -->
-    terrascore
-  <% end %>
+<div class="navbar fixed-top navbar-expand-sm navbar-dark navbar-lewagon">
+
+
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      terrascore
+    <% end %>
+  </div>
+</nav>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class=<%= current_class?(root_path) %>>
-          <%= link_to "Home", root_path, class: "nav-link link-colour" %>
-        </li>
-        <li class=<%= current_class?(user_path(current_user)) %>>
-          <!-- need to add the path to 'my progress' -->
-          <%= link_to "Dashboard", user_path(current_user), class: "nav-link link-colour" %>
-        </li>
         <li class="nav-item dropdown">
           <!-- need to link to cloudinary -->
           <%= cl_image_tag current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
