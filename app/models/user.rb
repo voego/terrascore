@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :answers
+  has_many :orders
   mount_uploader :photo, PhotoUploader
 
   def value_create(date)
@@ -84,6 +85,15 @@ class User < ApplicationRecord
     @score_consumption_historicals = scores.map { |score|
       {
         y: score.consumption_value,
+        x: score.date
+      }
+    }
+  end
+
+  def score_society_history_object
+    @score_society_historicals = scores.map { |score|
+      {
+        y: score.society_value,
         x: score.date
       }
     }

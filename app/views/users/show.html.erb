@@ -1,10 +1,17 @@
 <div class="container">
   <div class="dashboard-body-content">
     <div class="dashboard-flex">
+
       <div class="dashboard-score-section">
-        <div class="dashboard-title fade-in one"><h1>Welcome to your dashboard</h1></div>
+        <div class="dashboard-title fade-in one"><h1>Welcome to your dashboard</h1>
+                <div class="button-show">
+  <button class="button btn-standard-white">Overall Score</button>
+</div>
+</div>
         <hr />
+
         <%= render "user", user: @user %>
+
         <div class="dashboard-link-section">
           <div class="dashboard-link-card">
             <h2>Add/Update a score</h2>
