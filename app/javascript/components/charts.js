@@ -1,29 +1,3 @@
-import "bootstrap";
-import Chart from 'chart.js/dist/Chart.bundle.js';
-import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { makeFirstCategoryDivVisible } from '../components/answernew';
-import { untickOtherCheckboxes } from '../components/answernew';
-import { postOptionsOnSubmit } from '../components/answernew';
-import { nextButtonAction } from '../components/answernew';
-import { previousButtonAction } from '../components/answernew';
-import { showSubmit } from '../components/answernew';
-import { scrollOnCheck } from '../components/answernew';
-import { progressBar } from '../components/answernew';
-import { openNav } from '../components/pushlanding';
-// import { closeNav } from '../components/pushlanding';
-
-
-openNav();
-// closeNav();
-initUpdateNavbarOnScroll();
-makeFirstCategoryDivVisible();
-untickOtherCheckboxes();
-postOptionsOnSubmit();
-nextButtonAction();
-previousButtonAction();
-scrollOnCheck();
-progressBar();
-
 // showSubmit();
 
 
@@ -40,8 +14,7 @@ progressBar();
 // const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
 // var chartArray = [travelScore, homeScore, consumptionScore];
 
-let denominator = document.getElementById("denominator");
-if (denominator) {
+
 var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
 var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
 
@@ -113,6 +86,7 @@ scoreButton.onclick = function(event){
 
 
 const handleClick = (evt) => {
+  console.log(evt);
   var activeElement = myChart.getElementAtEvent(evt);
   if (activeElement[0]._index == 0) {
          // scoreDisplay.style.display = "none";
@@ -168,6 +142,95 @@ const handleClick = (evt) => {
   console.log(activeElement[0]._index);
   console.log(activeElement);
   console.log(chartConfig.data.datasets[activeElement[0]._datasetIndex].data[activeElement[0]._index])
+};
+
+const chartsFunction = () => {
+
+
+// showSubmit();
+
+
+// const travelScore = parseInt(document.getElementById("travel_value").innerHTML);
+// const homeScore = parseInt(document.getElementById("home_value").innerHTML);
+// const consumptionScore = parseInt(document.getElementById("consumption_value").innerHTML);
+
+// const scoreHistory = document.getElementById("score_history_value").innerHTML;
+
+// var dataScoreHistory = scoreHistory.split(',').map(function(item) {
+//     return parseInt(item, 10);
+// });
+// const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
+// const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
+// var chartArray = [travelScore, homeScore, consumptionScore];
+
+
+var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
+var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
+
+var scoreMinDate = new Date(scoreHistoryChart.dataset.minDate);
+var scoreMaxDate = new Date(scoreHistoryChart.dataset.maxDate);
+
+var scoreChart = document.querySelector(".scoreChart")
+var score_breakdown = JSON.parse(scoreChart.dataset.score_total);
+var score_total_breakdown = [score_breakdown.travel, score_breakdown.home, score_breakdown.consumption];
+
+var ctx = document.getElementById('myChart');
+
+var scoreDisplay = document.querySelector(".scoreChart");
+var scoreHistoryDisplay = document.querySelector(".scoreHistoryChart");
+var travelDisplay = document.querySelector(".travelHistoryChart");
+var homeDisplay = document.querySelector(".homeHistoryChart");
+var consumptionDisplay = document.querySelector(".consumptionHistoryChart");
+var societyDisplay = document.querySelector(".societyHistoryChart");
+
+// var share = document.querySelector(".socialclick");
+// var sharebox = document.querySelector(".social");
+// var shareicon = document.getElementById("socialmedia");
+var scoreButton = document.querySelector(".button");
+
+// share.onclick = function(event) {
+//   console.log("morph");
+//   if (sharebox.classList.contains("expand")) {
+//     sharebox.classList.remove("expand");
+//     shareicon.classList.add("hide");
+//     shareicon.classList.remove("fade-in");
+//     } else {
+//       sharebox.classList.add("expand");
+//     setTimeout(shareicon.classList.remove("hide"), 2000);
+//     shareicon.classList.add("fade-in");
+//     }
+// }
+
+scoreButton.onclick = function(event){
+  console.log("clicked");
+
+  if (travelDisplay.style.display = travelDisplay.style.display === "block") {
+    travelDisplay.classList.add('fade-out');
+    setTimeout(travelDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(travelDisplay.classList.add('hide'), 2000);
+  };
+
+  if (homeDisplay.style.display = homeDisplay.style.display === "block") {
+    homeDisplay.classList.add('fade-out');
+    setTimeout(homeDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(homeDisplay.classList.add('hide'), 2000);
+  };
+
+  if (consumptionDisplay.style.display = consumptionDisplay.style.display === "block") {
+    consumptionDisplay.classList.add('fade-out');
+    setTimeout(consumptionDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(consumptionDisplay.classList.add('hide'), 2000);
+  };
+
+  if (societyDisplay.style.display = societyDisplay.style.display === "block") {
+    societyDisplay.classList.add('fade-out');
+    setTimeout(societyDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(societyDisplay.classList.add('hide'), 2000);
+  };
+
+  scoreDisplay.classList.remove('hide');
+  scoreDisplay.classList.add('fade-in');
+  scoreDisplay.classList.remove('fade-out');
 };
 
 var chartConfig = {
@@ -518,4 +581,8 @@ var myConsumptionChart = new Chart(ctx_consumption, {
 //         }
 //     }
 //  });
+
 };
+
+export { chartsFunction };
+export { handleClick };
