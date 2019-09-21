@@ -486,6 +486,18 @@ answer_attributes = [
    option_id: 41,
    category_id: 2,
    date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 48,
+   category_id: 2,
+   date: Date.today
+ },
+  {
+   user_id: 1,
+   option_id: 52,
+   category_id: 2,
+   date: Date.today
  }
 ]
   Answer.create!(answer_attributes)
@@ -560,6 +572,18 @@ answer_attributes = [
    user_id: 1,
    option_id: 42,
    category_id: 3,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 47,
+   category_id: 2,
+   date: Date.today - 2
+ },
+  {
+   user_id: 1,
+   option_id: 54,
+   category_id: 2,
    date: Date.today - 2
  }
 ]
@@ -636,6 +660,194 @@ answer_attributes = [
    option_id: 42,
    category_id: 3,
    date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 49,
+   category_id: 2,
+   date: Date.today - 4
+ },
+  {
+   user_id: 1,
+   option_id: 53,
+   category_id: 2,
+   date: Date.today - 4
+ }
+]
+Answer.create!(answer_attributes)
+
+answer_attributes = [
+{
+   user_id: 1,
+   option_id: 1,
+   category_id: 1,
+   date: Date.today - 6
+ },
+ {
+   user_id: 1,
+   option_id: 6,
+   category_id: 1,
+   date: Date.today - 6
+ },
+ {
+   user_id: 1,
+   option_id: 10,
+   category_id: 1,
+   date: Date.today - 6
+ },
+ {
+   user_id: 1,
+   option_id: 15,
+   category_id: 1,
+   date: Date.today - 6
+ },
+ {
+   user_id: 1,
+   option_id: 16,
+   category_id: 2,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 22,
+   category_id: 2,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 27,
+   category_id: 2,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 28,
+   category_id: 2,
+   date: Date.today - 6
+ },
+ {
+   user_id: 1,
+   option_id: 33,
+   category_id: 3,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 39,
+   category_id: 3,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 41,
+   category_id: 3,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 44,
+   category_id: 3,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 50,
+   category_id: 2,
+   date: Date.today - 6
+ },
+  {
+   user_id: 1,
+   option_id: 51,
+   category_id: 2,
+   date: Date.today - 6
+ }
+]
+Answer.create!(answer_attributes)
+
+answer_attributes = [
+{
+   user_id: 1,
+   option_id: 4,
+   category_id: 1,
+   date: Date.today - 8
+ },
+ {
+   user_id: 1,
+   option_id: 6,
+   category_id: 1,
+   date: Date.today - 8
+ },
+ {
+   user_id: 1,
+   option_id: 8,
+   category_id: 1,
+   date: Date.today - 8
+ },
+ {
+   user_id: 1,
+   option_id: 12,
+   category_id: 1,
+   date: Date.today - 8
+ },
+ {
+   user_id: 1,
+   option_id: 17,
+   category_id: 2,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 20,
+   category_id: 2,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 27,
+   category_id: 2,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 30,
+   category_id: 2,
+   date: Date.today - 8
+ },
+ {
+   user_id: 1,
+   option_id: 35,
+   category_id: 3,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 38,
+   category_id: 3,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 43,
+   category_id: 3,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 45,
+   category_id: 3,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 50,
+   category_id: 2,
+   date: Date.today - 8
+ },
+  {
+   user_id: 1,
+   option_id: 52,
+   category_id: 2,
+   date: Date.today - 8
  }
 ]
 Answer.create!(answer_attributes)
@@ -660,7 +872,7 @@ score_attributes = [
    travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
    home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum,
    consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum,
-   society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
+   society_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 4).map { |a| a.option.weight }.sum
  },
  {
    user_id: 1,
@@ -670,7 +882,27 @@ score_attributes = [
    travel_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 1).map { |a| a.option.weight }.sum,
    home_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 2).map { |a| a.option.weight }.sum,
    consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum,
-   society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
+   society_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 4).map { |a| a.option.weight }.sum
+ },
+ {
+   user_id: 1,
+   category_id: 1,
+   date: Date.today - 6,
+   value: User.find(1).answers.where(date: Date.today - 6).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 6).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 6).where(category_id: 2).map { |a| a.option.weight }.sum,
+   consumption_value: User.find(1).answers.where(date: Date.today - 6).where(category_id: 3).map { |a| a.option.weight }.sum,
+   society_value: User.find(1).answers.where(date: Date.today - 6).where(category_id: 4).map { |a| a.option.weight }.sum
+ },
+ {
+   user_id: 1,
+   category_id: 1,
+   date: Date.today - 8,
+   value: User.find(1).answers.where(date: Date.today - 8).map { |a| a.option.weight }.sum,
+   travel_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 1).map { |a| a.option.weight }.sum,
+   home_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 2).map { |a| a.option.weight }.sum,
+   consumption_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 3).map { |a| a.option.weight }.sum,
+   society_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 4).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)
