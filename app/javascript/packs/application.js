@@ -15,7 +15,7 @@ import { closeNav } from '../components/pushlanding';
 
 openNav();
 closeNav();
-// initUpdateNavbarOnScroll();
+initUpdateNavbarOnScroll();
 makeFirstCategoryDivVisible();
 untickOtherCheckboxes();
 postOptionsOnSubmit();
@@ -62,11 +62,20 @@ var societyDisplay = document.querySelector(".societyHistoryChart");
 
 var share = document.querySelector(".socialclick");
 var sharebox = document.querySelector(".social");
+var shareicon = document.getElementById("socialmedia");
 var scoreButton = document.querySelector(".button");
 
 share.onclick = function(event) {
   console.log("morph");
-  sharebox.classList.add("expand");
+  if (sharebox.classList.contains("expand")) {
+    sharebox.classList.remove("expand");
+    shareicon.classList.add("hide");
+    shareicon.classList.remove("fade-in");
+    } else {
+      sharebox.classList.add("expand");
+    setTimeout(shareicon.classList.remove("hide"), 2000);
+    shareicon.classList.add("fade-in");
+    }
 }
 
 scoreButton.onclick = function(event){
