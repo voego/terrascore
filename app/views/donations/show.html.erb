@@ -9,8 +9,10 @@
       <p>Amount: <%= humanized_money_with_symbol(@donation.price) %></p>
     </div>
   </div>
+
   <%= form_tag orders_path do %>
+    <%= text_field_tag 'price' %>
     <%= hidden_field_tag 'donation_id', @donation.id %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <%= submit_tag 'Donate', class: 'btn btn-primary' %>
   <% end %>
 </div>
