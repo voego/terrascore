@@ -2,7 +2,6 @@
   justify-content: space-between;
   color: white;
   background-color: transparent;
-  color: white;
   transition: 0.5s background-color ease;
   a:hover {
   color: green;
@@ -17,12 +16,14 @@
   width: 40px;
 }
 
-.navbar-lewagon-white {
-  background-color: white;
-  color: black;
-}
-
 .link-colour {
   color: white;
   font-style: normal;
 }
+
+.navbar-header {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {float:none;}

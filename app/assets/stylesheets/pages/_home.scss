@@ -67,6 +67,12 @@ body {
   transition: 0.3s;
 }
 
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  margin-left:5px;
+}
+
 button {
   color: black;
   // display: block;
@@ -98,11 +104,6 @@ button:before {
   color: #000 !important;
   background: black;
   transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: black;
 }
 
 

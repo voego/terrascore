@@ -7,7 +7,7 @@
 
 
 <div id="mySidenav" class="sidenav">
-  <%= link_to "Close", root_path, class: "closebtn" %>
+<!--   <%= link_to "Close", root_path, class: "closebtn" %> -->
   <% if !user_signed_in? %>
   <%= link_to "Log in", new_user_session_path %>
   <%= link_to "Register", new_user_registration_path %>
