@@ -1,18 +1,21 @@
-<div class="container py-3">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <%= cl_image_tag(@donation.photo, width: '100%') %>
-    </div>
-    <div class="col-sm-12 col-md-6">
+<div class="container">
+
+  <div class="charity-info">
+
+    <div class="charity-info-text">
       <h1><%= @donation.name %></h1>
-      <p>Some awesome description of our donation</p>
-      <p>Amount: <%= humanized_money_with_symbol(@donation.price) %></p>
+      <p><%= @donation.description %></p>
     </div>
+    <%= cl_image_tag(@donation.photo, width: '100%') %>
   </div>
 
-  <%= form_tag orders_path do %>
-    <%= text_field_tag 'price' %>
-    <%= hidden_field_tag 'donation_id', @donation.id %>
-    <%= submit_tag 'Donate', class: 'btn btn-primary' %>
-  <% end %>
+  <div class="donation-amount">
+    <p>Specify your desired donation amount:</p>
+    <%= form_tag orders_path do %>
+      <%= text_field_tag 'price', '£' %>
+      <%= hidden_field_tag 'donation_id', @donation.id %>
+      <%= submit_tag 'Donate', class: 'btn-standard-black' %>
+    <% end %>
+  </div>
+
 </div>

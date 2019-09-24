@@ -10,11 +10,29 @@
 // }
 
 .question {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
-.toggle-content {
-  display: none
+.answer-new-container {
+  margin-left: 70px;
+  h1 {
+    font-weight: 300;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px
+  }
+}
+
+.field {
+  display: flex;
+  p {
+    margin-left: 15px;
+    font-weight: 300
+  }
 }
 
 .visible {
@@ -29,10 +47,27 @@
   display: none
 }
 
+.answer-body-content {
+  padding-top: 10vh;
+}
+
+.answer-new-container {
+  padding: 75px
+}
+
+.actions {
+  margin-top: 50px
+}
+
+.answer-options-flex {
+  display: flex;
+}
+
+
 /* Style the header: fixed position (always stay at the top) */
 .progress-header {
   position: fixed;
-  top: 55px;
+  // top: 55px;
   z-index: 1;
   width: 100%;
   background-color: white;
