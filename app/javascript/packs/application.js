@@ -62,12 +62,6 @@ plussign.addEventListener("mouseout", removeText);
 
 let denominator = document.getElementById("denominator");
 if (denominator) {
-var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
-var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
-
-let denominator = document.getElementById("denominator");
-
-if (denominator) {
 
 var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
 var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
@@ -390,7 +384,7 @@ var myHomeChart = new Chart(ctx_home, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(144, 142, 142, 0.43)',
-                'rgba(255, 159, 64, 0)'
+                'rgba(255, 159, 64, 0)',
               'rgba(255,255,255, 0.2)'
             ],
             borderWidth: 1
