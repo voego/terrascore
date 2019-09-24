@@ -38,9 +38,37 @@ progressBar();
 // const travelHistoryScore = parseInt(document.getElementById("travel_value").innerHTML);
 // const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
 // var chartArray = [travelScore, homeScore, consumptionScore];
+var i = 0;
+var txt = "Answer the questionnaire"
+var speed = 30;
+
+var plussign = document.querySelector(".plussign");
+
+const typeWriter = () => {
+  if (i < txt.length) {
+    document.getElementById("displaytypewriter").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+const removeText = () => {
+  document.getElementById("displaytypewriter").innerHTML = '';
+  i = 0;
+}
+
+plussign.addEventListener("mouseenter", typeWriter);
+plussign.addEventListener("mouseout", removeText);
 
 let denominator = document.getElementById("denominator");
 if (denominator) {
+var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
+var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
+
+let denominator = document.getElementById("denominator");
+
+if (denominator) {
+
 var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
 var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
 
@@ -49,7 +77,7 @@ var scoreMaxDate = new Date(scoreHistoryChart.dataset.maxDate);
 
 var scoreChart = document.querySelector(".scoreChart")
 var score_breakdown = JSON.parse(scoreChart.dataset.score_total);
-var score_total_breakdown = [score_breakdown.travel, score_breakdown.home, score_breakdown.consumption];
+var score_total_breakdown = [score_breakdown.travel, score_breakdown.home, score_breakdown.consumption, score_breakdown.society, score_breakdown.remainder];
 
 var ctx = document.getElementById('myChart');
 
@@ -67,6 +95,8 @@ var scoreButton = document.querySelector(".button");
 
 // share.onclick = function(event) {
 //   console.log("morph");
+
+//   sharebox.classList.add("expand");
 //   if (sharebox.classList.contains("expand")) {
 //     sharebox.classList.remove("expand");
 //     shareicon.classList.add("hide");
@@ -76,6 +106,7 @@ var scoreButton = document.querySelector(".button");
 //     setTimeout(shareicon.classList.remove("hide"), 2000);
 //     shareicon.classList.add("fade-in");
 //     }
+
 // }
 
 scoreButton.onclick = function(event){
@@ -159,7 +190,10 @@ const handleClick = (evt) => {
       }, 3000)
     scoreDisplay.classList.add('fade-out');
     scoreDisplay.classList.remove('fade-in');
-     // travelDisplay.style.display = travelDisplay.style.display === "none" ? "block" : "none";
+    let changeSocietyDisplay = () => {
+      societyDisplay.style.display = societyDisplay.style.display === "block" ? "none" : "block";
+    }
+    setTimeout(changeSocietyDisplay, 2000)
   };
 
   // Add the hidden class to the doughnut when the click event occurs, and then make the display: none
@@ -172,21 +206,25 @@ const handleClick = (evt) => {
 var chartConfig = {
     type: 'doughnut',
     data: {
-        labels: ['Travel', 'Home', 'Consumption', 'Society'],
+        labels: ['Travel', 'Home', 'Consumption', 'Society', 'remainder'],
         datasets: [{
             label: 'Score',
             data: score_total_breakdown,
             backgroundColor: [
-                'rgba(255,255,255, 0.8)',
-                'rgba(255,255,255, 0.8)',
-                'rgba(255,255,255, 0.8)',
-                'rgba(255,255,255, 0.8)'
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderColor: [
-                    ' rgba(255,215,0, 1)',
-                    ' rgba(255,215,0, 1)',
-                    ' rgba(255,215,0, 1)',
-                   ' rgba(255,215,0, 1)'
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderWidth: 2
         }]
@@ -194,14 +232,19 @@ var chartConfig = {
     options: {
 
           responsive: true,
+          animation: {
+            duration: 8000,
+          },
     legend: {
-      display: true
+      display: false
     },
     onClick: handleClick,
            title: {
             display: true,
             text: 'Your current total score',
             fontSize: 30,
+            fontFamily: 'Montserrat',
+            padding: 20,
             fontColor: '#FFFFFF'
           },
         scales: {
@@ -215,6 +258,46 @@ var chartConfig = {
     }
 }
 var myChart = new Chart(ctx, chartConfig);
+
+
+// datasets: [{
+//       label: "Unavailable",
+//       fill: true,
+//       backgroundColor: colors.purple.fill,
+//       pointBackgroundColor: colors.purple.stroke,
+//       borderColor: colors.purple.stroke,
+//       pointHighlightStroke: colors.purple.stroke,
+//       borderCapStyle: 'butt',
+//       data: unavailable,
+
+//     }, {
+//       label: "Available for Existing",
+//       fill: true,
+//       backgroundColor: colors.darkBlue.fill,
+//       pointBackgroundColor: colors.darkBlue.stroke,
+//       borderColor: colors.darkBlue.stroke,
+//       pointHighlightStroke: colors.darkBlue.stroke,
+//       borderCapStyle: 'butt',
+//       data: availableForExisting,
+//     }, {
+//       label: "Available",
+//       fill: true,
+//       backgroundColor: colors.green.fill,
+//       pointBackgroundColor: colors.lightBlue.stroke,
+//       borderColor: colors.lightBlue.stroke,
+//       pointHighlightStroke: colors.lightBlue.stroke,
+//       borderCapStyle: 'butt',
+//       data: available,
+//     }, {
+//       label: "Logged In",
+//       fill: true,
+//       backgroundColor: colors.green.fill,
+//       pointBackgroundColor: colors.green.stroke,
+//       borderColor: colors.green.stroke,
+//       pointHighlightStroke: colors.green.stroke,
+//       data: loggedIn,
+//     }]
+
 
 var date_score_history_breakdown = [];
 score_history_breakdown.forEach((score) => {
@@ -295,24 +378,37 @@ var myHomeChart = new Chart(ctx_home, {
             label: 'Score',
             data: date_home_score_history_breakdown,
             backgroundColor: [
-              'rgba(255,255,255, 0.2)'
+                'rgba(54, 162, 235, 0.3)',
+                'rgba(255, 206, 86, 0.3)',
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderColor: [
-                'rgba(255,215,0, 1)',
+                'rgba(255, 255, 255, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
+              'rgba(255,255,255, 0.2)'
             ],
             borderWidth: 1
         }]
     },
     options: {
+      animation: {
+            duration: 8000,
+          },
+      legend: {
+      display: false
+    },
       title: {
             display: true,
             text: 'Your historical home scores',
             fontSize: 30,
+            fontFamily: 'Montserrat',
+            padding: 20,
             fontColor: '#FFFFFF'
           },
         scales: {
@@ -356,7 +452,12 @@ var myTravelChart = new Chart(ctx_travel, {
             label: 'Score',
             data: date_travel_score_history_breakdown,
             backgroundColor: [
-               'rgba(255,255,255, 0.2)'
+               'rgba(255, 99, 132, 0.3)',
+                'rgba(54, 162, 235, 0.3)',
+                'rgba(255, 206, 86, 0.3)',
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderColor: [
                 'rgba(255,215,0, 1)',
@@ -370,10 +471,18 @@ var myTravelChart = new Chart(ctx_travel, {
         }]
     },
     options: {
+      animation: {
+            duration: 8000,
+          },
+      legend: {
+      display: false
+    },
       title: {
             display: true,
             text: 'Your historical travel scores',
             fontSize: 30,
+            fontFamily: 'Montserrat',
+            padding: 20,
             fontColor: '#FFFFFF'
           },
         scales: {
@@ -417,24 +526,35 @@ var myConsumptionChart = new Chart(ctx_consumption, {
             label: 'Score',
             data: date_consumption_score_history_breakdown,
             backgroundColor: [
-              'rgba(255,255,255, 0.2)'
+                'rgba(255, 206, 86, 0.3)',
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderColor: [
-                'rgba(255,215,0, 1)',
+                'rgba(255, 255, 255, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
             ],
             borderWidth: 1
         }]
     },
     options: {
+      animation: {
+            duration: 8000,
+          },
+      legend: {
+      display: false
+    },
       title: {
             display: true,
             text: 'Your historical consumption scores',
             fontSize: 30,
+            fontFamily: 'Montserrat',
+            padding: 20,
             fontColor: '#FFFFFF'
           },
         scales: {
@@ -457,64 +577,161 @@ var myConsumptionChart = new Chart(ctx_consumption, {
     }
  });
 
-// var societyScoreHistoryChart = document.querySelector(".societyHistoryChart")
-// var society_score_history_breakdown = JSON.parse(societyScoreHistoryChart.dataset.society_score_historicals);
+var societyScoreHistoryChart = document.querySelector(".societyHistoryChart")
+var society_score_history_breakdown = JSON.parse(societyScoreHistoryChart.dataset.society_score_historicals);
 
-// var date_society_score_history_breakdown = [];
-// society_score_history_breakdown.forEach((score) => {
-//   let newScore = {
-//     y: score.y,
-//     x: new Date(score.x)
-//   }
-//   date_society_score_history_breakdown.push(newScore)
-// })
+var date_society_score_history_breakdown = [];
+society_score_history_breakdown.forEach((score) => {
+  let newScore = {
+    y: score.y,
+    x: new Date(score.x)
+  }
+  date_society_score_history_breakdown.push(newScore)
+})
 
-// var ctx_society = document.getElementById('mySocietyHistoryChart');
-// var mySocietyChart = new Chart(ctx_society, {
-//     type: 'line',
-//     data: {
-//         labels: ['Society'],
-//         datasets: [{
-//             label: 'Score',
-//             data: date_society_score_history_breakdown,
-//             backgroundColor: [
-//               'rgba(255,255,255, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255,215,0, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//       title: {
-//             display: true,
-//             text: 'Your historical consumption scores',
-//             fontSize: 30,
-//             fontColor: '#FFFFFF'
-//           },
-//         scales: {
-//           xAxes: [{
-//             type: 'time',
-//                 distribution: 'series',
-//                   time: {
-//                    unit:"day",
-//                    displayFormats:{month:'MMM D'},
-//                    min: scoreMinDate,
-//                    max: scoreMaxDate,
-//                 }
-//         }],
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-//  });
-};
+var ctx_society = document.getElementById('mySocietyHistoryChart');
+var mySocietyChart = new Chart(ctx_society, {
+    type: 'line',
+    data: {
+        labels: ['Society'],
+        datasets: [{
+            label: 'Score',
+            data: date_society_score_history_breakdown,
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
+            ],
+            borderColor: [
+                'rgba(255, 255, 255, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+      animation: {
+            duration: 8000,
+          },
+      legend: {
+      display: false
+    },
+      title: {
+            display: true,
+            text: 'Your historical society scores',
+            fontSize: 30,
+            fontFamily: 'Montserrat',
+            padding: 20,
+            fontColor: '#FFFFFF'
+          },
+        scales: {
+          xAxes: [{
+            type: 'time',
+                distribution: 'series',
+                  time: {
+                   unit:"day",
+                   displayFormats:{month:'MMM D'},
+                   min: scoreMinDate,
+                   max: scoreMaxDate,
+                }
+        }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+ });
+
+var date_score_history_breakdown = [];
+score_history_breakdown.forEach((score) => {
+  let newScore = {
+    y: score.y,
+    x: new Date(score.x)
+  }
+  date_score_history_breakdown.push(newScore)
+})
+
+var ctx_score_history = document.getElementById('myScoreHistoryChart');
+var scoreHistoryChart = new Chart(ctx_score_history, {
+    type: 'line',
+    data: {
+        labels: ['Score'],
+        datasets: [{
+            label: 'Score',
+            data: date_score_history_breakdown,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.3)',
+                'rgba(54, 162, 235, 0.3)',
+                'rgba(255, 206, 86, 0.3)',
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
+            ],
+            borderWidth: 1
+        },
+        {
+          label: 'Travel',
+          data: date_travel_score_history_breakdown,
+          borderWidth: 1
+        },
+        {
+          label: 'Home',
+          data: date_home_score_history_breakdown,
+          borderWidth: 1
+        },
+        {
+          label: 'Consumption',
+          data: date_consumption_score_history_breakdown,
+          borderWidth: 1
+        },
+        {
+          label: 'Society',
+          data: date_society_score_history_breakdown,
+          borderWidth: 1
+        }]
+    },
+    options: {
+      legend: {
+      display: false
+    },
+      title: {
+            display: true,
+            text: 'Your historical total scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
+        scales: {
+             xAxes: [{
+                type: 'time',
+                distribution: 'series',
+                time: {
+                   unit:"day",
+                   displayFormats:{month:'MMM D'},
+                   min: scoreMinDate,
+                   max: scoreMaxDate,
+                }
+              }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                stacked: true,
+            }]
+        }
+    }
+});
+}

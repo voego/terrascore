@@ -48,9 +48,15 @@
       <p id="denominator">100</p>
     </div>
   </div>
-  <!--  <div class="social">
-        <p class="socialclick fade-in two">Share</p>
-        <div id="socialmedia" class="social-icons hide">
+  <div class="anotherscore fade-in one">
+    <p class="plus">
+    <%= link_to "+", new_answer_path,  class: "plussign"  %>
+    </p>
+    <p id="displaytypewriter"></p>
+  </div>
+<!--    <div class="social">
+        <p class="socialclick fade-in two">Share your score</p>
+        <div class="social-icons hide">
         <%= link_to 'https://www.facebook.com/', target: :_blank, class:"icon-link" do %>
        <i class="fab fa-facebook icon"></i>
      <% end %>
