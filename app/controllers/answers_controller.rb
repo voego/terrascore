@@ -33,6 +33,7 @@ class AnswersController < ApplicationController
       total_score += option.weight
     end
     Score.create(user: current_user, value: total_score, travel_value: travel_score, home_value: home_score, consumption_value: consumption_score, society_value: society_score, date: Date.today, category: Category.last)
+    redirect_to user_path(current_user)
   end
 
   def edit          # GET /questions/:id/edit

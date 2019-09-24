@@ -419,85 +419,85 @@ answer_attributes = [
    user_id: 1,
    option_id: 2,
    category_id: 1,
-   date: Date.today
+   date: Date.today - 1
  },
  {
   user_id: 1,
   option_id: 5,
   category_id: 1,
-  date: Date.today
+  date: Date.today - 1
  },
  {
    user_id: 1,
    option_id: 11,
    category_id: 1,
-   date: Date.today
+   date: Date.today - 1
  },
  {
    user_id: 1,
    option_id: 13,
    category_id: 1,
-   date: Date.today
+   date: Date.today - 1
  },
  {
   user_id: 1,
   option_id: 17,
   category_id: 2,
-  date: Date.today
+  date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 20,
    category_id: 2,
-   date: Date.today
+   date: Date.today - 1
  },
   {
   user_id: 1,
   option_id: 27,
   category_id: 2,
-  date: Date.today
+  date: Date.today - 1
  },
   {
   user_id: 1,
   option_id: 30,
   category_id: 2,
-  date: Date.today
+  date: Date.today - 1
  },
  {
    user_id: 1,
    option_id: 32,
    category_id: 3,
-   date: Date.today
+   date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 38,
    category_id: 3,
-   date: Date.today
+   date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 42,
    category_id: 3,
-   date: Date.today
+   date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 44,
    category_id: 3,
-   date: Date.today
+   date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 48,
    category_id: 4,
-   date: Date.today
+   date: Date.today - 1
  },
   {
    user_id: 1,
    option_id: 53,
    category_id: 4,
-   date: Date.today
+   date: Date.today - 1
  }
 ]
 Answer.create!(answer_attributes)

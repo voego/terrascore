@@ -44,6 +44,11 @@ const postOptionsOnSubmit = () => {
           "X-CSRF-Token": railsToken
         }
       })
+      setTimeout(function(){
+        let url = submitButton.dataset.url;
+        window.location.href = url;
+       }, 4000);
+
     });
   }
 }
