@@ -57,8 +57,11 @@ const removeText = () => {
   i = 0;
 }
 
-plussign.addEventListener("mouseenter", typeWriter);
-plussign.addEventListener("mouseout", removeText);
+
+if (plussign) {
+  plussign.addEventListener("mouseenter", typeWriter);
+  plussign.addEventListener("mouseout", removeText);
+};
 
 let denominator = document.getElementById("denominator");
 if (denominator) {
@@ -385,7 +388,7 @@ var myHomeChart = new Chart(ctx_home, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(144, 142, 142, 0.43)',
                 'rgba(255, 159, 64, 0)',
-              'rgba(255,255,255, 0.2)'
+                'rgba(255,255,255, 0.2)',
             ],
             borderWidth: 1
         }]
@@ -649,7 +652,8 @@ score_history_breakdown.forEach((score) => {
     x: new Date(score.x)
   }
   date_score_history_breakdown.push(newScore)
-})
+});
+}
 
 // var ctx_score_history = document.getElementById('myScoreHistoryChart');
 // var scoreHistoryChart = new Chart(ctx_score_history, {
