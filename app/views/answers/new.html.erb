@@ -18,10 +18,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <div class="field">
               <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-              <p> <%= option.content %></p>
-            </div>
+              <span> <%= option.content %></span>
+              <br>
+              <br>
           <% end %>
         </div>
       <% end %>
@@ -41,10 +41,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <div class="field">
               <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-              <p> <%= option.content %></p>
-            </div>
+              <span> <%= option.content %></span>
+              <br>
+              <br>
           <% end %>
         </div>
       <% end %>
@@ -64,10 +64,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <div class="field">
               <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-              <p> <%= option.content %></p>
-            </div>
+              <span> <%= option.content %></span>
+              <br>
+              <br>
           <% end %>
         </div>
       <% end %>
@@ -87,10 +87,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <div class="field">
               <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-              <p> <%= option.content %></p>
-            </div>
+              <span> <%= option.content %></span>
+              <br>
+              <br>
           <% end %>
         </div>
       <% end %>
