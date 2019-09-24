@@ -12,7 +12,8 @@
   <div class="donation-amount">
     <p>Specify your desired donation amount:</p>
     <%= form_tag orders_path do %>
-      <%= text_field_tag 'price', '£' %>
+
+      <span>£</span> <%= text_field_tag 'price', "", class: 'black-box' %>
       <%= hidden_field_tag 'donation_id', @donation.id %>
       <%= submit_tag 'Donate', class: 'btn-standard-black' %>
     <% end %>

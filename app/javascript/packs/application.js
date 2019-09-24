@@ -651,81 +651,81 @@ score_history_breakdown.forEach((score) => {
   date_score_history_breakdown.push(newScore)
 })
 
-var ctx_score_history = document.getElementById('myScoreHistoryChart');
-var scoreHistoryChart = new Chart(ctx_score_history, {
-    type: 'line',
-    data: {
-        labels: ['Score'],
-        datasets: [{
-            label: 'Score',
-            data: date_score_history_breakdown,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.3)',
-                'rgba(54, 162, 235, 0.3)',
-                'rgba(255, 206, 86, 0.3)',
-                'rgba(75, 192, 192, 0.3)',
-                'rgba(153, 102, 255, 0)',
-                'rgba(255, 159, 64, 0)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(144, 142, 142, 0.43)',
-                'rgba(255, 159, 64, 0)'
-            ],
-            borderWidth: 1
-        },
-        {
-          label: 'Travel',
-          data: date_travel_score_history_breakdown,
-          borderWidth: 1
-        },
-        {
-          label: 'Home',
-          data: date_home_score_history_breakdown,
-          borderWidth: 1
-        },
-        {
-          label: 'Consumption',
-          data: date_consumption_score_history_breakdown,
-          borderWidth: 1
-        },
-        {
-          label: 'Society',
-          data: date_society_score_history_breakdown,
-          borderWidth: 1
-        }]
-    },
-    options: {
-      legend: {
-      display: false
-    },
-      title: {
-            display: true,
-            text: 'Your historical total scores',
-            fontSize: 30,
-            fontColor: '#FFFFFF'
-          },
-        scales: {
-             xAxes: [{
-                type: 'time',
-                distribution: 'series',
-                time: {
-                   unit:"day",
-                   displayFormats:{month:'MMM D'},
-                   min: scoreMinDate,
-                   max: scoreMaxDate,
-                }
-              }],
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-                stacked: true,
-            }]
-        }
-    }
-});
-}
+// var ctx_score_history = document.getElementById('myScoreHistoryChart');
+// var scoreHistoryChart = new Chart(ctx_score_history, {
+//     type: 'line',
+//     data: {
+//         labels: ['Score'],
+//         datasets: [{
+//             label: 'Score',
+//             data: date_score_history_breakdown,
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.3)',
+//                 'rgba(54, 162, 235, 0.3)',
+//                 'rgba(255, 206, 86, 0.3)',
+//                 'rgba(75, 192, 192, 0.3)',
+//                 'rgba(153, 102, 255, 0)',
+//                 'rgba(255, 159, 64, 0)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(144, 142, 142, 0.43)',
+//                 'rgba(255, 159, 64, 0)'
+//             ],
+//             borderWidth: 1
+//         },
+//         {
+//           label: 'Travel',
+//           data: date_travel_score_history_breakdown,
+//           borderWidth: 1
+//         },
+//         {
+//           label: 'Home',
+//           data: date_home_score_history_breakdown,
+//           borderWidth: 1
+//         },
+//         {
+//           label: 'Consumption',
+//           data: date_consumption_score_history_breakdown,
+//           borderWidth: 1
+//         },
+//         {
+//           label: 'Society',
+//           data: date_society_score_history_breakdown,
+//           borderWidth: 1
+//         }]
+//     },
+//     options: {
+//       legend: {
+//       display: false
+//     },
+//       title: {
+//             display: true,
+//             text: 'Your historical total scores',
+//             fontSize: 30,
+//             fontColor: '#FFFFFF'
+//           },
+//         scales: {
+//              xAxes: [{
+//                 type: 'time',
+//                 distribution: 'series',
+//                 time: {
+//                    unit:"day",
+//                    displayFormats:{month:'MMM D'},
+//                    min: scoreMinDate,
+//                    max: scoreMaxDate,
+//                 }
+//               }],
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 },
+//                 stacked: true,
+//             }]
+//         }
+//     }
+// });
+// }
