@@ -136,6 +136,9 @@ scoreButton.forEach(function(element) {
   scoreDisplay.classList.remove('hide');
   scoreDisplay.classList.add('fade-in');
   scoreDisplay.classList.remove('fade-out');
+  scoreHistoryDisplay.classList.add('hide');
+  scoreHistoryDisplay.classList.remove('fade-in');
+  scoreHistoryDisplay.classList.add('fade-out');
 
 };
 })
@@ -166,18 +169,15 @@ historyScoreButton.onclick = function(event){
   //   setTimeout(societyDisplay.classList.remove('fade-in'), 2000);
   //   setTimeout(societyDisplay.classList.add('hide'), 2000);
   // };
-  console.log(scoreDisplay.style)
-  if (scoreDisplay.style.display === "block") {
-    console.log("achieve");
-    scoreDisplay.classList.add('fade-out');
-    setTimeout(scoreDisplay.classList.remove('fade-in'), 2000);
-    setTimeout(scoreDisplay.classList.add('hide'), 2000);
-  };
 
-  // scoreHistoryDisplay.classList.remove('hide');
-  // scoreHistoryDisplay.classList.add('fade-in');
-  // scoreHistoryDisplay.classList.remove('fade-out');
-}
+  scoreDisplay.classList.add('fade-out');
+  setTimeout(scoreDisplay.classList.remove('fade-in'), 2000);
+  setTimeout(scoreDisplay.classList.add('hide'), 2000);
+
+  scoreHistoryDisplay.classList.remove('hide');
+  scoreHistoryDisplay.classList.add('fade-in');
+  scoreHistoryDisplay.classList.remove('fade-out');
+};
 
 
 
