@@ -1,6 +1,6 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
-import { initUpdateNavbarOnScroll } from '../components/navbar';
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { makeFirstCategoryDivVisible } from '../components/answernew';
 import { untickOtherCheckboxes } from '../components/answernew';
 import { postOptionsOnSubmit } from '../components/answernew';

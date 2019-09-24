@@ -16,15 +16,15 @@ Donation.destroy_all
 
 puts 'Creating donations...'
 
-donation = Donation.new(name: 'WWF', sku: 'WWF', price: 1000)
+donation = Donation.new(name: 'WWG', sku: 'WWF', price: 1000, description: "WWG is a leading independent conservation organisation. Our mission is to create a world where people and wildlife can thrive together. To achieve our mission, we're finding ways to help transform the future for the world’s wildlife, rivers, forests and seas; pushing for a reduction in carbon emissions that will avoid catastrophic climate change; and pressing for measures to help people live sustainably, within the means of our one planet. We’re acting now to make this happen.")
 donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568916958/k3eyttgxsdmu74prvhwg.jpg'
 donation.save!
 
-donation = Donation.new(name: 'Save the Children', sku: 'save-the-children', price: 1000)
+donation = Donation.new(name: 'Saving Young Lives', sku: 'save-the-children', price: 1000, description: "We work alongside children in more than 100 countries, including the UK. Together, with Save the Children members around the world, we have three big goals. Our shared ambition is that by 2030, no child dies from preventable causes before their fifth birthday, all children learn from a quality basic education, and violence against children is no longer tolerated. We tackle big problems, but we know that every child is different, and every one of them has something special to bring to the world.")
 donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568917007/nq5xai9uldfxdc4kk8yw.jpg'
 donation.save!
 
-donation = Donation.new(name: 'Cancer Research', sku: 'cancer-research', price: 1000)
+donation = Donation.new(name: 'Cancer-Free World', sku: 'cancer-research', price: 1000, description: "We want survival in the UK to be among the best in the world. We’re focusing our efforts in four key areas – working to help prevent cancer, diagnose it earlier, develop new treatments and optimise current treatments by personalising them and making them even more effective. We’ll continue to support research into all types of cancer and across all age groups. And we’re keeping our focus on understanding the biology of cancer so we can use this vital knowledge to save more lives.")
 donation.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1568916981/ocg5ojppdyaku85vnfmw.jpg'
 donation.save!
 
@@ -341,17 +341,17 @@ option_attributes = [
  },
   {
   question_id: 11,
-  content: "0%%-10%%",
+  content: "0%-10%",
   weight: 3
  },
   {
   question_id: 11,
-  content: "10%%-30%%",
+  content: "10%-30%",
   weight: 2
  },
   {
   question_id: 11,
-  content: "More than 30%%",
+  content: "More than 30%",
   weight: 0
  },
   {

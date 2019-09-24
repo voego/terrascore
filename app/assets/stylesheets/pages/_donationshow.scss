@@ -1,0 +1,19 @@
+.charity-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 175px;
+  h1 {
+    font-weight: 300;
+  }
+  p {
+    padding-right: 60px;
+    margin-top: 20px;
+    font-weight: 300
+  }
+  img {
+    width: auto;
+    height: 275px;
+    margin-right: 50px;
+  };
+
+}
