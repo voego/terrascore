@@ -1,6 +1,6 @@
 import "bootstrap";
 import Chart from 'chart.js/dist/Chart.bundle.js';
-import { initUpdateNavbarOnScroll } from '../components/navbar';
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { makeFirstCategoryDivVisible } from '../components/answernew';
 import { untickOtherCheckboxes } from '../components/answernew';
 import { postOptionsOnSubmit } from '../components/answernew';
@@ -15,7 +15,6 @@ import { openNav } from '../components/pushlanding';
 
 openNav();
 // closeNav();
-// initUpdateNavbarOnScroll();
 makeFirstCategoryDivVisible();
 untickOtherCheckboxes();
 postOptionsOnSubmit();
@@ -61,6 +60,10 @@ const removeText = () => {
 plussign.addEventListener("mouseenter", typeWriter);
 plussign.addEventListener("mouseout", removeText);
 
+let denominator = document.getElementById("denominator");
+if (denominator) {
+var scoreHistoryChart = document.querySelector(".scoreHistoryChart")
+var score_history_breakdown = JSON.parse(scoreHistoryChart.dataset.scoreHistoricals);
 
 let denominator = document.getElementById("denominator");
 
@@ -85,13 +88,25 @@ var homeDisplay = document.querySelector(".homeHistoryChart");
 var consumptionDisplay = document.querySelector(".consumptionHistoryChart");
 var societyDisplay = document.querySelector(".societyHistoryChart");
 
-var share = document.querySelector(".socialclick");
-var sharebox = document.querySelector(".social");
+// var share = document.querySelector(".socialclick");
+// var sharebox = document.querySelector(".social");
+// var shareicon = document.getElementById("socialmedia");
 var scoreButton = document.querySelector(".button");
 
 // share.onclick = function(event) {
 //   console.log("morph");
+
 //   sharebox.classList.add("expand");
+//   if (sharebox.classList.contains("expand")) {
+//     sharebox.classList.remove("expand");
+//     shareicon.classList.add("hide");
+//     shareicon.classList.remove("fade-in");
+//     } else {
+//       sharebox.classList.add("expand");
+//     setTimeout(shareicon.classList.remove("hide"), 2000);
+//     shareicon.classList.add("fade-in");
+//     }
+
 // }
 
 scoreButton.onclick = function(event){
@@ -244,6 +259,7 @@ var chartConfig = {
 }
 var myChart = new Chart(ctx, chartConfig);
 
+
 // datasets: [{
 //       label: "Unavailable",
 //       fill: true,
@@ -283,6 +299,64 @@ var myChart = new Chart(ctx, chartConfig);
 //     }]
 
 
+var date_score_history_breakdown = [];
+score_history_breakdown.forEach((score) => {
+  let newScore = {
+    y: score.y,
+    x: new Date(score.x)
+  }
+  date_score_history_breakdown.push(newScore)
+})
+
+var ctx_score_history = document.getElementById('myScoreHistoryChart');
+var scoreHistoryChart = new Chart(ctx_score_history, {
+    type: 'line',
+    data: {
+        labels: ['Score'],
+        datasets: [{
+            label: 'Score',
+            data: date_score_history_breakdown,
+            backgroundColor: [
+                'rgba(255,255,255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+      title: {
+            display: true,
+            text: 'Your historical total scores',
+            fontSize: 30,
+            fontColor: '#FFFFFF'
+          },
+        scales: {
+             xAxes: [{
+                type: 'time',
+                distribution: 'series',
+                time: {
+                   unit:"day",
+                   displayFormats:{month:'MMM D'},
+                   min: scoreMinDate,
+                   max: scoreMaxDate,
+                }
+              }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
 var homeScoreHistoryChart = document.querySelector(".homeHistoryChart")
 var home_score_history_breakdown = JSON.parse(homeScoreHistoryChart.dataset.home_score_historicals);
 
@@ -317,6 +391,7 @@ var myHomeChart = new Chart(ctx_home, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(144, 142, 142, 0.43)',
                 'rgba(255, 159, 64, 0)'
+              'rgba(255,255,255, 0.2)'
             ],
             borderWidth: 1
         }]
@@ -385,12 +460,12 @@ var myTravelChart = new Chart(ctx_travel, {
                 'rgba(255, 159, 64, 0)'
             ],
             borderColor: [
-                'rgba(255, 255, 255, 1)',
+                'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(144, 142, 142, 0.43)',
-                'rgba(255, 159, 64, 0)'
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
@@ -440,7 +515,7 @@ consumption_score_history_breakdown.forEach((score) => {
     x: new Date(score.x)
   }
   date_consumption_score_history_breakdown.push(newScore)
-})
+});
 
 var ctx_consumption = document.getElementById('myConsumptionHistoryChart');
 var myConsumptionChart = new Chart(ctx_consumption, {

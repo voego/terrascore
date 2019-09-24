@@ -1,16 +1,17 @@
 <div class="container">
-  <h1>Donations</h1>
-  <div class="row">
+  <div class="donations-intro">
+    <h1>Partnering Charities</h1>
+    <p>Increase your terrascore by donating to one of the following charities </p>
+  </div>
+  <div class="cards">
     <% @donations.each do |donation| %>
-    <div class="col-6 col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= donation.name %></h5>
-          <p>Amount: <%= humanized_money_with_symbol(donation.price) %></p>
-          <%= link_to "More Details" , donation_path(donation), class: "btn btn-primary"%>
-        </div>
+    <div class="card">
+      <%= cl_image_tag donation.photo %>
+      <div class="card-infos">
+        <h5 class="card-title"><%= link_to donation.name, donation_path(donation)  %></h5>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+

@@ -8,12 +8,8 @@
 
   <div class="category-section">
 
-    <video autoplay muted loop id="questionVideo">
-      <source src="<%= image_path('Ocean.mp4') %>" type="video/mp4">
-    </video>
-
     <div class="category-header">
-      <h2>Travel</h2>
+      <h1>Travel</h1>
       <p>Please answer the following questions about your travel lifestyle</p>
     </div>
 
@@ -22,8 +18,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-            <p><%= option.content %></p>
+            <div class="field">
+              <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+              <p> <%= option.content %></p>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -34,7 +32,7 @@
   <div class="category-section">
 
     <div class="category-header">
-      <h2>Home</h2>
+      <h1>Home</h1>
       <p>Please answer the following questions about your home</p>
     </div>
 
@@ -43,8 +41,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-            <p><%= option.content %></p>
+            <div class="field">
+              <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+              <p> <%= option.content %></p>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -55,7 +55,7 @@
   <div class="category-section">
 
     <div class="category-header">
-      <h2>Food</h2>
+      <h1>Food</h1>
       <p>Please answer the following questions about your food consumption</p>
     </div>
 
@@ -64,8 +64,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-            <p><%= option.content %></p>
+            <div class="field">
+              <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+              <p> <%= option.content %></p>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -76,7 +78,7 @@
   <div class="category-section">
 
     <div class="category-header">
-      <h2>Society</h2>
+      <h1>Society</h1>
       <p>Please answer the following questions about your relationship with society</p>
     </div>
 
@@ -85,8 +87,10 @@
         <div class="question" id="<%= @questions.index(question) %>">
           <h4><%= question.content %></h4>
           <% question.options.each do |option| %>
-            <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
-            <p><%= option.content %></p>
+            <div class="field">
+              <input type="checkbox" name="answer" id="option-<%= option.id %>" class="options" data-option="<%= option.id %>">
+              <p> <%= option.content %></p>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -97,8 +101,8 @@
 
   <div class="actions">
 <!--     <button class="btn-standard-white" id="previous">Previous</button> -->
-    <button class="btn-standard-white" id="next">Next Category</button>
-    <%= link_to "Submit", user_path(current_user), id:"submit", class: "btn-standard-white"  %>
+    <button class="btn-standard-black" id="next">Next Category</button>
+    <%= link_to "Submit", user_path(current_user), id:"submit", class: "btn-standard-black"  %>
 
   </div>
 </div>
