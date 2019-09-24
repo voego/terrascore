@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
 
   def show_score
-    scores.map(&:value).first
+    scores.map(&:value).last
     #if scores.map(&:value).sum
     #   scores.map(&:value).sum
     #else
@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def score_object
-    score = Score.first
+    score = Score.last
     remainder = 100 - (score.travel_value + score.home_value + score.consumption_value + score.society_value)
     @score_total = { travel: score.travel_value, home: score.home_value, consumption: score.consumption_value, society: score.society_value, remainder: remainder }
   end
