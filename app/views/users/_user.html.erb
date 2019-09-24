@@ -42,6 +42,9 @@
 
 <div class="chart-container">
   <div class="scoreChart fade-in two" data-score_total="<%= @user.score_object.to_json %>">
+       <div class="button-show">
+  <button class="historyButton btn-standard-black">Historical Overall Scores</button>
+</div>
   <canvas id="myChart" width="400" height="400"></canvas>
   <div class="absolute-center text-center">
       <p><%= @user.show_score %></p>
@@ -67,21 +70,36 @@
     </div> -->
 </div>
 
-<div class="scoreHistoryChart fade-in one" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+<div class="scoreHistoryChart hide fade-in one" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+  <div class="button-show">
+  <button class="button btn-standard-black">Overall Score</button>
+</div>
 <canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
 </div>
 <div class="homeHistoryChart fade-in one" data-home_score_historicals=" <%= @user.score_home_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+   <div class="button-show">
+  <button class="button btn-standard-black">Overall Score</button>
+</div>
 <canvas id="myHomeHistoryChart" width="400" height="400"></canvas>
 </div>
 
 <div class="travelHistoryChart fade-in one" data-travel_score_historicals=" <%= @user.score_travel_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+   <div class="button-show">
+  <button class="button btn-standard-black">Overall Score</button>
+</div>
 <canvas id="myTravelHistoryChart" width="400" height="400"></canvas>
 </div>
 
 <div class="consumptionHistoryChart fade-in one" data-consumption_score_historicals=" <%= @user.score_consumption_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+   <div class="button-show">
+  <button class="button btn-standard-black">Overall Score</button>
+</div>
 <canvas id="myConsumptionHistoryChart" width="400" height="400"></canvas>
 </div>
 
 <div class="societyHistoryChart fade-in one" data-society_score_historicals=" <%= @user.score_society_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
+   <div class="button-show">
+  <button class="button btn-standard-black">Overall Score</button>
+</div>
 <canvas id="mySocietyHistoryChart" width="400" height="400"></canvas>
 </div>
