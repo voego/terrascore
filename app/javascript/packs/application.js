@@ -85,8 +85,8 @@ var societyDisplay = document.querySelector(".societyHistoryChart");
 // var share = document.querySelector(".socialclick");
 // var sharebox = document.querySelector(".social");
 // var shareicon = document.getElementById("socialmedia");
-var scoreButton = document.querySelector(".button");
-
+var scoreButton = document.querySelectorAll(".button");
+console.log(scoreButton);
 // share.onclick = function(event) {
 //   console.log("morph");
 
@@ -103,7 +103,10 @@ var scoreButton = document.querySelector(".button");
 
 // }
 
-scoreButton.onclick = function(event){
+var historyScoreButton = document.querySelector(".historyButton");
+
+scoreButton.forEach(function(element) {
+  element.onclick = function(event){
   console.log("clicked");
 
   if (travelDisplay.style.display = travelDisplay.style.display === "block") {
@@ -133,7 +136,50 @@ scoreButton.onclick = function(event){
   scoreDisplay.classList.remove('hide');
   scoreDisplay.classList.add('fade-in');
   scoreDisplay.classList.remove('fade-out');
+
 };
+})
+
+
+historyScoreButton.onclick = function(event){
+  // console.log("clicked");
+
+  // if (travelDisplay.style.display = travelDisplay.style.display === "block") {
+  //   travelDisplay.classList.add('fade-out');
+  //   setTimeout(travelDisplay.classList.remove('fade-in'), 2000);
+  //   setTimeout(travelDisplay.classList.add('hide'), 2000);
+  // };
+  // if (homeDisplay.style.display = homeDisplay.style.display === "block") {
+  //   homeDisplay.classList.add('fade-out');
+  //   setTimeout(homeDisplay.classList.remove('fade-in'), 2000);
+  //   setTimeout(homeDisplay.classList.add('hide'), 2000);
+  // };
+
+  // if (consumptionDisplay.style.display = consumptionDisplay.style.display === "block") {
+  //   consumptionDisplay.classList.add('fade-out');
+  //   setTimeout(consumptionDisplay.classList.remove('fade-in'), 2000);
+  //   setTimeout(consumptionDisplay.classList.add('hide'), 2000);
+  // };
+
+  // if (societyDisplay.style.display = societyDisplay.style.display === "block") {
+  //   societyDisplay.classList.add('fade-out');
+  //   setTimeout(societyDisplay.classList.remove('fade-in'), 2000);
+  //   setTimeout(societyDisplay.classList.add('hide'), 2000);
+  // };
+  console.log(scoreDisplay.style)
+  if (scoreDisplay.style.display === "block") {
+    console.log("achieve");
+    scoreDisplay.classList.add('fade-out');
+    setTimeout(scoreDisplay.classList.remove('fade-in'), 2000);
+    setTimeout(scoreDisplay.classList.add('hide'), 2000);
+  };
+
+  // scoreHistoryDisplay.classList.remove('hide');
+  // scoreHistoryDisplay.classList.add('fade-in');
+  // scoreHistoryDisplay.classList.remove('fade-out');
+}
+
+
 
 
 const handleClick = (evt) => {
@@ -292,64 +338,64 @@ var myChart = new Chart(ctx, chartConfig);
 //       data: loggedIn,
 //     }]
 
+/////////////////////////// ABOVE IS STACKOVERFLOW
+// var date_score_history_breakdown = [];
+// score_history_breakdown.forEach((score) => {
+//   let newScore = {
+//     y: score.y,
+//     x: new Date(score.x)
+//   }
+//   date_score_history_breakdown.push(newScore)
+// })
 
-var date_score_history_breakdown = [];
-score_history_breakdown.forEach((score) => {
-  let newScore = {
-    y: score.y,
-    x: new Date(score.x)
-  }
-  date_score_history_breakdown.push(newScore)
-})
-
-var ctx_score_history = document.getElementById('myScoreHistoryChart');
-var scoreHistoryChart = new Chart(ctx_score_history, {
-    type: 'line',
-    data: {
-        labels: ['Score'],
-        datasets: [{
-            label: 'Score',
-            data: date_score_history_breakdown,
-            backgroundColor: [
-                'rgba(255,255,255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,215,0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-      title: {
-            display: true,
-            text: 'Your historical total scores',
-            fontSize: 30,
-            fontColor: '#FFFFFF'
-          },
-        scales: {
-             xAxes: [{
-                type: 'time',
-                distribution: 'series',
-                time: {
-                   unit:"day",
-                   displayFormats:{month:'MMM D'},
-                   min: scoreMinDate,
-                   max: scoreMaxDate,
-                }
-              }],
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
+// var ctx_score_history = document.getElementById('myScoreHistoryChart');
+// var scoreHistoryChart = new Chart(ctx_score_history, {
+//     type: 'line',
+//     data: {
+//         labels: ['Score'],
+//         datasets: [{
+//             label: 'Score',
+//             data: date_score_history_breakdown,
+//             backgroundColor: [
+//                 'rgba(255,255,255, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255,215,0, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//       title: {
+//             display: true,
+//             text: 'Your historical total scores',
+//             fontSize: 30,
+//             fontColor: '#FFFFFF'
+//           },
+//         scales: {
+//              xAxes: [{
+//                 type: 'time',
+//                 distribution: 'series',
+//                 time: {
+//                    unit:"day",
+//                    displayFormats:{month:'MMM D'},
+//                    min: scoreMinDate,
+//                    max: scoreMaxDate,
+//                 }
+//               }],
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         }
+//     }
+// });
 
 var homeScoreHistoryChart = document.querySelector(".homeHistoryChart")
 var home_score_history_breakdown = JSON.parse(homeScoreHistoryChart.dataset.home_score_historicals);
@@ -656,45 +702,75 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
     type: 'line',
     data: {
         labels: ['Score'],
-        datasets: [{
-            label: 'Score',
-            data: date_score_history_breakdown,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.3)',
-                'rgba(54, 162, 235, 0.3)',
-                'rgba(255, 206, 86, 0.3)',
-                'rgba(75, 192, 192, 0.3)',
+        datasets: [
+        //     label: 'Score',
+        //     data: date_score_history_breakdown,
+        //     backgroundColor: [
+        //         'rgba(255, 99, 132, 0.3)',
+        //         'rgba(54, 162, 235, 0.3)',
+        //         'rgba(255, 206, 86, 0.3)',
+        //         'rgba(75, 192, 192, 0.3)',
+        //         'rgba(153, 102, 255, 0)',
+        //         'rgba(255, 159, 64, 0)'
+        //     ],
+        //     borderColor: [
+        //         'rgba(255, 99, 132, 1)',
+        //         'rgba(54, 162, 235, 1)',
+        //         'rgba(255, 206, 86, 1)',
+        //         'rgba(75, 192, 192, 1)',
+        //         'rgba(144, 142, 142, 0.43)',
+        //         'rgba(255, 159, 64, 0)'
+        //     ],
+        //     borderWidth: 1
+        // },
+        {
+          label: 'Travel',
+          data: date_travel_score_history_breakdown,
+          backgroundColor: [
+          'rgba(75, 192, 192, 0.3)',
                 'rgba(153, 102, 255, 0)',
                 'rgba(255, 159, 64, 0)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
+          ],
+          borderColor: [
                 'rgba(75, 192, 192, 1)',
                 'rgba(144, 142, 142, 0.43)',
                 'rgba(255, 159, 64, 0)'
             ],
-            borderWidth: 1
-        },
-        {
-          label: 'Travel',
-          data: date_travel_score_history_breakdown,
           borderWidth: 1
         },
         {
           label: 'Home',
           data: date_home_score_history_breakdown,
+          backgroundColor: [
+                'rgba(153, 102, 255, 0)',
+                'rgba(255, 159, 64, 0)'
+          ],
+          borderColor: [
+                'rgba(144, 142, 142, 0.43)',
+                'rgba(255, 159, 64, 0)'
+            ],
           borderWidth: 1
         },
         {
           label: 'Consumption',
           data: date_consumption_score_history_breakdown,
+          backgroundColor: [
+                'rgba(255, 159, 64, 0)'
+          ],
+          borderColor: [
+                'rgba(255, 159, 64, 0)'
+            ],
           borderWidth: 1
         },
         {
           label: 'Society',
           data: date_society_score_history_breakdown,
+          backgroundColor: [
+          'rgba(75, 192, 192, 0.3)',
+          ],
+          borderColor: [
+                'rgba(75, 192, 192, 1)',
+            ],
           borderWidth: 1
         }]
     },
@@ -723,7 +799,7 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
                 ticks: {
                     beginAtZero: true
                 },
-                stacked: true,
+                stacked: true
             }]
         }
     }
