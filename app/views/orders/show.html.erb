@@ -1,4 +1,16 @@
 <div class="container">
+
+  <div class="confirmation">
+    <h1>Thank you</h1>
+    <h4>You donated <%= humanized_money_with_symbol @order.amount %> to <%= @order.donation.name %></h4>
+    <p>The future belongs to those who act. The future now belongs to you.</p>
+  </div>
+
+</div>
+
+<!--
+
+<div class="container">
   <div class="row py-4">
     <div class="col-md-3"><%= cl_image_tag @order.donation.photo, width: '100%' %></div>
     <div class="col">
@@ -13,3 +25,4 @@
     </div>
   </div>
 </div>
+ -->

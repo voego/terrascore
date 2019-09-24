@@ -3,6 +3,10 @@
 
 .category-section {
   display: none;
+  span {
+    margin-left: 15px;
+    font-weight: 300
+  }
 }
 
 // .question:first-child{
@@ -25,13 +29,8 @@
     font-weight: 300;
     margin-bottom: 20px
   }
-}
-
-.field {
-  display: flex;
   p {
-    margin-left: 15px;
-    font-weight: 300
+    font-weight: 300;
   }
 }
 

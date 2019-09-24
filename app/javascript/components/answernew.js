@@ -88,7 +88,6 @@ const previousButtonAction = () => {
 }
 
 const scrollOnCheck = () => {
-  console.log("hello");
   // select a question div
   // const firstQuestionDiv = window.querySelector(".question")
   // select all of its children checkboxes
