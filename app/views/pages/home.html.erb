@@ -9,10 +9,10 @@
 <div id="mySidenav" class="sidenav">
 <!--   <%= link_to "Close", root_path, class: "closebtn" %> -->
   <% if !user_signed_in? %>
-  <%= link_to "Log in", new_user_session_path %>
-  <%= link_to "Register", new_user_registration_path %>
+  <%= link_to "log in", new_user_session_path %>
+  <%= link_to "register", new_user_registration_path %>
   <% else %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <%= link_to "log out", destroy_user_session_path, method: :delete %>
   <% end %>
 </div>
 
@@ -33,12 +33,12 @@
   <!-- Optional: some overlay text to describe the video -->
   <div class="landing-text">
     <h1>terrascore</h1>
-    <p>The impact of your lifestyle is now trackable</p>
+    <p>the impact of your lifestyle is now trackable</p>
     <!-- Use a button to pause/play the video with JavaScript -->
     <div class="content">
       <div class="content__container">
         <p class="content__container__text">
-          Measure your
+          measure your
         </p>
 
         <ul class="content__container__list">
@@ -49,7 +49,7 @@
         </ul>
       </div>
     </div>
-    <button id="start" class=“btn-slide-white”>Get Started</button>
+    <button id="start" class=“btn-slide-white”>get started</button>
   </div>
 </div>
 
