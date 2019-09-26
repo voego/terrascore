@@ -30,25 +30,25 @@ donation.save!
 
 puts 'Creating greenseers...'
 
-user = User.new(email: 'sam@terrascore.org',
+user = User.new(email: 'sam@ecomail.com',
    password: '123456',
   )
 user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1567256749/ever0nlb6berck508iw1_oamwfs.jpg'
 user.save!
 
-user = User.new(email: 'egor@terrascore.org',
+user = User.new(email: 'egor@ecomail.com',
    password: '123456',
   )
 user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1567256761/xu1udtfnjqdpceogiyfj_uc5viq.jpg'
 user.save!
 
-user = User.new(email: 'sunny@terrascore.org',
+user = User.new(email: 'sunny@ecomail.com',
    password: '123456',
   )
 user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1567256769/dxhmecdkkmsxytapykf2_fjgeiz.jpg'
 user.save!
 
-user = User.new(email: 'david@terrascore.org',
+user = User.new(email: 'david@ecomail.com',
    password: '123456',
   )
 user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1567256756/uskypjdm1wq9jw9iv4ec_yqdefh.jpg'
