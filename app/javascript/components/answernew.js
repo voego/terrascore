@@ -38,7 +38,7 @@ const postOptionsOnSubmit = () => {
       });
       let railsToken = document.querySelector('meta[name=csrf-token]').content;
 
-      fetch(`http://localhost:3000/answers?options=${saved}`, {
+      fetch(`http://http://terrascore.org/answers?options=${saved}`, {
         method: "POST",
         headers: {
           "X-CSRF-Token": railsToken
