@@ -63,6 +63,27 @@ if (plussign) {
   plussign.addEventListener("mouseout", removeText);
 };
 
+// var poundsign = document.querySelector(".poundsign");
+// var txt2 = "Donate to improve your karma"
+// const typeWriter2 = () => {
+//   if (i < txt.length) {
+//     document.getElementById("displaytypewriter2").innerHTML += txt.charAt(i);
+//     i++;
+//     setTimeout(typeWriter2, speed);
+//   }
+// }
+
+// const removeText2 = () => {
+//   document.getElementById("displaytypewriter2").innerHTML = '';
+//   i = 0;
+// }
+
+
+// if (poundsign) {
+//   poundsign.addEventListener("mouseenter", typeWriter2);
+//   poundsign.addEventListener("mouseout", removeText2);
+// };
+
 let denominator = document.getElementById("denominator");
 if (denominator) {
 

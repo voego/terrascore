@@ -54,7 +54,7 @@
 }
 
 .scoreChart {
-  width: 60vw;
+  width: 50vw;
 }
 
 .scoreHistoryChart {
@@ -79,7 +79,7 @@
 .anotherscore {
   position: absolute;
   right: 1px;
-  top: 200px;
+  top: 170px;
   width: 100px;
   max-width: 100px;
   margin: 0px;
@@ -88,7 +88,7 @@
 .pound {
   position: absolute;
   left: 1px;
-  top: 200px;
+  top: 190px;
   width: 100px;
   max-width: 100px;
   margin: 0px;
@@ -96,7 +96,7 @@
 
 .payment {
   font-size: 2.5em;
-  text-align: right;
+  text-align: left;
   color: white;
   margin: 0px;
   a {
