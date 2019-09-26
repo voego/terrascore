@@ -85,6 +85,25 @@
   margin: 0px;
 }
 
+.pound {
+  position: absolute;
+  left: 1px;
+  top: 200px;
+  width: 100px;
+  max-width: 100px;
+  margin: 0px;
+}
+
+.payment {
+  font-size: 2.5em;
+  text-align: right;
+  color: white;
+  margin: 0px;
+  a {
+    color: white;
+  }
+}
+
 .plus {
   font-size: 4em;
   text-align: right;
