@@ -128,6 +128,17 @@ const showNextButton = () => {
 }
 
 const showSubmit = () => {
+  let visibleElements = [...document.querySelectorAll(".visible")];
+  const nextButton = document.getElementById("next");
+  const submitButton = document.getElementById("submit");
+
+  if(visibleElements) {
+
+  }
+  // if the innerHTML of visible array contains 'society'
+  // add visible class to submit and invisible to next category
+  // else add invisible to ne
+
   // when visibleElements containts the 4th question
 
   // when next sibling element is no more available
