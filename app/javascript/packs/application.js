@@ -22,8 +22,9 @@ nextButtonAction();
 previousButtonAction();
 scrollOnCheck();
 progressBar();
-
-// showSubmit();
+document.addEventListener("DOMContentLoaded", () => {
+  showSubmit();
+});
 
 
 // const travelScore = parseInt(document.getElementById("travel_value").innerHTML);

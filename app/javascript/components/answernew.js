@@ -128,27 +128,32 @@ const showNextButton = () => {
 }
 
 const showSubmit = () => {
-  let visibleElements = [...document.querySelectorAll(".visible")];
   const nextButton = document.getElementById("next");
   const submitButton = document.getElementById("submit");
+  submitButton.classList.add("d-none")
 
-  if(visibleElements) {
-
-  }
-  // if the innerHTML of visible array contains 'society'
-  // add visible class to submit and invisible to next category
-  // else add invisible to ne
-
-  // when visibleElements containts the 4th question
-
-  // when next sibling element is no more available
-  // let visibleElements = [...document.querySelectorAll(".visible")];
-  // if (visibleElements.slice(-1)[0].nextElementSibling == undefined){
-  //   console.log("David")
-  // };
-
-  // change html of next to submit
+  nextButton.addEventListener("click", () => {
+    let text = document.querySelector(".visible").childNodes[1].childNodes[1].innerText;
+    if (text === "Society") {
+      nextButton.classList.add("d-none");
+      submitButton.classList.remove("d-none")
+    }
+  })
 }
+
+// if the innerHTML of visible array contains 'society'
+// add visible class to submit and invisible to next category
+// else add invisible to ne
+
+// when visibleElements containts the 4th question
+
+// when next sibling element is no more available
+// let visibleElements = [...document.querySelectorAll(".visible")];
+// if (visibleElements.slice(-1)[0].nextElementSibling == undefined){
+//   console.log("David")
+// };
+
+// change html of next to submit
 
 export { makeFirstCategoryDivVisible };
 export { untickOtherCheckboxes };
@@ -157,7 +162,7 @@ export { nextButtonAction };
 export { previousButtonAction };
 export { scrollOnCheck };
 export { progressBar };
-// export { showSubmit };
+export { showSubmit };
 
 // as soon as the page loads, give first element 'visible' class
 // initially, show the first child of the 'questions' div / or the first element of the questionDivArray
