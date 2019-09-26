@@ -1,10 +1,9 @@
 .dashboard-body-content {
-  padding-top: 10vh;
+  padding-top: 5vh;
   justify-content: center;
 }
 
 .dashboard-flex {
-  padding-top: 3vh;
   display: flex;
   justify-content: center;
   position: relative;
@@ -53,12 +52,16 @@
   position: relative;
 }
 
+.historyButton {
+  margin-top: 40px;
+}
+
 .scoreChart {
-  width: 50vw;
+  width: 40vw;
 }
 
 .scoreHistoryChart {
-  width: 60vw;
+  width: 40vw;
 }
 
 .chart-container {
@@ -77,6 +80,7 @@
 }
 
 .anotherscore {
+  text-align: right;
   position: absolute;
   right: 1px;
   top: 170px;
@@ -84,8 +88,16 @@
   max-width: 100px;
   margin: 0px;
 }
-
-.pound {
+.plus {
+  text-align: right;
+  color: white;
+  margin: 0px;
+  a {
+    color: white;
+    font-size: 4em;
+  }
+}
+.payment {
   position: absolute;
   left: 1px;
   top: 190px;
@@ -94,25 +106,31 @@
   margin: 0px;
 }
 
-.payment {
-  font-size: 2.5em;
+#donate {
+  font-size: 0.5em;
+}
+
+#displaytypewriter {
+  text-align: right;
+}
+
+.pound {
   text-align: left;
   color: white;
   margin: 0px;
   a {
     color: white;
+    font-size: 2.5em;
   }
 }
 
-.plus {
-  font-size: 4em;
-  text-align: right;
-  color: white;
-  margin: 0px;
-  a {
-    color: white;
-  }
-}
+// #displaytypewriter2 {
+//   position: absolute;
+//   left: 1px;
+//   top: 250px;
+//   width: 100px;
+// }
+
 
 .expand {
   width: 250px;

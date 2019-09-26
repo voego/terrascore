@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
 // var chartArray = [travelScore, homeScore, consumptionScore];
 var i = 0;
-var txt = "Answer the questionnaire"
+var txt = "Improve your score"
 var speed = 30;
 
 var plussign = document.querySelector(".plussign");
@@ -64,26 +64,26 @@ if (plussign) {
   plussign.addEventListener("mouseout", removeText);
 };
 
-// var poundsign = document.querySelector(".poundsign");
-// var txt2 = "Donate to improve your karma"
-// const typeWriter2 = () => {
-//   if (i < txt.length) {
-//     document.getElementById("displaytypewriter2").innerHTML += txt.charAt(i);
-//     i++;
-//     setTimeout(typeWriter2, speed);
-//   }
-// }
+var poundsign = document.querySelector(".poundsign");
+var txt2 = "Donate to a charity of your choice"
+const typeWriter2 = () => {
+  if (i < txt2.length) {
+    document.getElementById("displaytypewriter2").innerHTML += txt2.charAt(i);
+    i++;
+    setTimeout(typeWriter2, speed);
+  }
+}
 
-// const removeText2 = () => {
-//   document.getElementById("displaytypewriter2").innerHTML = '';
-//   i = 0;
-// }
+const removeText2 = () => {
+  document.getElementById("displaytypewriter2").innerHTML = '';
+  i = 0;
+}
 
 
-// if (poundsign) {
-//   poundsign.addEventListener("mouseenter", typeWriter2);
-//   poundsign.addEventListener("mouseout", removeText2);
-// };
+if (poundsign) {
+  poundsign.addEventListener("mouseenter", typeWriter2);
+  poundsign.addEventListener("mouseout", removeText2);
+};
 
 let denominator = document.getElementById("denominator");
 if (denominator) {
@@ -306,11 +306,12 @@ var chartConfig = {
     onClick: handleClick,
            title: {
             display: true,
-            text: 'Your current total score',
+            text: 'Total score',
             fontSize: 30,
             fontFamily: 'Montserrat',
-            padding: 20,
-            fontColor: '#FFFFFF'
+            padding: 40,
+            fontColor: '#FFFFFF',
+            fontStyle: 'normal'
           },
         scales: {
           xAxes: [{
@@ -470,11 +471,12 @@ var myHomeChart = new Chart(ctx_home, {
     },
       title: {
             display: true,
-            text: 'Your historical home scores',
+            text: 'Historical home scores',
             fontSize: 30,
             fontFamily: 'Montserrat',
-            padding: 20,
-            fontColor: '#FFFFFF'
+            padding: 40,
+            fontColor: '#FFFFFF',
+            fontStyle: 'normal'
           },
         scales: {
           xAxes: [{
@@ -544,10 +546,10 @@ var myTravelChart = new Chart(ctx_travel, {
     },
       title: {
             display: true,
-            text: 'Your historical travel scores',
+            text: 'Historical travel scores',
             fontSize: 30,
             fontFamily: 'Montserrat',
-            padding: 20,
+            padding: 40,
             fontColor: '#FFFFFF'
           },
         scales: {
@@ -616,11 +618,12 @@ var myConsumptionChart = new Chart(ctx_consumption, {
     },
       title: {
             display: true,
-            text: 'Your historical consumption scores',
+            text: 'Historical consumption scores',
             fontSize: 30,
             fontFamily: 'Montserrat',
-            padding: 20,
-            fontColor: '#FFFFFF'
+            padding: 40,
+            fontColor: '#FFFFFF',
+            fontStyle: 'normal'
           },
         scales: {
           xAxes: [{
@@ -687,11 +690,12 @@ var mySocietyChart = new Chart(ctx_society, {
     },
       title: {
             display: true,
-            text: 'Your historical society scores',
+            text: 'Historical society scores',
             fontSize: 30,
             fontFamily: 'Montserrat',
-            padding: 20,
-            fontColor: '#FFFFFF'
+            padding: 40,
+            fontColor: '#FFFFFF',
+            fontStyle: 'normal'
           },
         scales: {
           xAxes: [{
@@ -753,14 +757,14 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           label: 'Travel',
           data: date_travel_score_history_breakdown,
           backgroundColor: [
-          'rgba(75, 192, 192, 0.3)',
+          'rgba(255, 99, 132, 0.3)',
                 'rgba(153, 102, 255, 0)',
                 'rgba(255, 159, 64, 0)'
           ],
           borderColor: [
-                'rgba(75, 192, 192, 1)',
-                'rgba(144, 142, 142, 0.43)',
-                'rgba(255, 159, 64, 0)'
+                          'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
             ],
           borderWidth: 1
         },
@@ -768,12 +772,13 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           label: 'Home',
           data: date_home_score_history_breakdown,
           backgroundColor: [
-                'rgba(153, 102, 255, 0)',
+                'rgba(54, 162, 235, 0.3)',
                 'rgba(255, 159, 64, 0)'
           ],
           borderColor: [
-                'rgba(144, 142, 142, 0.43)',
-                'rgba(255, 159, 64, 0)'
+                           'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
             ],
           borderWidth: 1
         },
@@ -781,10 +786,12 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           label: 'Consumption',
           data: date_consumption_score_history_breakdown,
           backgroundColor: [
-                'rgba(255, 159, 64, 0)'
+                'rgba(255, 206, 86, 0.3)',
           ],
           borderColor: [
-                'rgba(255, 159, 64, 0)'
+                             'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
             ],
           borderWidth: 1
         },
@@ -792,10 +799,12 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           label: 'Society',
           data: date_society_score_history_breakdown,
           backgroundColor: [
-          'rgba(75, 192, 192, 0.3)',
+           'rgba(75, 192, 192, 0.3)',
           ],
           borderColor: [
-                'rgba(75, 192, 192, 1)',
+                 'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
             ],
           borderWidth: 1
         }]
@@ -806,9 +815,11 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
     },
       title: {
             display: true,
-            text: 'Your historical total scores',
+            text: 'Historical total scores',
             fontSize: 30,
-            fontColor: '#FFFFFF'
+            fontColor: '#FFFFFF',
+            fontStyle: 'normal',
+            padding: 40
           },
         scales: {
              xAxes: [{
@@ -823,7 +834,8 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
               }],
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    max: 100
                 },
                 stacked: true
             }]
