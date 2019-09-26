@@ -38,25 +38,28 @@
 </ul> -->
 <% min_date = @user.scores.map(&:date).sort.first %>
 <% max_date = @user.scores.map(&:date).sort.last %>
-  <div class="anotherscore fade-in one">
-    <p class="plus">
-    <%= link_to "+", new_answer_path,  class: "plussign"  %>
-    </p>
-    <p id="displaytypewriter"></p>
+<div class="anotherscore fade-in one">
+  <p class="plus">
+  <%= link_to "+", new_answer_path,  class: "plussign"  %>
+  </p>
+  <p id="displaytypewriter"></p>
+</div>
+ <div class="payment fade-in one">
+  <div class="pound">
+  <%= link_to donations_path,  class: "poundsign" do %>
+      <p>£ </p>
+ <!--      <p id="donate">Donate</p> -->
+  <% end %>
   </div>
-   <div class="payment fade-in one">
-    <p class="pound">
-    <%= link_to "£", donations_path,  class: "poundsign"  %>
-    </p>
-    <p id="displaytypewriter"></p>
-  </div>
+  <p id="displaytypewriter2"></p>
+</div>
 
 <div class="chart-container">
   <div class="scoreChart fade-in two" data-score_total="<%= @user.score_object.to_json %>">
-       <div class="button-show">
+  <canvas id="myChart" width="400" height="400"></canvas>
+         <div class="button-show">
   <button class="historyButton btn-standard-black">Historical Overall Scores</button>
 </div>
-  <canvas id="myChart" width="400" height="400"></canvas>
   <div class="absolute-center text-center">
       <p><%= @user.show_score %></p>
       <p id="denominator">100</p>
