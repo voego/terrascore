@@ -465,7 +465,7 @@ answer_attributes = [
  },
  {
    user_id: 1,
-   option_id: 32,
+   option_id: 35,
    category_id: 3,
    date: Date.today - 1
  },
