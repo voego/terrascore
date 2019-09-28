@@ -142,17 +142,17 @@ option_attributes = [
  {
   question_id: 1,
   content: "none",
-  weight: 5
+  weight: 6
  },
  {
   question_id: 1,
   content: "1-3",
-  weight: 3
+  weight: 4
  },
  {
   question_id: 1,
   content: "4-6",
-  weight: 2
+  weight: 3
  },
  {
   question_id: 1,
@@ -167,7 +167,7 @@ option_attributes = [
  {
   question_id: 2,
   content: "motorbike",
-  weight: 2
+  weight: 3
  },
  {
   question_id: 2,
@@ -177,52 +177,52 @@ option_attributes = [
  {
   question_id: 3,
   content: "none",
-  weight: 5
+  weight: 6
  },
  {
   question_id: 3,
   content: "1-4",
-  weight: 3
+  weight: 4
  },
  {
   question_id: 3,
   content: "5-10",
-  weight: 2
+  weight: 3
  },
  {
   question_id: 3,
   content: "11+",
-  weight: 1
+  weight: 2
  },
  {
   question_id: 4,
   content: "none",
-  weight: 5
+  weight: 3
  },
  {
   question_id: 4,
   content: "1-4",
-  weight: 3
+  weight: 4
  },
  {
   question_id: 4,
   content: "5-10",
-  weight: 2
+  weight: 3
  },
  {
   question_id: 4,
   content: "11+",
-  weight: 1
+  weight: 2
  },
   {
   question_id: 5,
   content: "1",
-  weight: 5
+  weight: 3
  },
   {
   question_id: 5,
   content: "2",
-  weight: 3
+  weight: 4
  },
   {
   question_id: 5,
@@ -232,7 +232,7 @@ option_attributes = [
   {
   question_id: 5,
   content: "4+",
-  weight: 1
+  weight: 2
  },
   {
   question_id: 6,
@@ -242,22 +242,22 @@ option_attributes = [
   {
   question_id: 6,
   content: "2",
-  weight: 3
+  weight: 4
  },
   {
   question_id: 6,
   content: "3",
-  weight: 2
+  weight: 3
  },
   {
   question_id: 6,
   content: "4+",
-  weight: 1
+  weight: 2
  },
   {
   question_id: 7,
   content: "I don't know",
-  weight: 0
+  weight: 1
  },
   {
   question_id: 7,
@@ -267,12 +267,12 @@ option_attributes = [
   {
   question_id: 7,
   content: "Yes, but that tariff is less than 100% renewables",
-  weight: 3
+  weight: 4
  },
   {
   question_id: 7,
   content: "Yes, 100%",
-  weight: 5
+  weight: 6
  },
   {
   question_id: 8,
@@ -297,7 +297,7 @@ option_attributes = [
   {
   question_id: 9,
   content: "Meat in every meal",
-  weight: 0
+  weight: 1
  },
   {
   question_id: 9,
@@ -332,7 +332,7 @@ option_attributes = [
   {
   question_id: 10,
   content: "More than £50",
-  weight: 0
+  weight: 1
  },
   {
   question_id: 11,
@@ -352,7 +352,7 @@ option_attributes = [
   {
   question_id: 11,
   content: "More than 30%",
-  weight: 0
+  weight: 1
  },
   {
   question_id: 12,
@@ -367,12 +367,12 @@ option_attributes = [
   {
   question_id: 12,
   content: "I don't worry about where my food comes from",
-  weight: 0
+  weight: 2
  },
  {
   question_id: 13,
   content: "Nothing",
-  weight: 0
+  weight: 2
  },
  {
   question_id: 13,
