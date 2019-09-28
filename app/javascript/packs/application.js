@@ -765,6 +765,8 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
                           'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
             ],
           borderWidth: 1
         },
@@ -778,6 +780,8 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           borderColor: [
                            'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+               'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
             ],
           borderWidth: 1
@@ -790,6 +794,8 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
           ],
           borderColor: [
                              'rgba(255,215,0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
             ],
@@ -805,6 +811,8 @@ var scoreHistoryChart = new Chart(ctx_score_history, {
                  'rgba(255,215,0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
             ],
           borderWidth: 1
         }]
