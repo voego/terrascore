@@ -33,7 +33,7 @@ puts 'Creating greenseers...'
 user = User.new(email: 'sam@ecomail.com',
    password: '123456',
   )
-user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1567256749/ever0nlb6berck508iw1_oamwfs.jpg'
+user.remote_photo_url = 'https://res.cloudinary.com/dogyrtlff/image/upload/v1569668151/wehxn9glwx6nva8p4zr4.jpg'
 user.save!
 
 user = User.new(email: 'egor@ecomail.com',
@@ -417,7 +417,7 @@ puts "Creating answers..."
 answer_attributes = [
 {
    user_id: 1,
-   option_id: 4,
+   option_id: 2,
    category_id: 1,
    date: Date.today - 1
  },
@@ -429,19 +429,19 @@ answer_attributes = [
  },
  {
    user_id: 1,
-   option_id: 11,
+   option_id: 9,
    category_id: 1,
    date: Date.today - 1
  },
  {
    user_id: 1,
-   option_id: 15,
+   option_id: 14,
    category_id: 1,
    date: Date.today - 1
  },
  {
   user_id: 1,
-  option_id: 19,
+  option_id: 17,
   category_id: 2,
   date: Date.today - 1
  },
@@ -495,7 +495,7 @@ answer_attributes = [
  },
   {
    user_id: 1,
-   option_id: 52,
+   option_id: 50,
    category_id: 4,
    date: Date.today - 1
  }
