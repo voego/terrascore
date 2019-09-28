@@ -47,7 +47,7 @@ const postOptionsOnSubmit = () => {
       setTimeout(function(){
         let url = submitButton.dataset.url;
         window.location.href = url;
-       }, 4000);
+       }, 3000);
 
     });
   }
