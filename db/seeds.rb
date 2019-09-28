@@ -417,7 +417,7 @@ puts "Creating answers..."
 answer_attributes = [
 {
    user_id: 1,
-   option_id: 2,
+   option_id: 4,
    category_id: 1,
    date: Date.today - 1
  },
@@ -435,31 +435,31 @@ answer_attributes = [
  },
  {
    user_id: 1,
-   option_id: 13,
+   option_id: 15,
    category_id: 1,
    date: Date.today - 1
  },
  {
   user_id: 1,
-  option_id: 17,
+  option_id: 19,
   category_id: 2,
   date: Date.today - 1
  },
   {
    user_id: 1,
-   option_id: 20,
+   option_id: 23,
    category_id: 2,
    date: Date.today - 1
  },
   {
   user_id: 1,
-  option_id: 27,
+  option_id: 25,
   category_id: 2,
   date: Date.today - 1
  },
   {
   user_id: 1,
-  option_id: 30,
+  option_id: 31,
   category_id: 2,
   date: Date.today - 1
  },
@@ -471,31 +471,31 @@ answer_attributes = [
  },
   {
    user_id: 1,
-   option_id: 38,
+   option_id: 39,
    category_id: 3,
    date: Date.today - 1
  },
   {
    user_id: 1,
-   option_id: 42,
+   option_id: 43,
    category_id: 3,
    date: Date.today - 1
  },
   {
    user_id: 1,
-   option_id: 44,
+   option_id: 46,
    category_id: 3,
    date: Date.today - 1
  },
   {
    user_id: 1,
-   option_id: 48,
+   option_id: 47,
    category_id: 4,
    date: Date.today - 1
  },
   {
    user_id: 1,
-   option_id: 53,
+   option_id: 52,
    category_id: 4,
    date: Date.today - 1
  }
@@ -855,35 +855,15 @@ Answer.create!(answer_attributes)
 
 puts "Creating scores..."
 score_attributes = [
-  {
-  user_id: 1,
-  category_id: 1,
-  date: Date.today,
-  value: User.find(1).answers.where(date: Date.today).map { |a| a.option.weight }.sum,
-  travel_value: User.find(1).answers.where(date: Date.today).where(category_id: 1).map { |a| a.option.weight }.sum,
-  home_value: User.find(1).answers.where(date: Date.today).where(category_id: 2).map { |a| a.option.weight }.sum,
-  consumption_value: User.find(1).answers.where(date: Date.today).where(category_id: 3).map { |a| a.option.weight }.sum,
-  society_value: User.find(1).answers.where(date: Date.today).where(category_id: 4).map { |a| a.option.weight }.sum
- },
  {
   user_id: 1,
   category_id: 1,
-  date: Date.today - 2,
-  value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
-  travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
-  home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum,
-  consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum,
-  society_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 4).map { |a| a.option.weight }.sum
- },
- {
-  user_id: 1,
-  category_id: 1,
-  date: Date.today - 4,
-  value: User.find(1).answers.where(date: Date.today - 4).map { |a| a.option.weight }.sum,
-  travel_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 1).map { |a| a.option.weight }.sum,
-  home_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 2).map { |a| a.option.weight }.sum,
-  consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum,
-  society_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 4).map { |a| a.option.weight }.sum
+  date: Date.today - 8,
+  value: User.find(1).answers.where(date: Date.today - 8).map { |a| a.option.weight }.sum,
+  travel_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 1).map { |a| a.option.weight }.sum,
+  home_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 2).map { |a| a.option.weight }.sum,
+  consumption_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 3).map { |a| a.option.weight }.sum,
+  society_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 4).map { |a| a.option.weight }.sum
  },
  {
   user_id: 1,
@@ -898,12 +878,32 @@ score_attributes = [
  {
   user_id: 1,
   category_id: 1,
-  date: Date.today - 8,
-  value: User.find(1).answers.where(date: Date.today - 8).map { |a| a.option.weight }.sum,
-  travel_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 1).map { |a| a.option.weight }.sum,
-  home_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 2).map { |a| a.option.weight }.sum,
-  consumption_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 3).map { |a| a.option.weight }.sum,
-  society_value: User.find(1).answers.where(date: Date.today - 8).where(category_id: 4).map { |a| a.option.weight }.sum
+  date: Date.today - 4,
+  value: User.find(1).answers.where(date: Date.today - 4).map { |a| a.option.weight }.sum,
+  travel_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 1).map { |a| a.option.weight }.sum,
+  home_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 2).map { |a| a.option.weight }.sum,
+  consumption_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 3).map { |a| a.option.weight }.sum,
+  society_value: User.find(1).answers.where(date: Date.today - 4).where(category_id: 4).map { |a| a.option.weight }.sum
+ },
+ {
+  user_id: 1,
+  category_id: 1,
+  date: Date.today - 2,
+  value: User.find(1).answers.where(date: Date.today - 2).map { |a| a.option.weight }.sum,
+  travel_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 1).map { |a| a.option.weight }.sum,
+  home_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 2).map { |a| a.option.weight }.sum,
+  consumption_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 3).map { |a| a.option.weight }.sum,
+  society_value: User.find(1).answers.where(date: Date.today - 2).where(category_id: 4).map { |a| a.option.weight }.sum
+ },
+ {
+  user_id: 1,
+  category_id: 1,
+  date: Date.today - 1,
+  value: User.find(1).answers.where(date: Date.today - 1).map { |a| a.option.weight }.sum,
+  travel_value: User.find(1).answers.where(date: Date.today - 1).where(category_id: 1).map { |a| a.option.weight }.sum,
+  home_value: User.find(1).answers.where(date: Date.today - 1).where(category_id: 2).map { |a| a.option.weight }.sum,
+  consumption_value: User.find(1).answers.where(date: Date.today - 1).where(category_id: 3).map { |a| a.option.weight }.sum,
+  society_value: User.find(1).answers.where(date: Date.today - 1).where(category_id: 4).map { |a| a.option.weight }.sum
  }
 ]
 Score.create!(score_attributes)
