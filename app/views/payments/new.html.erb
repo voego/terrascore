@@ -4,7 +4,7 @@
       <div class="new-payments-center">
         <h2>Please confirm your contribution...</h2>
         <p>Donation of <strong><%= humanized_money_with_symbol @order.amount %></strong> for <strong><%= @order.donation.name %></strong></p>
-        <button id="pay" class="btn-standard-black">Donate</button>
+        <a href="#" id="pay" class="btn-standard-black">Donate</a>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');
