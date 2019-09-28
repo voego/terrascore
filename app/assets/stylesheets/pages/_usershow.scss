@@ -56,6 +56,24 @@
   margin-top: 40px;
 }
 
+.btn-standard-black {
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 4px 36px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  &:hover {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    transition: 0.6s
+  }
+}
+
 .scoreChart {
   width: 40vw;
 }
@@ -147,7 +165,7 @@
 }
 .absolute-center {
   position:absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -5%);
 }

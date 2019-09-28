@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // const homeHistoryScore = parseInt(document.getElementById("home_value").innerHTML);
 // var chartArray = [travelScore, homeScore, consumptionScore];
 var i = 0;
-var txt = "Improve your score"
+var txt = "Answer the questionnaire"
 var speed = 30;
 
 var plussign = document.querySelector(".plussign");

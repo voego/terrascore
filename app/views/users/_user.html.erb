@@ -58,7 +58,7 @@
   <div class="scoreChart fade-in two" data-score_total="<%= @user.score_object.to_json %>">
   <canvas id="myChart" width="400" height="400"></canvas>
          <div class="button-show">
-  <button class="historyButton btn-standard-black">Historical Overall Scores</button>
+  <a href="#" class="historyButton btn-standard-black">Historical Overall Scores</a>
 </div>
   <div class="absolute-center text-center">
       <p><%= @user.show_score %></p>
@@ -81,13 +81,13 @@
 
 <div class="scoreHistoryChart hide fade-in one" data-score-historicals="<%= @user.score_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
   <div class="button-show">
-  <button class="button btn-standard-black">Overall Score</button>
+  <a href="#" class="button btn-standard-black">Overall Score</a>
 </div>
 <canvas id="myScoreHistoryChart" width="400" height="400"></canvas>
 </div>
 <div class="homeHistoryChart fade-in one" data-home_score_historicals=" <%= @user.score_home_history_object.to_json %>" data-min-date="<%= min_date %>" data-max-date="<%= max_date %>">
    <div class="button-show">
-  <button class="button btn-standard-black">Overall Score</button>
+  <a href="#" class="button btn-standard-black">Overall Score</a>
 </div>
 <canvas id="myHomeHistoryChart" width="400" height="400"></canvas>
 </div>
